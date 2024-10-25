@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+    
+  {% block content %}
+    <main>
+        <!-- callout -->
+        <section>
+            <div class="container-fluid callout-container">
+                <div class="opaque-overlay">&nbsp;</div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="callout text-center text-white rounded jumbotron">
+                            <h1 class="jumbotron-header logo-font text-white">Samantha Cello</h1>
+                            <p>Subtitle</p>
+                            <a href="contact.html" class="btn btn-lg btn-success">Get a free quote!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- videos --> 
+        <section>
+            <div class="container">
+                    <div class="row pt-5 pb-3">
+                        <!-- Loaded Video Column (Full width on small screens) -->
+                        <div class="col-12 col-lg-8 mb-4 mb-md-0">
+                            <div id="loadedVideo"></div>
+                        </div>
+                        <!-- Video List Column (Full width on small screens) -->
+                        <div class="col-12 col-lg-4 pb-3">
+                            <h3 class="pb-2">Select Video <i class="fas fa-play-circle"></i></h3>
+                            <ul id="videoList" class="list-group text-center">
+                                <!-- Video list items will be dynamically added here --> 
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+        </section>
+        <!-- about -->
+        <section class="bg-off-white">
+            <div class="container pt-5 pb-5">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-4 mb-3">
+                        <h3 class="mb-2">Serenade Strings offer:</h3>
+                        <ul class="in-brief-list">
+                            <li class="mb-2"><i class="far fa-check-circle"></i> Bespoke packages to suit you.</li>
+                            <li class="mb-2"><i class="far fa-check-circle"></i> Versatile & Professional Performers.</li>
+                            <li class="mb-2"><i class="far fa-check-circle"></i> Vast repertoire covering all styles.</li>
+                            <li class="mb-2"><i class="far fa-check-circle"></i> Happy to learn new songs for your booking.</li>
+                            <li class="mb-2"><i class="far fa-check-circle"></i> Unique Arrangements of Pop, Rock, Classical & More.</li>
+                            <li class="mb-2"><i class="far fa-check-circle"></i> Available U.K. wide and abroad.</li>
+                            <li><i class="far fa-check-circle"></i> Dedicated band leader, committed to ensuring the success of your event.</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-8">
+                        <article>
+                            <h3>Serenade Strings: Luxury Wedding String Ensemble</h3>
+                            <p>Serenade Strings, a distinguished string ensemble specialising in weddings, offers exquisite live music tailored for every moment of your special day. From the ceremony to the reception and the wedding breakfast, Serenade Strings provides unparalleled musical accompaniment that enhances your wedding experience.</p>
+                            <p>Renowned for our commitment to excellence, versatility, and sophistication, Serenade Strings brings elegance to weddings across Cardiff, London, Bristol, Somerset, Cotswolds, Wales, the West of England and beyond. With our expertise in crafting enchanting melodies, we ensure that your wedding day is adorned with the perfect soundtrack, creating memories that last a lifetime.</p>
+                            <p>Contact us today to discover how Serenade Strings can enhance your wedding with our enchanting string ensemble, and let us bring the magic of live music to your cherished celebration.</p>
+                            <a class="btn btn-primary" href="about.html">Learn More</a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- reviews -->
+        <section>
+            <div class="container-fluid review-bg">
+                <div class="overlay">
+                    <div>
+                        <h2 class="review-title text-center text-white pt-2 pb-2">Reviews</h2>
+                    </div>
+                    <div class="review-row pt-2">
+                        <button class="btn btn-primary" id="prevBtn">&lt;</button>
+                        <p class="text-white text-center" id="reviewText"></p>
+                        <button class="btn btn-primary" id="nextBtn">&gt;</button>
+                    </div>
+                    <div>
+                        <p class="text-warning text-center" id="reviewStars"></p>
+                        <p class="text-white text-center" id="clientName"></p>
+                        <!-- Separate stars with a line break -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+{% endblock %}  
+
+{% block js %}
+    <script src="{{ url_for('static', filename='js/videos.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/transparent-nav.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/homepage-reviews.js') }}"></script>
+
+{% endblock %}
+
+
+   

@@ -1,0 +1,91 @@
+
+    {% extends "base.html" %}
+    {% block content %}
+    <main>
+        <div class="container-fluid" id="repertoire-banner">
+        </div>
+
+        <div class="container pt-5">
+            <div class="row pb-5">
+                <div class="col-12 text-center font-montserrat">
+                    <h1>Repertoire</h1>
+                    <p>Want us to play something that's not listed? Just let us know. Requests are included in every booking!</p>
+                </div>
+            </div>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="rock-pop-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#rock-pop" aria-expanded="true" aria-controls="rock-pop">
+                            Rock/Pop
+                        </button>
+                    </h2>
+                    <div id="rock-pop" class="accordion-collapse collapse" aria-labelledby="rock-pop-header" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul id="rock-pop-list"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="classical-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#classical" aria-expanded="false" aria-controls="classical">
+                            Classical
+                        </button>
+                    </h2>
+                    <div id="classical" class="accordion-collapse collapse" aria-labelledby="classical-header" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul id="classical-list"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="film-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#film" aria-expanded="false" aria-controls="film">
+                            Film/ TV/ Videogames
+                        </button>
+                    </h2>
+                    <div id="film" class="accordion-collapse collapse" aria-labelledby="film-header" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul id="film-list"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="jazz-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#jazz" aria-expanded="false" aria-controls="jazz">
+                            Jazz
+                        </button>
+                    </h2>
+                    <div id="jazz" class="accordion-collapse collapse" aria-labelledby="jazz-header" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul id="jazz-list"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="traditional-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#traditional" aria-expanded="false" aria-controls="traditional">
+                            Traditional/ Folk
+                        </button>
+                    </h2>
+                    <div id="traditional" class="accordion-collapse collapse" aria-labelledby="traditional" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul id="traditional-list"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="tangos-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tango" aria-expanded="false" aria-controls="tango">
+                            Tangos
+                        </button>
+                    </h2>
+                    <div id="tango" class="accordion-collapse collapse" aria-labelledby="tango" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul id="tango-list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {% endblock %}

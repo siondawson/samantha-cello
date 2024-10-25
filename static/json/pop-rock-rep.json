@@ -1,0 +1,1066 @@
+{
+  "ABBA": {
+    "songs": [
+      {"title": "I Do, I Do, I Do, I Do, I Do", "mp3_file": null},
+      {"title": "Dancing Queen", "mp3_file": null}
+    ]
+  },
+  "AC/DC": {
+    "songs": [
+      {"title": "Highway To Hell", "mp3_file": null}
+    ]
+  },
+  "Aerosmith": {
+    "songs": [
+      {"title": "I Don’t Want to Miss a Thing", "mp3_file": null}
+    ]
+  },
+  "Alicia Keys": {
+    "songs": [
+      {"title": "If I Ain’t Got You", "mp3_file": null}
+    ]
+  },
+  "Aretha Franklin": {
+    "songs": [
+      {"title": "Say a Little Prayer", "mp3_file": null}
+    ]
+  },
+  "Ariana Grande": {
+    "songs": [
+      {"title": "Thank u, next", "mp3_file": "thank-u-next-clip-2021.mp3"}
+    ]
+  },
+  "Adele": {
+    "songs": [
+      {"title": "Rolling in the Deep", "mp3_file": null},
+      {"title": "Make You Feel My Love", "mp3_file": null},
+      {"title": "Skyfall", "mp3_file": null}
+    ]
+  },
+  "Aphex Twin": {
+    "songs": [
+      {"title": "Avril 14th", "mp3_file": null}
+    ]
+  },
+  "Artic Monkeys": {
+    "songs": [
+      {"title": "Mardy Bum", "mp3_file": null}
+    ]
+  },
+  "American Authors": {
+    "songs": [
+      {"title": "Best Day of My Life", "mp3_file": "best-day-of-my-life-clip.mp3"}
+    ]
+  },
+  "Amy Winehouse": {
+    "songs": [
+      {"title": "Valerie", "mp3_file": null}
+    ]
+  },
+  "Avicii": {
+    "songs": [
+      {"title": "Hey Brother", "mp3_file": null},
+      {"title": "Wake Me Up", "mp3_file": null}
+    ]
+  },
+  "The Beach Boys": {
+    "songs": [
+      {"title": "God Only Knows", "mp3_file": "god-only-knows-clip.mp3"},
+      {"title": "Wouldn’t It Be Nice", "mp3_file": null}
+    ]
+  },
+  "The Beatles": {
+    "songs": [
+      {"title": "Across The Universe", "mp3_file": null},
+      {"title": "Here Come The Sun", "mp3_file": null},
+      {"title": "In My Life", "mp3_file": null},
+      {"title": "I Saw Her Standing There", "mp3_file": null},
+      {"title": "I Want To Hold Your Hand", "mp3_file": null},
+      {"title": "When I’m Sixty Four", "mp3_file": null},
+      {"title": "All You Need is Love", "mp3_file": "all-you-need-is-love-clip-2021.mp3"},
+      {"title": "Eleanor Rigby", "mp3_file": null},
+      {"title": "Yesterday", "mp3_file": null},
+      {"title": "With a Little Help From My Friends", "mp3_file": null}
+    ]
+  },
+  "Bee Gees": {
+    "songs": [
+      {"title": "How Deep is Your Love", "mp3_file": null}
+    ]
+  },
+  "Ben Howard": {
+    "songs": [
+      {"title": "Only Love", "mp3_file": null}
+    ]
+  },
+  "Beyoncé": {
+    "songs": [
+      {"title": "Ave Maria", "mp3_file": null},
+      {"title": "Crazy In Love", "mp3_file": null},
+      {"title": "Formation", "mp3_file": null},
+      {"title": "Love on Top", "mp3_file": null},
+      {"title": "Sandcastles", "mp3_file": null},
+      {"title": "Single Ladies (Put a Ring on It)", "mp3_file": null},
+      {"title": "Halo", "mp3_file": null},
+      {"title": "XO", "mp3_file": null}
+    ]
+  },
+  "Bill Medley": {
+    "songs": [
+      {"title": "(I’ve Had) The Time of My Life", "mp3_file": null}
+    ]
+  },
+  "Bill Withers": {
+    "songs": [
+      {"title": "Lovely Day", "mp3_file": null}
+    ]
+  },
+  "Black Eyed Peas": {
+    "songs": [
+      {"title": "I Gotta Feeling", "mp3_file": null}
+    ]
+  },
+  "Billie Eilish": {
+    "songs": [
+      {"title": "Bad Guy", "mp3_file": null}
+    ]
+  },
+  "Blur": {
+    "songs": [
+      {"title": "The Universal", "mp3_file": null}
+    ]
+  },
+  "Blink 182": {
+    "songs": [
+      {"title": "All The Small Things", "mp3_file": null},
+      {"title": "First Date", "mp3_file": "first-date-clip.mp3"}
+    ]
+  },
+  "Bob Dylan": {
+    "songs": [
+      {"title": "Make You Feel My Love", "mp3_file": null}
+    ]
+  },
+  "Bob Marley": {
+    "songs": [
+      {"title": "Is This Love", "mp3_file": null},
+      {"title": "Three Little Birds", "mp3_file": "three-little-birds-sq-clip.mp3"}
+    ]
+  },
+  "Bon Iver": {
+    "songs": [
+      {"title": "8 (circle)", "mp3_file": null}
+    ]
+  },
+  "Brian Ferry": {
+    "songs": [
+      {"title": "Let’s Stick Together", "mp3_file": null}
+    ]
+  },
+  "Britney Spears": {
+    "songs": [
+      {"title": "Toxic", "mp3_file": null}
+    ]
+  },
+  "Bruno Mars": {
+    "songs": [
+      {"title": "Just The Way You Are/ Amazing", "mp3_file": null},
+      {"title": "Locked Out of Heaven", "mp3_file": null},
+      {"title": "Marry You", "mp3_file": null}
+    ]
+  },
+  "Bryan Adams": {
+    "songs": [
+      {"title": "(Everything I Do) I Do It For You", "mp3_file": null},
+      {"title": "Summer of ’69", "mp3_file": null}
+    ]
+  },
+  "Bullet for my Valentine": {
+    "songs": [
+      {"title": "All These Things I Hate", "mp3_file": null},
+      {"title": "Tears Don't Fall", "mp3_file": null}
+    ]
+  },
+  "Calum Scott": {
+    "songs": [
+      {"title": "You are the Reason", "mp3_file": null}
+    ]
+  },
+  "Camila Cabello": {
+    "songs": [
+      {"title": "Havana", "mp3_file": null}
+    ]
+  },
+  "Catfish & The Bottlemen": {
+    "songs": [
+      {"title": "Hourglass", "mp3_file": null}
+    ]
+  },
+  "Chappell Roan": {
+    "songs": [
+      {"title": "Pink Pony Club", "mp3_file": null}
+    ]
+  },
+  "Charlie Puth": {
+    "songs": [
+      {"title": "See You Again", "mp3_file": null}
+    ]
+  },
+  "Cinematic Orchestra": {
+    "songs": [
+      {"title": "Arrival of the Birds", "mp3_file": null}
+    ]
+  },
+  "The Cranberries": {
+    "songs": [
+      {"title": "Zombie", "mp3_file": null}
+    ]
+  },
+  "Cristina Perri": {
+    "songs": [
+      {"title": "A Thousand Years", "mp3_file": null}
+    ]
+  },
+  "Eric Clapton": {
+    "songs": [
+      {"title": "Wonderful Tonight", "mp3_file": null}
+    ]
+  },
+  "Clean Bandit": {
+    "songs": [
+      {"title": "Rather Be", "mp3_file": null},
+      {"title": "Rockabye", "mp3_file": null}
+    ]
+  },
+  "Coldplay": {
+    "songs": [
+      {"title": "A Sky Full of Stars", "mp3_file": "sky-full-of-stars-clip.mp3"},
+      {"title": "Adventure of a Lifetime", "mp3_file": null},
+      {"title": "Clocks", "mp3_file": null},
+      {"title": "Paradise", "mp3_file": null},
+      {"title": "Something Just Like This", "mp3_file": null},
+      {"title": "The Scientist", "mp3_file": null},
+      {"title": "Viva La Vida", "mp3_file": null},
+      {"title": "Yellow", "mp3_file": null}
+    ]
+  },
+  "Counting Crows": {
+    "songs": [
+      {"title": "Accidentally In Love", "mp3_file": null}
+    ]
+  },
+  "Sam Cooke": {
+    "songs": [
+      {"title": "Bring it on Home to Me", "mp3_file": null}
+    ]
+  },
+  "The Cure": {
+    "songs": [
+      {"title": "Friday I’m in Love", "mp3_file": null}
+    ]
+  },
+  "Cyndi Lauper": {
+    "songs": [
+      {"title": "Time After Time", "mp3_file": null},
+      {"title": "True Colours", "mp3_file": null}
+    ]
+  },
+  "Daft Punk": {
+    "songs": [
+      {"title": "Get Lucky", "mp3_file": null}
+    ]
+  },
+  "Damien Rice": {
+    "songs": [
+      {"title": "The Blowers Daughter", "mp3_file": null}
+    ]
+  },
+  "David Bowie": {
+    "songs": [
+      {"title": "Heroes", "mp3_file": null},
+      {"title": "Life on Mars", "mp3_file": null}
+    ]
+  },
+  "David Guetta ft. Sia": {
+    "songs": [
+      {"title": "Titanium", "mp3_file": null}
+    ]
+  },
+  "Dave Matthews Band": {
+    "songs": [
+      {"title": "The Space Between", "mp3_file": null}
+    ]
+  },
+  "Destiny’s Child": {
+    "songs": [
+      {"title": "Survivor", "mp3_file": null},
+      {"title": "Independent Woman", "mp3_file": null}
+    ]
+  },
+  "Des’ree": {
+    "songs": [
+      {"title": "Kissing You", "mp3_file": null}
+    ]
+  },
+  "Dio": {
+    "songs": [
+      {"title": "Rainbow In The Dark", "mp3_file": null}
+    ]
+  },
+  "The Doors": {
+    "songs": [
+      {"title": "Riders on the Storm", "mp3_file": null}
+    ]
+  },
+  "Dua Lipa": {
+    "songs": [
+      {"title": "Dance The Night", "mp3_file": null},
+      {"title": "Don't Start Now", "mp3_file": null}
+    ]
+  },
+  "The Eagles": {
+    "songs": [
+      {"title": "Hotel California", "mp3_file": null}
+    ]
+  },
+  "Earth, Wind & Fire": {
+    "songs": [
+      {"title": "September", "mp3_file": null}
+    ]
+  },
+  "Ed Sheeran": {
+    "songs": [
+      {"title": "Perfect", "mp3_file": null},
+      {"title": "Photograph", "mp3_file": null},
+      {"title": "Shape of You", "mp3_file": null},
+      {"title": "Thinking Out Loud", "mp3_file": null}
+    ]
+  },
+  "Edward Sharpe & The Magnetic Zeroes": {
+    "songs": [
+      {"title": "Home", "mp3_file": "home-clip.mp3"}
+    ]
+  },
+  "Elbow": {
+    "songs": [
+      {"title": "One Day Like This", "mp3_file": null}
+    ]
+  },
+  "Ellie Golding": {
+    "songs": [
+      {"title": "How Long Will I Love You?", "mp3_file": null},
+      {"title": "Love Me Like You Do", "mp3_file": "love-me-like-you-do-clip.mp3"},
+      {"title": "Still Falling For You", "mp3_file": null}
+    ]
+  },
+  "ELO": {
+    "songs": [
+      {"title": "Mr. Blue Sky", "mp3_file": "mr-blue-sky-clip-2021.mp3"},
+      {"title": "Rock ’N’ Roll is King", "mp3_file": null},
+      {"title": "Shine a Little Love", "mp3_file": null},
+      {"title": "Standin’ in the Rain", "mp3_file": null},
+      {"title": "Sweet Talkin’ Woman", "mp3_file": null},
+      {"title": "Wild West Hero", "mp3_file": null},
+      {"title": "Strange Magic", "mp3_file": null}
+    ]
+  },
+  "Elton John": {
+    "songs": [
+      {"title": "Can You Feel the Love Tonight", "mp3_file": null},
+      {"title": "Crocodile Rock", "mp3_file": null},
+      {"title": "Your Song", "mp3_file": null}
+    ]
+  },
+  "Elvis": {
+    "songs": [
+      {"title": "Always On My Mind", "mp3_file": null},
+      {"title": "Blue Moon", "mp3_file": null},
+      {"title": "Blue Christmas", "mp3_file": null},
+      {"title": "Can’t Help Falling in Love", "mp3_file": null},
+      {"title": "Hound Dog", "mp3_file": null},
+      {"title": "Jailhouse Rock", "mp3_file": null}
+    ]
+  },
+  "Eurythmics": {
+    "songs": [
+      {"title": "Sweet Dreams", "mp3_file": null}
+    ]
+  },
+  "Evanescence": {
+    "songs": [
+      {"title": "Bring Me To Life", "mp3_file": null}
+    ]
+  },
+  "Fleetwood Mac": {
+    "songs": [
+      {"title": "Dreams", "mp3_file": null},
+      {"title": "Everywhere", "mp3_file": null},
+      {"title": "Songbird", "mp3_file": null}
+    ]
+  },
+  "Florence + The Machine": {
+    "songs": [
+      {"title": "You’ve Got The Love", "mp3_file": null}
+    ]
+  },
+  "Foo Fighters": {
+    "songs": [
+      {"title": "Everlong", "mp3_file": null}
+    ]
+  },
+  "Foster The People": {
+    "songs": [
+      {"title": "Pumped Up Kicks", "mp3_file": null}
+    ]
+  },
+  "Frank Sinatra": {
+    "songs": [
+      {"title": "Fly Me To The Moon", "mp3_file": null},
+      {"title": "Strangers in the Night", "mp3_file": null}
+    ]
+  },
+  "Franki Valli": {
+    "songs": [
+      {"title": "Cant Take My Eyes off You", "mp3_file": null}
+    ]
+  },
+  "Frozen": {
+    "songs": [
+      {"title": "Let it Go", "mp3_file": null}
+    ]
+  },
+  "Gnarls Barkley": {
+    "songs": [
+      {"title": "Crazy", "mp3_file": null}
+    ]
+  },
+  "Goo Goo Dolls": {
+    "songs": [
+      {"title": "Iris", "mp3_file": null}
+    ]
+  },
+  "Green Day": {
+    "songs": [
+      {"title": "Time of Your Life", "mp3_file": null}
+    ]
+  },
+  "Guns ’n’ Roses": {
+    "songs": [
+      {"title": "Sweet Child of Mine", "mp3_file": null}
+    ]
+  },
+  "Harry Styles": {
+    "songs": [
+      {"title": "Sign of the Times", "mp3_file": "sign-of-the-times-clip.mp3"},
+      {"title": "Watermelon Sugar", "mp3_file": "watermelonsugar-clip-sq.mp3"}
+    ]
+  },
+  "Hansard": {
+    "songs": [
+      {"title": "Slowly Falling", "mp3_file": null}
+    ]
+  },
+  "Hozier": {
+    "songs": [
+      {"title": "Take Me To Church", "mp3_file": null}
+    ]
+  },
+  "Iron & Wine": {
+    "songs": [
+      {"title": "Flightless Bird, American Mouth", "mp3_file": null}
+    ]
+  },
+  "Israel Kamakawiwo’ole": {
+    "songs": [
+      {"title": "Somewhere Over the Rainbow", "mp3_file": null}
+    ]
+  },
+  "Jack Johnson": {
+    "songs": [
+      {"title": "Better Together", "mp3_file": null}
+    ]
+  },
+  "The Jackson 5": {
+    "songs": [
+      {"title": "I Want You Back", "mp3_file": null}
+    ]
+  },
+  "James Brown": {
+    "songs": [
+      {"title": "I Got You (I Feel Good)", "mp3_file": null}
+    ]
+  },
+  "Jason Mraz": {
+    "songs": [
+      {"title": "I’m Yours", "mp3_file": null},
+      {"title": "I Won't Give Up", "mp3_file": null}
+    ]
+  },
+  "Jennifer Rush": {
+    "songs": [
+      {"title": "The Power of Love", "mp3_file": null}
+    ]
+  },
+  "Jessie Ware": {
+    "songs": [
+      {"title": "Alone", "mp3_file": null}
+    ]
+  },
+  "Jimi Hendrix": {
+    "songs": [
+      {"title": "Little Wing", "mp3_file": null}
+    ]
+  },
+  "Joel Sunny": {
+    "songs": [
+      {"title": "Luminary", "mp3_file": null}
+    ]
+  },
+  "John Boden": {
+    "songs": [
+      {"title": "How Long Will I Love You?", "mp3_file": null}
+    ]
+  },
+  "John Denver": {
+    "songs": [
+      {"title": "Annie's Song", "mp3_file": null}
+    ]
+  },
+  "John Legend": {
+    "songs": [
+      {"title": "All of Me", "mp3_file": null}
+    ]
+  },
+  "Journey": {
+    "songs": [
+      {"title": "Don’t Stop Believin’", "mp3_file": null},
+      {"title": "Open Arms", "mp3_file": null}
+    ]
+  },
+  "Jungle": {
+    "songs": [
+      {"title": "Back on 74", "mp3_file": null}
+    ]
+  },
+  "Justin Bieber": {
+    "songs": [
+      {"title": "2 Much", "mp3_file": null},
+      {"title": "Holy", "mp3_file": null}
+    ]
+  },
+  "Justin Timberlake": {
+    "songs": [
+      {"title": "Can’t Stop The Feeling", "mp3_file": null}
+    ]
+  },
+  "Kansas": {
+    "songs": [
+      {"title": "Carry On My Wayward Son", "mp3_file": null}
+    ]
+  },
+  "Kanye West": {
+    "songs": [
+      {"title": "Gold Digger", "mp3_file": null}
+    ]
+  },
+  "Kate Bush": {
+    "songs": [
+      {"title": "Running Up That Hill", "mp3_file": null}
+    ]
+  },
+  "Katrina and the Waves": {
+    "songs": [
+      {"title": "I’m Walking on Sunshine", "mp3_file": null}
+    ]
+  },
+  "Keane": {
+    "songs": [
+      {"title": "Somewhere Only We Know", "mp3_file": null}
+    ]
+  },
+  "Kenny G": {
+    "songs": [
+      {"title": "The Wedding Song", "mp3_file": null}
+    ]
+  },
+  "Khalid": {
+    "songs": [
+      {"title": "Better", "mp3_file": null}
+    ]
+  },
+  "The Killers": {
+    "songs": [
+      {"title": "Mr. Brightside", "mp3_file": null}
+    ]
+  },
+  "Kings of Leon": {
+    "songs": [
+      {"title": "Sex on Fire", "mp3_file": null}
+    ]
+  },
+  "Kodaline": {
+    "songs": [
+      {"title": "The One", "mp3_file": null},
+      {"title": "Spend It With You", "mp3_file": null}
+    ]
+  },
+  "Kylie Minogue": {
+    "songs": [
+      {"title": "All The Lovers", "mp3_file": null}
+    ]
+  },
+  "Ben E. King": {
+    "songs": [
+      {"title": "Stand By Me", "mp3_file": null}
+    ]
+  },
+  "Lady Gaga": {
+    "songs": [
+      {"title": "Always Remember Us This Way (A Star is Born)", "mp3_file": null},
+      {"title": "Hold My Hand", "mp3_file": null},
+      {"title": "Shallow (A Star is Born)", "mp3_file": null}
+    ]
+  },
+  "Led Zeppelin": {
+    "songs": [
+      {"title": "Kashmir", "mp3_file": null},
+      {"title": "Stairway To Heaven", "mp3_file": null}
+    ]
+  },
+  "Leonard Cohen": {
+    "songs": [
+      {"title": "Hallelujah", "mp3_file": null}
+    ]
+  },
+  "Linkin Park": {
+    "songs": [
+      {"title": "Numb", "mp3_file": null}
+    ]
+  },
+  "Lionel Richie": {
+    "songs": [
+      {"title": "Endless Love", "mp3_file": null}
+    ]
+  },
+  "Louis Armstrong": {
+    "songs": [
+      {"title": "What a Wonderful World", "mp3_file": null}
+    ]
+  },
+  "Luis Fonsi": {
+    "songs": [
+      {"title": "Despacito", "mp3_file": null}
+    ]
+  },
+  "Luke Combs": {
+    "songs": [
+      {"title": "Beautiful Crazy", "mp3_file": null}
+    ]
+  },
+  "The Lumineers": {
+    "songs": [
+      {"title": "Flowers in Your Hair", "mp3_file": null}
+    ]
+  },
+  "Lynyrd Skynyrd": {
+    "songs": [
+      {"title": "Sweet Home Alabama", "mp3_file": null}
+    ]
+  },
+  "Madness": {
+    "songs": [
+      {"title": "It Must Be Love", "mp3_file": null}
+    ]
+  },
+  "Mark Knopfler": {
+    "songs": [
+      {"title": "Storybook Love", "mp3_file": null}
+    ]
+  },
+  "Mark Ronson": {
+    "songs": [
+      {"title": "Uptown Funk", "mp3_file": null}
+    ]
+  },
+  "Maroon 5": {
+    "songs": [
+      {"title": "Girls Like You", "mp3_file": null}
+    ]
+  },
+  "Marvin Gaye": {
+    "songs": [
+      {"title": "Ain't No Mountain High Enough", "mp3_file": null}
+    ]
+  },
+  "McFly": {
+    "songs": [
+      {"title": "It’s All About You", "mp3_file": null}
+    ]
+  },
+  "Meghan Trainor": {
+    "songs": [
+      {"title": "All About That Bass", "mp3_file": null}
+    ]
+  },
+  "Mettalica": {
+    "songs": [
+      {"title": "Nothing Else Matters", "mp3_file": null}
+    ]
+  },
+  "Michael Jackson": {
+    "songs": [
+      {"title": "Rock With You", "mp3_file": null},
+      {"title": "Thriller", "mp3_file": null}
+    ]
+  },
+  "Miley Cyrus": {
+    "songs": [
+      {"title": "Wrecking Ball", "mp3_file": null}
+    ]
+  },
+  "Muse": {
+    "songs": [
+      {"title": "Knights of Cydonia", "mp3_file": null},
+      {"title": "Starlight", "mp3_file": null},
+      {"title": "Time is Running Out", "mp3_file": null},
+      {"title": "Unintended", "mp3_file": null}
+    ]
+  },
+  "Natasha Bedingfield": {
+    "songs": [
+      {"title": "Unwritten", "mp3_file": null}
+    ]
+  },
+  "Natalie Cole": {
+    "songs": [
+      {"title": "This Will Be (Everlasting Love)", "mp3_file": null}
+    ]
+  },
+  "Nathan Sykes": {
+    "songs": [
+      {"title": "Over and Over Again", "mp3_file": null}
+    ]
+  },
+  "Neil Diamond": {
+    "songs": [
+      {"title": "Sweet Caroline", "mp3_file": null}
+    ]
+  },
+  "Neil Young": {
+    "songs": [
+      {"title": "Love is a Rose", "mp3_file": null}
+    ]
+  },
+  "Nick Cave": {
+    "songs": [
+      {"title": "Red Right Hand", "mp3_file": null},
+      {"title": "The Ship Song", "mp3_file": null},
+      {"title": "The Weeping Song", "mp3_file": null}
+    ]
+  },
+  "Nick Cave/ Kylie Minogue": {
+    "songs": [
+      {"title": "Where The Wild Roses Grow", "mp3_file": null}
+    ]
+  },
+  "Nina Simone": {
+    "songs": [
+      {"title": "L.O.V.E", "mp3_file": null}
+    ]
+  },
+  "Nora Jones": {
+    "songs": [
+      {"title": "Don’t Know Why", "mp3_file": null}
+    ]
+  },
+  "Oasis": {
+    "songs": [
+      {"title": "Champagne Supernova", "mp3_file": null},
+      {"title": "Don’t Look Back in Anger", "mp3_file": null},
+      {"title": "Half The World Away", "mp3_file": null},
+      {"title": "Whatever", "mp3_file": null},
+      {"title": "Wonderwall", "mp3_file": "wonderwall-clip.mp3"}
+    ]
+  },
+  "Of Monsters and Men": {
+    "songs": [
+      {"title": "Little Talks", "mp3_file": null}
+    ]
+  },
+  "Owl City": {
+    "songs": [
+      {"title": "Fireflies", "mp3_file": null}
+    ]
+  },
+  "Paramore": {
+    "songs": [
+      {"title": "The Only Exception", "mp3_file": null}
+    ]
+  },
+  "Paul Simon": {
+    "songs": [
+      {"title": "The Boxer", "mp3_file": null},
+      {"title": "You Can Call Me Al", "mp3_file": null}
+    ]
+  },
+  "Percy Sledge": {
+    "songs": [
+      {"title": "When a Man Loves a Woman", "mp3_file": null}
+    ]
+  },
+  "Peter Gabriel": {
+    "songs": [
+      {"title": "The Book of Love", "mp3_file": null}
+    ]
+  },
+  "Pharrell Williams": {
+    "songs": [
+      {"title": "Happy", "mp3_file": null}
+    ]
+  },
+  "Phil Collins": {
+    "songs": [
+      {"title": "Groovy Kind of Love", "mp3_file": null},
+      {"title": "You’ll Be in My Heart", "mp3_file": null}
+    ]
+  },
+  "Pink": {
+    "songs": [
+      {"title": "Just Give Me a Reason", "mp3_file": null}
+    ]
+  },
+  "Pixies": {
+    "songs": [
+      {"title": "Here Comes Your Man", "mp3_file": null},
+      {"title": "Where is My Mind?", "mp3_file": null}
+    ]
+  },
+  "The Pogues": {
+    "songs": [
+      {"title": "Fairytale of New York", "mp3_file": null}
+    ]
+  },
+  "The Police": {
+    "songs": [
+      {"title": "Every Breath You Take", "mp3_file": null}
+    ]
+  },
+  "The Pretenders": {
+    "songs": [
+      {"title": "I’ll Stand By You", "mp3_file": null}
+    ]
+  },
+  "Pulp": {
+    "songs": [
+      {"title": "Common People", "mp3_file": null}
+    ]
+  },
+  "Queen": {
+    "songs": [
+      {"title": "Bohemian Rhapsody", "mp3_file": "BohemianRhapsodyMastered.mp3"},
+      {"title": "Crazy Little Thing Called Love", "mp3_file": null},
+      {"title": "Don’t Stop Me Now", "mp3_file": null},
+      {"title": "Hammer To Fall", "mp3_file": null},
+      {"title": "Somebody to Love", "mp3_file": null},
+      {"title": "We Are The Champions", "mp3_file": null},
+      {"title": "You’re My Best Friend", "mp3_file": null}
+    ]
+  },
+  "Radiohead": {
+    "songs": [
+      {"title": "Karma Police", "mp3_file": null},
+      {"title": "Motion Picture Soundtrack", "mp3_file": null}
+    ]
+  },
+  "Rick Astley": {
+    "songs": [
+      {"title": "Never Gonna Give You Up", "mp3_file": null}
+    ]
+  },
+  "Rihanna & Calvin Harris": {
+    "songs": [
+      {"title": "We Found Love", "mp3_file": null},
+      {"title": "This Is What You Came For", "mp3_file": null}
+    ]
+  },
+  "The Rolling Stones": {
+    "songs": [
+      {"title": "Paint It Black", "mp3_file": null},
+      {"title": "She's a Rainbow", "mp3_file": null}
+    ]
+  },
+  "Ruelle": {
+    "songs": [
+      {"title": "I Get To Love You", "mp3_file": null}
+    ]
+  },
+  "Sade": {
+    "songs": [
+      {"title": "By Your Side", "mp3_file": null}
+    ]
+  },
+  "Sam Cooke": {
+    "songs": [
+      {"title": "Bring It On Home", "mp3_file": null}
+    ]
+  },
+  "Sam Smith": {
+    "songs": [
+      {"title": "Stay With Me", "mp3_file": null}
+    ]
+  },
+  "Shapeshifters": {
+    "songs": [
+      {"title": "Lola's Theme", "mp3_file": null}
+    ]
+  },
+  "Shanaia Twain": {
+    "songs": [
+      {"title": "You're Still The One Again", "mp3_file": null}
+    ]
+  },
+  "Shawn Mendes": {
+    "songs": [
+      {"title": "In My Blood", "mp3_file": "in-my-blood-clip-2021.mp3"}
+    ]
+  },
+  "Swedish House Mafia": {
+    "songs": [
+      {"title": "Don’t You Worry Child", "mp3_file": null}
+    ]
+  },
+  "Sia": {
+    "songs": [
+      {"title": "Chandelier", "mp3_file": null},
+      {"title": "Cheap Thrills", "mp3_file": null}
+    ]
+  },
+  "Sigur Ros": {
+    "songs": [
+      {"title": "Hoppipolla", "mp3_file": null}
+    ]
+  },
+  "Sixpence None The Richer": {
+    "songs": [
+      {"title": "Kiss Me", "mp3_file": null}
+    ]
+  },
+  "Sleepy Hallow": {
+    "songs": [
+      {"title": "2055", "mp3_file": null}
+    ]
+  },
+  "Smashing Pumpkins": {
+    "songs": [
+      {"title": "Tonight, Tonight", "mp3_file": null}
+    ]
+  },
+  "The Smiths": {
+    "songs": [
+      {"title": "Please, Please Please, Let Me Get What I Want", "mp3_file": null}
+    ]
+  },
+  "Snow Patrol": {
+    "songs": [
+      {"title": "Chasing Cars", "mp3_file": null}
+    ]
+  },
+  "Stevie Wonder": {
+    "songs": [
+      {"title": "Isn’t She Lovely", "mp3_file": null},
+      {"title": "Signed, Sealed, Delivered, I’m Yours", "mp3_file": null},
+      {"title": "You are the Sunshine of my Life", "mp3_file": null}
+    ]
+  },
+  "Sting": {
+    "songs": [
+      {"title": "Fields of Gold", "mp3_file": null},
+      {"title": "Roxanne", "mp3_file": null}
+    ]
+  },
+  "Take That": {
+    "songs": [
+      {"title": "Greatest Day", "mp3_file": null}
+    ]
+  },
+  "Taylor Swift": {
+  "songs": [
+    {"title": "Anti-Hero", "mp3_file": null},
+    {"title": "Daylight", "mp3_file": null},
+    {"title": "Fearless", "mp3_file": null},
+    {"title": "Invisible String", "mp3_file": null},
+    {"title": "Love Story", "mp3_file": null},
+    {"title": "Lover", "mp3_file": null},
+    {"title": "Wildest Dreams", "mp3_file": "wildest-dreams-clip.mp3"},
+    {"title": "You Are In Love", "mp3_file": null},
+    {"title": "You Belong With Me", "mp3_file": null}
+  ]
+},
+  "Tears for Fears": {
+    "songs": [
+      {"title": "Everybody Wants to Rule The World", "mp3_file": null}
+    ]
+  },
+  "The Temptations": {
+    "songs": [
+      {"title": "My Girl", "mp3_file": null}
+    ]
+  },
+  "Tom Jones": {
+    "songs": [
+      {"title": "Delilah", "mp3_file": null}
+    ]
+  },
+  "Tom Odell": {
+    "songs": [
+      {"title": "Another Love", "mp3_file": null}
+    ]
+  },
+  "Toploader": {
+    "songs": [
+      {"title": "Dancing in the Moonlight", "mp3_file": null}
+    ]
+  },
+  "Toto": {
+    "songs": [
+      {"title": "Africa", "mp3_file": "africa-sq-clip.mp3"}
+    ]
+  },
+  "Train": {
+    "songs": [
+      {"title": "Drops of Jupiter (Tell Me)", "mp3_file": null},
+      {"title": "Marry Me", "mp3_file": null}
+    ]
+  },
+  "The Turtles": {
+    "songs": [
+      {"title": "Happy Together", "mp3_file": null}
+    ]
+  },
+  "Van Morrison": {
+    "songs": [
+      {"title": "Have I Told You Lately", "mp3_file": null},
+      {"title": "Moondance", "mp3_file": null}
+    ]
+  },
+  "The Verve": {
+    "songs": [
+      {"title": "Bittersweet Symphony", "mp3_file": null}
+    ]
+  },
+  "Walk The Moon": {
+    "songs": [
+      {"title": "Shut Up and Dance", "mp3_file": null}
+    ]
+  },
+  "Willie Nelson": {
+    "songs": [
+      {"title": "Bring Me Sunshine", "mp3_file": null}
+    ]
+  },
+  "Whitney Houston": {
+    "songs": [
+      {"title": "I Wanna Dance With Somebody", "mp3_file": null}
+    ]
+  }
+}

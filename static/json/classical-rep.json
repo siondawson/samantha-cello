@@ -1,0 +1,206 @@
+{
+    "T. Albinoni": {
+        "songs": [
+            {"title": "Adagio", "mp3_file": null}
+        ]
+    },
+    "L.V. Beethoven": {
+        "songs": [
+            {"title": "String Quartets (Selection)", "mp3_file": null}
+        ]
+    },
+    "J.S.Bach": {
+        "songs": [
+            {"title": "Air on the G String", "mp3_file": null},
+            {"title": "Arioso", "mp3_file": null},
+            {"title": "Bourre Swing", "mp3_file": null},
+            {"title": "Brandenburg Concerto No.3", "mp3_file": null},
+            {"title": "Jesu, Joy of Man’s Desiring", "mp3_file": null},
+            {"title": "Sheep May Safely Graze", "mp3_file": null},
+            {"title": "‘Sarabande’ in B Minor", "mp3_file": null}
+        ]
+    },
+    "Georges Bizet": {
+        "songs": [
+            {"title": "Habanera from Carmen", "mp3_file": null},
+            {"title": "Toreador’s Song from Carmen", "mp3_file": null}
+        ]
+    },
+    "L. Boccherini": {
+        "songs": [
+            {"title": "Minuetto", "mp3_file": null}
+        ]
+    },
+    "J.Brahms": {
+        "songs": [
+            {"title": "Hungarian Dance No.5", "mp3_file": null}
+        ]
+    },
+    "Charpentier": {
+        "songs": [
+            {"title": "Prelude from ‘Te Deum’", "mp3_file": null}
+        ]
+    },
+    "J.Clarke": {
+        "songs": [
+            {"title": "Trumpet Voluntary", "mp3_file": null}
+        ]
+    },
+    "Claude Debussy": {
+        "songs": [
+            {"title": "Clair De Lune", "mp3_file": null}
+        ]
+    },
+    "Leo Delibes": {
+        "songs": [
+            {"title": "The Flower Song", "mp3_file": null}
+        ]
+    },
+    "Einaudi": {
+        "songs": [
+            {"title": "I Giorni", "mp3_file": "i-giorni-sq-clip.mp3"},
+            {"title": "Le Onde", "mp3_file": null},
+            {"title": "Nuvole Bianche", "mp3_file": null}
+        ]
+    },
+    "Edward Elgar": {
+        "songs": [
+            {"title": "Chanson De Matin", "mp3_file": null},
+            {"title": "Salut d’Amour", "mp3_file": null},
+            {"title": "Serenade for Strings", "mp3_file": null}
+        ]
+    },
+    "Gabriel Faurè": {
+        "songs": [
+            {"title": "Pavane", "mp3_file": null}
+        ]
+    },
+    "Phillip Glass": {
+        "songs": [
+            {"title": "String Quartet No.2 ‘Company’", "mp3_file": null}
+        ]
+    },
+    "Gluck": {
+        "songs": [
+            {"title": "Dance of the Blessed Spirits", "mp3_file": null}
+        ]
+    },
+    "G.F.Handel": {
+        "songs": [
+            {"title": "Arrival of the Queen of Sheba", "mp3_file": null},
+            {"title": "Aria from ‘Xerxes’", "mp3_file": null},
+            {"title": "Sarabande", "mp3_file": null},
+            {"title": "Water Music", "mp3_file": null},
+            {"title": "Zadok The Preist", "mp3_file": null}
+        ]
+    },
+    "J.Haydn": {
+        "songs": [
+            {"title": "String Quartets (Selection)", "mp3_file": null}
+        ]
+    },
+    "Franz Liszt": {
+        "songs": [
+            {"title": "Liebestraum", "mp3_file": null}
+        ]
+    },
+    "Martini": {
+        "songs": [
+            {"title": "Plasir d’Amour", "mp3_file": null}
+        ]
+    },
+    "Jules Massenet": {
+        "songs": [
+            {"title": "Meditation from Thaïs", "mp3_file": null}
+        ]
+    },
+    "Felix Mendelssohn": {
+        "songs": [
+            {"title": "Wedding March", "mp3_file": null}
+        ]
+    },
+    "J.J.Mouret": {
+        "songs": [
+            {"title": "Rondeu", "mp3_file": null}
+        ]
+    },
+    "W.A Mozart": {
+        "songs": [
+            {"title": "Ave Verum Corpus", "mp3_file": null},
+            {"title": "Der Vogelfänger from The Magic Flute", "mp3_file": null},
+            {"title": "Bei Männern from The Magic Flute", "mp3_file": null},
+            {"title": "Drei Divertimenti K.136-138", "mp3_file": null},
+            {"title": "Eine Kleine Nachtmusik", "mp3_file": null},
+            {"title": "‘Wedding March’ from The Marriage of Figaro", "mp3_file": null}
+        ]
+    },
+    "Mark O’Connor": {
+        "songs": [
+            {"title": "Appalachian Waltz", "mp3_file": null}
+        ]
+    },
+    "Jaques Offenbach": {
+        "songs": [
+            {"title": "Barcarolle", "mp3_file": null},
+            {"title": "Can Can", "mp3_file": null}
+        ]
+    },
+    "Johann Pachelbel": {
+        "songs": [
+            {"title": "Canon in D", "mp3_file": null}
+        ]
+    },
+    "Giacomo Puccini": {
+        "songs": [
+            {"title": "O Mio Babbino Caro", "mp3_file": null}
+        ]
+    },
+    "Henry Purcell": {
+        "songs": [
+            {"title": "Abdelezar Suite", "mp3_file": null},
+            {"title": "Trumpet Tune", "mp3_file": null}
+        ]
+    },
+    "Saint-Seans": {
+        "songs": [
+            {"title": "‘The Elephant’ from Carnival of the Animals", "mp3_file": null},
+            {"title": "‘The Swan’ from Carnival of the Animals", "mp3_file": null}
+        ]
+    },
+    "Franz Schubert": {
+        "songs": [
+            {"title": "Ave Maria", "mp3_file": null}
+        ]
+    },
+    "J. Strauss": {
+        "songs": [
+            {"title": "Voices of Spring Waltz", "mp3_file": null}
+        ]
+    },
+    "Tchaikovsky": {
+        "songs": [
+            {"title": "‘Dance of the Reed Pipes’ from The Nutcracker", "mp3_file": null},
+            {"title": "‘Dance of the Sugar Plum Fairy’ from The Nutcracker", "mp3_file": null}
+        ]
+    },
+    "Verdi": {
+        "songs": [
+            {"title": "La Donna e Mobile", "mp3_file": null}
+        ]
+    },
+    "Antonio Vivaldi": {
+        "songs": [
+            {"title": "The Four Seasons (Selections)", "mp3_file": null}
+        ]
+    },
+    "Wagner": {
+        "songs": [
+            {"title": "Bridal Chorus (Wedding March)", "mp3_file": null}
+        ]
+    },
+    "Yiruma": {
+        "songs": [
+            {"title": "River Flows in You", "mp3_file": null}
+        ]
+    }
+}
