@@ -210,7 +210,7 @@ transform-origin: bottom left;
 
 @media (max-width: 1000px) { /* This a workaround to get the background image to look nice on iOS. Background scroll is not compatible. Scroll functionality sacrificed for a background img that will cover the entire background. Solution suggested by tutor Ed.*/
     .callout-container {
-        background: url("../images/samantha-cello-forehead.webp") no-repeat center fixed; 
+        background: url("static/images/samantha-cello-forehead.webp") no-repeat center fixed; 
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
