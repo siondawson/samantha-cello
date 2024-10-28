@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+    <section id="enquiries-access">
+        <div class="container py-5">
+            <h1 class="text-center">All Enquiries</h1>
+
+            {% if session.get('authenticated') %}
+                <form action="/logout" method="POST" class="mb-3">
+                    <button type="submit" class="btn btn-danger">Sign Out</button>
+                </form>
+            {% endif %}
+            
+            {% if error %}
+                <div class="alert alert-danger mt-3">{{ error }}</div>
+            {% endif %}
+            
+            {% if enquiries %}
+                <h2 class="mt-4">Enquiries</h2>
+                <div class="row">
+                    {% for enquiry in enquiries %}
+                        <div class="card mb-3 {% if enquiry.converted %}bg-success text-white{% else %}bg-danger text-white{% endif %}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ enquiry.name }}</h5>
+                                <p class="card-text"><strong>Email:</strong> {{ enquiry.email }}</p>
+                                <p class="card-text"><strong>Phone:</strong> {{ enquiry.phone }}</p>
+                                <p class="card-text"><strong>Message:</strong> {{ enquiry.message }}</p>
+                                <p class="card-text"><strong>Submitted At:</strong> {{ enquiry.submitted_at }}</p>
+                                <p class="card-text"><strong>Converted:</strong> {{ enquiry.converted }}</p>
+                                <form method="POST" action="/update/{{ loop.index0 }}">
+                                    <button type="submit" class="btn btn-light">
+                                        {% if enquiry.converted %}
+                                            Mark as Not Converted
+                                        {% else %}
+                                            Mark as Converted
+                                        {% endif %}
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Enter Password:</label>
+                        <input type="password" name="password" id="password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Access Enquiries</button>
+                </form>
+            {% endif %}
+        </div>
+    </section>
+</main>
+{% endblock %}
