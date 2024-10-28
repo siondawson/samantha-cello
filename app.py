@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, json
+import os
 
 app = Flask(__name__)
 
@@ -16,7 +17,11 @@ def repertoire():
 
 @app.route('/faq')
 def faq():
-    return render_template('faq.html')  # Create this template
+    # Specify the correct path for the JSON file in the static folder
+    json_path = os.path.join(app.root_path, 'static/json/faq.json')
+    with open(json_path) as f:
+        faq_data = json.load(f)
+    return render_template('faq.html', faqs=faq_data)
 
 @app.route('/gallery')
 def gallery():
