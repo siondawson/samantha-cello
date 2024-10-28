@@ -19,99 +19,56 @@
                 
                 <div class="row">
                     <div class="col-12 text-center p-5">
-                        <h3>Luxury Modern Wedding String Quartet in Cardiff and London</h3>
+                        <h3>Luxury Modern Wedding Cellist in Cardiff and London</h3>
                     </div>
                 </div>
             </div>
-        
             <div class="container pb-3">
+                {% for section in about_data %}
+                    <div class="row align-items-center">
+                        {% if loop.index % 2 == 1 %}
+                            <!-- Title on left, content on right for odd-indexed items (1-based index) -->
+                            <div class="col-12 col-md-6 order-md-1">
+                                <h2 class="text-md-center">{{ section.title }}</h2>
+                            </div>
+                            <div class="col-12 col-md-6 order-md-2">
+                                <p class="text-md-start">{{ section.content }}</p>
+                            </div>
+                        {% else %}
+                            <!-- Title on right, content on left for even-indexed items (1-based index) -->
+                            <div class="col-12 col-md-6 order-md-2">
+                                <h2 class="text-md-center">{{ section.title }}</h2>
+                            </div>
+                            <div class="col-12 col-md-6 order-md-1">
+                                <p class="text-md-start">{{ section.content }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </article>
+        <article>
+            <div class="container my-5">
                 <div class="row align-items-center">
-                    <div class="col-12 col-md-6 order-md-1">
-                        <h2 class="text-md-center">Elevating Events with Elegance and Excellence</h2>
-                    </div>
-                    <div class="col-12 col-md-6 order-md-2">
-                        <p class="text-md-start">
-                            Serenade Strings, a premier ensemble of highly skilled musicians specializing in weddings and corporate events, 
-                            has established itself as a leader in live music performance. Synonymous with sophistication and versatility, 
-                            Serenade Strings is committed to delivering unparalleled musical experiences that elevate every event.
+                    <div class="col-12 col-md-6 mb-4 mb-md-0">
+                        <h2 class="text-center text-md-start">An Aderyn Strings Act</h2>
+                        <p class="lead">
+                            Samantha is proud to be a part of the Aderyn Strings family, a renowned ensemble known for its exquisite performances. Established in 2013, the Aderyn String Quartet has delighted audiences with their exceptional musicianship and diverse repertoire. Whether it's a wedding, corporate event, or private gathering, Aderyn Strings brings a touch of elegance and sophistication to every occasion.
                         </p>
-                    </div>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-6 order-md-2">
-                        <h2 class="text-md-center">Formation and Expertise</h2>
-                    </div>
-                    <div class="col-12 col-md-6 order-md-1">
-                        <p class="text-md-start">
-                            Founded in London by accomplished musicians, all alumni of prestigious UK conservatoires, Serenade Strings brings 
-                            exceptional talent and a wealth of experience to every performance. With renowned expertise honed on national 
-                            and international stages, Serenade Strings delivers captivating performances that exceed expectations.
+                        <p>
+                            With a commitment to creating unforgettable musical experiences, the quartet's talented musicians work closely with clients to curate a personalized selection of pieces that enhance the atmosphere of any event. Their passion for live music shines through in every performance, making Aderyn Strings a favorite choice for celebrations across the UK and beyond.
                         </p>
+                        <a href="https://aderynstringquartet.com" class="btn btn-primary">Visit Aderyn Strings Website</a>
                     </div>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-6 order-md-1">
-                        <h2 class="text-md-center">The Artistry</h2>
+                    <div class="col-12 col-md-6">
+                        <div class="text-center">
+                            <img src="{{ url_for('static', filename='images/logos/aderyn-strings-round.png') }}" alt="Aderyn Strings Logo" class="img-fluid rounded-circle aderyn-strings-round-logo">
+                        </div>
                     </div>
-                    <div class="col-12 col-md-6 order-md-2">
-                        <p class="text-md-start">
-                            Serenade Strings' repertoire spans genres, including pop, rock, film scores, jazz, and classical music. This eclectic 
-                            range ensures that they can cater to diverse tastes, crafting musical tapestries that enhance the ambiance of any event.
-                        </p>
-                    </div>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-6 order-md-2">
-                        <h2 class="text-md-center">Weddings</h2>
-                    </div>
-                    <div class="col-12 col-md-6 order-md-1">
-                        <p class="text-md-start">
-                            Serenade Strings understands the profound significance of weddings and strives to make each moment memorable. 
-                            Whether it's the delicate strains of Pachelbel's Canon for the processional, a contemporary pop hit for 
-                            the first dance, or a jubilant tune for the recessional, Serenade Strings crafts a bespoke musical backdrop that 
-                            reflects the unique love story of each couple.
-                        </p>
-                    </div>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-6 order-md-1">
-                        <h2 class="text-md-center">Corporate Functions</h2>
-                    </div>
-                    <div class="col-12 col-md-6 order-md-2">
-                        <p class="text-md-start">
-                            For corporate events, Serenade Strings adds a touch of sophistication, creating an atmosphere that is both refined 
-                            and engaging. Their ability to seamlessly transition between genres allows them to cater to diverse corporate 
-                            environments, from formal galas to more relaxed networking events.
-                        </p>
-                    </div>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-6 order-md-2">
-                        <h2 class="text-md-center">Pro Standard Excellence</h2>
-                    </div>
-                    <div class="col-12 col-md-6 order-md-1">
-                        <p class="text-md-start">
-                            Serenade Strings prides itself on maintaining the highest professional standards. The musicians' commitment to excellence is 
-                            evident in every note they play. Their performances are not just about music; they are about creating an immersive experience 
-                            that captivates and elevates any gathering.
-                        </p>
-                    </div>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-6 order-md-1">
-                        <h2 class="text-md-center">Beyond Boundaries</h2>
-                    </div>
-                    <div class="col-12 col-md-6 order-md-2">
-                        <p class="text-md-start">
-                            While Serenade Strings is based in the UK, their reputation extends globally. They have had the privilege of 
-                            performing at a variety of events, leaving an indelible mark on audiences around the world.
-                            Serenade Strings stands as a testament to the transformative power of live music. With their virtuosity, 
-                            passion, and commitment to excellence, they continue to redefine the art of musical performance, 
-                            making every event an unforgettable celebration of sound and emotion.
-                        </p>
-                    </div>
+                    
                 </div>
             </div>
+            
         </article>
     </main>
     {% endblock %}

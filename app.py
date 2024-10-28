@@ -9,7 +9,9 @@ def home():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    with open('static/json/about.json') as f:
+        about_data = json.load(f)  # This will be a list of dictionaries
+    return render_template('about.html', about_data=about_data)
 
 @app.route('/repertoire')
 def repertoire():

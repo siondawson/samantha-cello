@@ -416,6 +416,16 @@ transform-origin: bottom left;
     }
 }
 
+.aderyn-strings-round-logo {
+    
+    border-radius: 50%; /* Ensures it's circular */
+    width: 100%; /* Makes the logo responsive */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures the logo fills the container */
+}
+
+
+
 
 
 /* FAQS PAGE */
@@ -624,8 +634,8 @@ transform-origin: bottom left;
 }
 
 .agent-badge {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     position: relative;
     margin: 0 auto; /* Center the badge horizontally within its container */
     display: block;
