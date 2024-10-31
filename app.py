@@ -51,11 +51,6 @@ def faq():
     return render_template('faq.html', faqs=faq_data)
 
 
-@app.route('/gallery')
-def gallery():
-    return render_template('gallery.html')  # Create this template
-
-
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
