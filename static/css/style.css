@@ -448,34 +448,49 @@ transform-origin: bottom left;
 
 /* GALLERY PAGE */
 
-#gallery-banner {
-    background-image: url('/assets/images/violin.webp'); /* Replace 'your-banner-image.jpg' with the actual path to your banner image */
-    background-size: cover; /* Cover the entire container with the background image */
-    background-position: center; /* Center the background image */
-    height: 98px; /* Calculate the height to cover the remaining viewport height after subtracting the navigation bar height */
-    position: relative; /* Ensure proper positioning within the layout */
-    z-index: -1; /* Place the banner behind other elements (e.g., navigation bar) */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; 
+.img-gallery {
+    width: 80%;
+    margin: 100px auto 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 30px;
 }
-
-#gallery-banner h1 {
-    color: black; /* Text color */
-    text-align: center; /* Center the text */
-    padding-top: 20px; /* Add padding to the top of the content within the banner */
-    margin-bottom: 20px;
+.img-gallery img {
+    width: 250px; 
+    height: 250px;
+    object-fit: cover; 
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin: 0 auto;
 }
-
-#photos {
-    clear: both;
-    line-height: 0;
-    column-count: 1;
-    column-gap: 0px;
+.img-gallery img:hover {
+    transform: scale(1.1); /* Zoom in by 10% */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    object-fit: cover; 
 }
-
-#photos img {
-    width: 100%
+.full-img {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.full-img img {
+    width: 90%;
+    max-width: 1000px;
+}
+.full-img span { 
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
 }
 /* sm screens and up */
 @media screen and (min-width: 576px){ 

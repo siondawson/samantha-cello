@@ -84,6 +84,21 @@
                 </div>
             </div>
         </section>
+        <!-- gallery -->
+        <section>
+            <h2 class="text-center">Gallery</h2>
+            <div class="full-img" id="fullImgBox">
+                <img src="assets/images/samantha-blue-outfit-smile.webp" alt="" id="fullImg">
+                <span id="close">X</span>
+            </div>
+            <section class="img-gallery">
+                {% for img_path in image_paths %}
+                    <img src="{{ img_path }}" alt="Gallery Image" onclick="openFullImg('{{ img_path }}')">
+                {% endfor %}
+            </section>
+            
+            
+        </section> 
         
     </main>
 
@@ -93,6 +108,7 @@
     <script src="{{ url_for('static', filename='js/videos.js') }}"></script>
     <script src="{{ url_for('static', filename='js/transparent-nav.js') }}"></script>
     <script src="{{ url_for('static', filename='js/homepage-reviews.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
 
 {% endblock %}
 
