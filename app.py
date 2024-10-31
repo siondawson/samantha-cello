@@ -9,7 +9,18 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-from env import ADMIN_PASSWORD, SECRET_KEY, GMAIL_ADDRESS, GMAIL_APP_PASSWORD  # Import from env.py
+# Load environment variables based on the environment
+if os.getenv('FLASK_ENV') == 'development':
+    from env import ADMIN_PASSWORD, SECRET_KEY, GMAIL_ADDRESS, GMAIL_APP_PASSWORD
+else:
+    # In production, retrieve these from the environment
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    GMAIL_ADDRESS = os.getenv('GMAIL_ADDRESS')
+    GMAIL_APP_PASSWORD = os.getenv('GMAIL_APP_PASSWORD')
+
+# Ensure required variables are set
+if not all([SECRET_KEY, GMAIL_ADDRESS, GMAIL_APP_PASSWORD]):
+    raise ValueError("Missing environment variables. Please set SECRET_KEY, GMAIL_ADDRESS, and GMAIL_APP_PASSWORD.")
 
 
 app = Flask(__name__)

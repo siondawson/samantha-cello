@@ -23,23 +23,20 @@ body {
 /* FONTS */
 
 .logo-font {
-    font-family: 'Sacramento', cursive !important;
-    font-size: 300%;
+    font-family: 'Dancing Script', cursive !important;  /* Or any other whimsical font */
+}
+
+h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+p, a, button {
+    font-family: 'Quicksand', sans-serif;
 }
 
 .font-montserrat {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-}
-
-h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 100;
-}
-
-p, a, button {
-    font-family: 'Montserrat', sans-serif !important;
-    font-weight: 400;
 }
 
 .big-icons {
@@ -210,7 +207,7 @@ transform-origin: bottom left;
 
 @media (max-width: 1000px) { /* This a workaround to get the background image to look nice on iOS. Background scroll is not compatible. Scroll functionality sacrificed for a background img that will cover the entire background. Solution suggested by tutor Ed.*/
     .callout-container {
-        background: url("static/images/samantha-cello-forehead.webp") no-repeat center fixed; 
+        background: url("../images/samantha-cello-forehead.webp") no-repeat center fixed; 
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
