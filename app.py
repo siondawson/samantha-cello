@@ -7,12 +7,16 @@ from datetime import datetime
 
 import smtplib
 from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+from email.mime.multipart import MIMEMultipart\
+
+os.environ['FLASK_ENV'] = 'development'
 
 # Load environment variables based on the environment
 if os.getenv('FLASK_ENV') == 'development':
+    print("Loading environment variables from env.py")
     from env import ADMIN_PASSWORD, SECRET_KEY, GMAIL_ADDRESS, GMAIL_APP_PASSWORD
 else:
+    print("Loading environment variables from os.environ")
     # In production, retrieve these from the environment
     SECRET_KEY = os.getenv('SECRET_KEY')
     GMAIL_ADDRESS = os.getenv('GMAIL_ADDRESS')
@@ -21,6 +25,7 @@ else:
 # Ensure required variables are set
 if not all([SECRET_KEY, GMAIL_ADDRESS, GMAIL_APP_PASSWORD]):
     raise ValueError("Missing environment variables. Please set SECRET_KEY, GMAIL_ADDRESS, and GMAIL_APP_PASSWORD.")
+
 
 
 app = Flask(__name__)
@@ -50,7 +55,9 @@ def about():
 
 @app.route('/repertoire')
 def repertoire():
-    return render_template('repertoire.html')  # Create this template
+    with open('static/json/repertoire.json') as f:
+        songs = json.load(f)  # Load songs from the JSON file
+    return render_template('repertoire.html', songs=songs)
 
 
 @app.route('/faq')
