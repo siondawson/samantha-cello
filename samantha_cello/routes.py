@@ -2,6 +2,8 @@ from flask import render_template, request, redirect, session
 import os
 import json
 import random
+import dropbox
+from dropbox.exceptions import AuthError, ApiError
 from datetime import datetime
 import smtplib
 from email.mime.text import MIMEText
@@ -12,6 +14,8 @@ from samantha_cello import app  # Import app from __init__.py
 GMAIL_ADDRESS = os.getenv("GMAIL_ADDRESS")
 GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
+DROPBOX_ACCESS_TOKEN = os.getenv("DROPBOX_ACCESS_TOKEN")
+dbx = dropbox.Dropbox(DROPBOX_ACCESS_TOKEN)
 
 @app.route('/')
 def home():
@@ -58,6 +62,7 @@ def contact():
             'converted': False
         }
 
+        # Email handling (remains unchanged)
         sender_email = GMAIL_ADDRESS
         receiver_email = GMAIL_ADDRESS
         password = GMAIL_APP_PASSWORD
@@ -86,23 +91,33 @@ def contact():
         except Exception as e:
             print(f"Error sending email: {e}")
 
-        os.makedirs('samantha_cello/static/json', exist_ok=True)
-
+        # Save enquiry to Dropbox
         try:
-            with open('samantha_cello/static/json/enquiries.json', 'r') as file:
-                enquiries = json.load(file)
-        except (FileNotFoundError, json.JSONDecodeError):
-            enquiries = []
+            # Retrieve existing enquiries from Dropbox
+            _, res = dbx.files_download('/Apps/samantha_cello/enquiries.json')
+            enquiries = json.loads(res.content)
+        except dropbox.exceptions.HttpError as e:
+            if isinstance(e, dropbox.exceptions.ApiError):
+                # If the file does not exist, start with an empty list
+                if e.is_path() and e.get_path().is_not_found():
+                    enquiries = []
+                else:
+                    print(f"Error downloading file: {e}")
+                    enquiries = []  # Start with an empty list on other API errors
+            else:
+                enquiries = []  # Start with an empty list on unexpected errors
 
+        # Append the new enquiry
         enquiries.append(enquiry)
 
-        with open('samantha_cello/static/json/enquiries.json', 'w') as file:
-            json.dump(enquiries, file, indent=4)
+        # Save the updated enquiries back to Dropbox
+        dbx.files_upload(json.dumps(enquiries).encode(), '/Apps/samantha_cello/enquiries.json', mode=dropbox.files.WriteMode('overwrite'))
 
         message = "Thank you, your message has been received."
         return render_template('contact.html', message=message, enquiry=enquiry)
 
     return render_template('contact.html')
+
 
 @app.route('/enquiries', methods=['GET', 'POST'])
 def enquiries():
@@ -112,12 +127,23 @@ def enquiries():
             session['authenticated'] = True
 
     if 'authenticated' in session and session['authenticated']:
-        try:
-            with open('samantha_cello/static/json/enquiries.json', 'r') as file:
-                enquiries = json.load(file)
-        except (FileNotFoundError, JSONDecodeError):
-            enquiries = []
+        enquiries = []
 
+        try:
+            # Attempt to download the enquiries.json file
+            _, res = dbx.files_download('/Apps/samantha_cello/enquiries.json')
+            enquiries = json.loads(res.content)
+        except dropbox.exceptions.ApiError as e:
+            if e.is_path() and e.get_path().is_not_found():
+                # If the file doesn't exist, create it with an empty JSON array
+                empty_json = []
+                dbx.files_upload(json.dumps(empty_json).encode(), '/Apps/samantha_cello/enquiries.json')
+                enquiries = []  # Initialize with an empty list
+            else:
+                # Handle other API errors accordingly
+                return f"Error retrieving enquiries: {str(e)}", 500
+
+        # Format the submitted_at date for display
         for enquiry in enquiries:
             original_date = datetime.fromisoformat(enquiry['submitted_at'])
             enquiry['submitted_at'] = original_date.strftime('%d/%m/%y %H:%M')
@@ -126,19 +152,22 @@ def enquiries():
 
     return render_template('enquiries.html')
 
+
+
 @app.route('/update/<int:index>', methods=['POST'])
 def update_enquiry(index):
     try:
-        with open('samantha_cello/static/json/enquiries.json', 'r') as file:
-            enquiries = json.load(file)
-    except (FileNotFoundError, JSONDecodeError):
+        # Download the enquiries JSON file from Dropbox
+        _, response = dbx.files_download('/enquiries.json')
+        enquiries = json.loads(response.content)
+    except (dropbox.exceptions.HttpError, json.JSONDecodeError):
         return "Error loading enquiries.", 404
 
     if 0 <= index < len(enquiries):
         enquiries[index]['converted'] = not enquiries[index]['converted']
 
-        with open('samantha_cello/static/json/enquiries.json', 'w') as file:
-            json.dump(enquiries, file, indent=4)
+        # Upload the updated enquiries JSON file back to Dropbox
+        dbx.files_upload(json.dumps(enquiries).encode('utf-8'), '/enquiries.json', mode=dropbox.files.WriteMode.overwrite)
 
     return redirect('/enquiries')
 
