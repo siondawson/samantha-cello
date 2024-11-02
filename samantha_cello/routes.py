@@ -22,6 +22,7 @@ def home():
     gallery_dir = 'samantha_cello/static/images/gallery/'
     image_paths = [os.path.join(gallery_dir, img) for img in os.listdir(gallery_dir) if img.endswith(('.png', '.jpg', '.jpeg', '.webp'))]
     random.shuffle(image_paths)
+    print(image_paths)
     return render_template('index.html', image_paths=image_paths)
 
 @app.route('/about')

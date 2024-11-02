@@ -24,6 +24,7 @@ body {
 
 .logo-font {
     font-family: 'Dancing Script', cursive !important;  /* Or any other whimsical font */
+    font-size: 40px;
 }
 
 h2, h3, h4, h5, h6 {
@@ -110,8 +111,9 @@ p, a, button {
 
 .navbar {
     width: 100%;
-    background-color: #0000007d;
+    background-color: #000000;
     transition: background-color 0.5s ease;
+    min-height: 80px;
 }
 
 
