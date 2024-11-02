@@ -622,7 +622,7 @@ transform-origin: bottom left;
 /* FOOTER */
 
 .footer {
-    background-color: #fafafa;
+    background-color: #000;
     width: 100%;
     overflow-x: hidden;
   }
@@ -639,7 +639,7 @@ transform-origin: bottom left;
 
 .footer-icon-list a {
     text-decoration: none !important;
-    color: #000000;
+    color: #fff;
 }
 
 .agent-container {
