@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, session
+from flask import render_template, request, redirect, session, jsonify
 import os
 import json
 import random
@@ -91,27 +91,28 @@ def contact():
         except Exception as e:
             print(f"Error sending email: {e}")
 
-        # Save enquiry to Dropbox
+        # Retrieve existing enquiries from Dropbox or initialize a new list if the file doesn’t exist
         try:
-            # Retrieve existing enquiries from Dropbox
-            _, res = dbx.files_download('/Apps/samantha_cello/enquiries.json')
+            _, res = dbx.files_download('/enquiries.json')
             enquiries = json.loads(res.content)
-        except dropbox.exceptions.HttpError as e:
-            if isinstance(e, dropbox.exceptions.ApiError):
-                # If the file does not exist, start with an empty list
-                if e.is_path() and e.get_path().is_not_found():
-                    enquiries = []
-                else:
-                    print(f"Error downloading file: {e}")
-                    enquiries = []  # Start with an empty list on other API errors
+        except dropbox.exceptions.ApiError as e:
+            # If file not found, start with an empty list
+            if e.error.is_path() and e.error.get_path().is_not_found():
+                enquiries = []
             else:
-                enquiries = []  # Start with an empty list on unexpected errors
+                print(f"Error downloading file: {e}")
+                return "An error occurred", 500
 
         # Append the new enquiry
         enquiries.append(enquiry)
 
         # Save the updated enquiries back to Dropbox
-        dbx.files_upload(json.dumps(enquiries).encode(), '/Apps/samantha_cello/enquiries.json', mode=dropbox.files.WriteMode('overwrite'))
+        # To append to the existing file, we must overwrite the entire content
+        try:
+            dbx.files_upload(json.dumps(enquiries).encode(), '/enquiries.json', mode=dropbox.files.WriteMode('overwrite'))
+        except Exception as e:
+            print(f"Error uploading file: {e}")
+            return "An error occurred", 500
 
         message = "Thank you, your message has been received."
         return render_template('contact.html', message=message, enquiry=enquiry)
@@ -127,23 +128,41 @@ def enquiries():
             session['authenticated'] = True
 
     if 'authenticated' in session and session['authenticated']:
-        enquiries = []
-
+        # Define the Dropbox path for the enquiries JSON file
+        dropbox_path = '/enquiries.json'
+        
         try:
-            # Attempt to download the enquiries.json file
-            _, res = dbx.files_download('/Apps/samantha_cello/enquiries.json')
+            # Attempt to download the file
+            print(f"Attempting to download from path: {dropbox_path}")
+            _, res = dbx.files_download(dropbox_path)
+            
+            # Load the JSON data from the response content
             enquiries = json.loads(res.content)
-        except dropbox.exceptions.ApiError as e:
-            if e.is_path() and e.get_path().is_not_found():
-                # If the file doesn't exist, create it with an empty JSON array
-                empty_json = []
-                dbx.files_upload(json.dumps(empty_json).encode(), '/Apps/samantha_cello/enquiries.json')
-                enquiries = []  # Initialize with an empty list
-            else:
-                # Handle other API errors accordingly
-                return f"Error retrieving enquiries: {str(e)}", 500
+            print("File found and loaded successfully.")
 
-        # Format the submitted_at date for display
+        except dropbox.exceptions.ApiError as e:
+            # Check if the error is due to the file not being found
+            if isinstance(e.error, dropbox.files.DownloadError) and e.error.is_path() and e.error.get_path().is_not_found():
+                print("File not found. Creating a new enquiries.json file in Dropbox...")
+                enquiries = []
+
+                # Attempt to upload an empty JSON file to create it
+                try:
+                    dbx.files_upload(
+                        json.dumps(enquiries).encode('utf-8'),
+                        dropbox_path,
+                        mode=dropbox.files.WriteMode('overwrite')
+                    )
+                    print("New enquiries.json file created successfully.")
+                except Exception as upload_error:
+                    print("Error uploading file to Dropbox:", upload_error)
+                    enquiries = []
+            else:
+                # Log any other errors
+                print("Error accessing Dropbox:", e)
+                enquiries = []
+
+        # Format dates for display
         for enquiry in enquiries:
             original_date = datetime.fromisoformat(enquiry['submitted_at'])
             enquiry['submitted_at'] = original_date.strftime('%d/%m/%y %H:%M')
@@ -153,23 +172,22 @@ def enquiries():
     return render_template('enquiries.html')
 
 
+@app.route('/update/<int:enquiry_index>', methods=['POST'])
+def update_enquiry(enquiry_index):
+    # Load the existing enquiries from Dropbox
+    _, res = dbx.files_download('/enquiries.json')
+    enquiries = json.loads(res.content)
 
-@app.route('/update/<int:index>', methods=['POST'])
-def update_enquiry(index):
-    try:
-        # Download the enquiries JSON file from Dropbox
-        _, response = dbx.files_download('/enquiries.json')
-        enquiries = json.loads(response.content)
-    except (dropbox.exceptions.HttpError, json.JSONDecodeError):
-        return "Error loading enquiries.", 404
+    # Toggle the converted status
+    enquiries[enquiry_index]['converted'] = not enquiries[enquiry_index]['converted']
 
-    if 0 <= index < len(enquiries):
-        enquiries[index]['converted'] = not enquiries[index]['converted']
-
-        # Upload the updated enquiries JSON file back to Dropbox
-        dbx.files_upload(json.dumps(enquiries).encode('utf-8'), '/enquiries.json', mode=dropbox.files.WriteMode.overwrite)
+    # Save the updated enquiries back to Dropbox
+    dbx.files_upload(json.dumps(enquiries).encode(), '/enquiries.json', mode=dropbox.files.WriteMode('overwrite'))
 
     return redirect('/enquiries')
+
+
+
 
 @app.route('/logout', methods=['POST'])
 def logout():

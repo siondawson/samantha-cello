@@ -25,7 +25,8 @@
                                 <h5 class="card-title">{{ enquiry.name }}</h5>
                                 <p class="card-text"><strong>Email:</strong> {{ enquiry.email }}</p>
                                 <p class="card-text"><strong>Phone:</strong> {{ enquiry.phone }}</p>
-                                <p class="card-text"><strong>Message:</strong> {{ enquiry.message }}</p>
+                                <p class="card-text"><strong>Message:</strong></p>
+                                <p>{{ enquiry.message }}</p>
                                 <p class="card-text"><strong>Submitted At:</strong> {{ enquiry.submitted_at }}</p>
                                 <p class="card-text"><strong>Converted:</strong> {{ enquiry.converted }}</p>
                                 <form method="POST" action="/update/{{ loop.index0 }}">
