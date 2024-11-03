@@ -28,11 +28,15 @@ jsonbin_headers = {
 @app.route('/')
 def home():
     gallery_dir = 'samantha_cello/static/images/gallery/'
-    # Get only the filenames
     image_paths = [img for img in os.listdir(gallery_dir) if img.endswith(('.png', '.jpg', '.jpeg', '.webp'))]
     random.shuffle(image_paths)
-    print(image_paths)
-    return render_template('index.html', image_paths=image_paths)
+
+    # Load reviews from JSON
+    with open('samantha_cello/static/json/reviews.json', 'r') as f:
+        reviews = json.load(f)
+
+    return render_template('index.html', image_paths=image_paths, reviews=reviews)
+
 
 
 @app.route('/about')
