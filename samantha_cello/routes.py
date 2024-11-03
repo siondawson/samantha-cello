@@ -1,21 +1,29 @@
 from flask import render_template, request, redirect, session, jsonify
 import os
 import json
+import requests
 import random
-import dropbox
-from dropbox.exceptions import AuthError, ApiError
 from datetime import datetime
-import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import smtplib
 from samantha_cello import app  # Import app from __init__.py
 
 # Environment variables for email
 GMAIL_ADDRESS = os.getenv("GMAIL_ADDRESS")
 GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
-DROPBOX_ACCESS_TOKEN = os.getenv("DROPBOX_ACCESS_TOKEN")
-dbx = dropbox.Dropbox(DROPBOX_ACCESS_TOKEN)
+# JSONBin.io config
+JSONBIN_API_KEY = os.getenv('JSONBIN_API_KEY')
+JSONBIN_BIN_ID = os.getenv('JSONBIN_BIN_ID')
+JSONBIN_URL = f'https://api.jsonbin.io/v3/b/{JSONBIN_BIN_ID}'
+
+
+# Headers for JSONBin requests
+jsonbin_headers = {
+    'Content-Type': 'application/json',
+    'X-Master-Key': JSONBIN_API_KEY
+}
 
 @app.route('/')
 def home():
@@ -66,9 +74,9 @@ def contact():
         }
 
         # Email handling (remains unchanged)
-        sender_email = GMAIL_ADDRESS
-        receiver_email = GMAIL_ADDRESS
-        password = GMAIL_APP_PASSWORD
+        sender_email = os.getenv('GMAIL_ADDRESS')
+        receiver_email = os.getenv('GMAIL_ADDRESS')
+        password = os.getenv('GMAIL_APP_PASSWORD')
         subject = "New Contact Form Submission"
         body = f"""
         <html><body><h2>New Contact Form Submission from {name}</h2>
@@ -94,27 +102,29 @@ def contact():
         except Exception as e:
             print(f"Error sending email: {e}")
 
-        # Retrieve existing enquiries from Dropbox or initialize a new list if the file doesn’t exist
+        # Retrieve existing enquiries from JSONBin
         try:
-            _, res = dbx.files_download('/enquiries.json')
-            enquiries = json.loads(res.content)
-        except dropbox.exceptions.ApiError as e:
-            # If file not found, start with an empty list
-            if e.error.is_path() and e.error.get_path().is_not_found():
-                enquiries = []
+            response = requests.get(JSONBIN_URL, headers=jsonbin_headers)
+            if response.status_code == 200:
+                enquiries = response.json()['record']
             else:
-                print(f"Error downloading file: {e}")
-                return "An error occurred", 500
+                enquiries = []
+                print(f"Failed to retrieve enquiries: {response.status_code}")
+        except Exception as e:
+            print(f"Error retrieving enquiries: {e}")
+            return "An error occurred", 500
 
         # Append the new enquiry
         enquiries.append(enquiry)
 
-        # Save the updated enquiries back to Dropbox
-        # To append to the existing file, we must overwrite the entire content
+        # Save the updated enquiries back to JSONBin
         try:
-            dbx.files_upload(json.dumps(enquiries).encode(), '/enquiries.json', mode=dropbox.files.WriteMode('overwrite'))
+            response = requests.put(JSONBIN_URL, headers=jsonbin_headers, json=enquiries)
+            if response.status_code != 200:
+                print(f"Failed to save enquiry: {response.status_code}")
+                return "An error occurred", 500
         except Exception as e:
-            print(f"Error uploading file: {e}")
+            print(f"Error saving enquiry: {e}")
             return "An error occurred", 500
 
         message = "Thank you, your message has been received."
@@ -127,43 +137,20 @@ def contact():
 def enquiries():
     if request.method == 'POST':
         password = request.form['password']
-        if password == ADMIN_PASSWORD:
+        if password == os.getenv('ADMIN_PASSWORD'):
             session['authenticated'] = True
 
     if 'authenticated' in session and session['authenticated']:
-        # Define the Dropbox path for the enquiries JSON file
-        dropbox_path = '/enquiries.json'
-        
         try:
-            # Attempt to download the file
-            print(f"Attempting to download from path: {dropbox_path}")
-            _, res = dbx.files_download(dropbox_path)
-            
-            # Load the JSON data from the response content
-            enquiries = json.loads(res.content)
-            print("File found and loaded successfully.")
-
-        except dropbox.exceptions.ApiError as e:
-            # Check if the error is due to the file not being found
-            if isinstance(e.error, dropbox.files.DownloadError) and e.error.is_path() and e.error.get_path().is_not_found():
-                print("File not found. Creating a new enquiries.json file in Dropbox...")
-                enquiries = []
-
-                # Attempt to upload an empty JSON file to create it
-                try:
-                    dbx.files_upload(
-                        json.dumps(enquiries).encode('utf-8'),
-                        dropbox_path,
-                        mode=dropbox.files.WriteMode('overwrite')
-                    )
-                    print("New enquiries.json file created successfully.")
-                except Exception as upload_error:
-                    print("Error uploading file to Dropbox:", upload_error)
-                    enquiries = []
+            response = requests.get(JSONBIN_URL, headers=jsonbin_headers)
+            if response.status_code == 200:
+                enquiries = response.json()['record']
             else:
-                # Log any other errors
-                print("Error accessing Dropbox:", e)
+                print(f"Failed to retrieve enquiries: {response.status_code}")
                 enquiries = []
+        except Exception as e:
+            print(f"Error accessing JSONBin: {e}")
+            enquiries = []
 
         # Format dates for display
         for enquiry in enquiries:
@@ -177,19 +164,31 @@ def enquiries():
 
 @app.route('/update/<int:enquiry_index>', methods=['POST'])
 def update_enquiry(enquiry_index):
-    # Load the existing enquiries from Dropbox
-    _, res = dbx.files_download('/enquiries.json')
-    enquiries = json.loads(res.content)
+    try:
+        response = requests.get(JSONBIN_URL, headers=jsonbin_headers)
+        if response.status_code == 200:
+            enquiries = response.json()['record']
+        else:
+            print(f"Failed to retrieve enquiries: {response.status_code}")
+            return "An error occurred", 500
+    except Exception as e:
+        print(f"Error retrieving enquiries: {e}")
+        return "An error occurred", 500
 
     # Toggle the converted status
     enquiries[enquiry_index]['converted'] = not enquiries[enquiry_index]['converted']
 
-    # Save the updated enquiries back to Dropbox
-    dbx.files_upload(json.dumps(enquiries).encode(), '/enquiries.json', mode=dropbox.files.WriteMode('overwrite'))
+    # Save the updated enquiries back to JSONBin
+    try:
+        response = requests.put(JSONBIN_URL, headers=jsonbin_headers, json=enquiries)
+        if response.status_code != 200:
+            print(f"Failed to update enquiry: {response.status_code}")
+            return "An error occurred", 500
+    except Exception as e:
+        print(f"Error updating enquiry: {e}")
+        return "An error occurred", 500
 
     return redirect('/enquiries')
-
-
 
 
 @app.route('/logout', methods=['POST'])
