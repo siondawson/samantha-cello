@@ -148,7 +148,7 @@ p, a, button {
 
 
 .navbar-home { /* transparent nav bar originally applied to home page. Now site wide */
-    background-color: #0000007d;
+    background-color: #000000;
     transition: background-color 0.5s ease;
     width: 100%;
     z-index: 10;
@@ -163,11 +163,11 @@ p, a, button {
 } */
 
 .navbar-home.opaque-background {
-    background-color: #333333; /* Change to your desired color */
+    background-color: #000000; /* Change to your desired color */
 }
 
 .navbar-home-transparent.opaque-background {
-    background-color: #333333; /* Change to your desired color */
+    background-color: #000000; /* Change to your desired color */
 }
 
 .nav-link {
@@ -202,6 +202,19 @@ transform-origin: bottom left;
 .navbar-nav .nav-link {
     font-weight: 600; /* or use another value like 600, 700, etc. */
 }  
+
+.logo-image {
+    height: 80px; /* Default height for larger screens */
+    width: auto;
+}
+
+/* Media query for devices with a maximum width of 362px */
+@media (max-width: 362px) {
+    .logo-image {
+        height: 60px; /* Adjust height for smaller screens */
+    }
+}
+
   
 /* HOME PAGE */
 
@@ -267,16 +280,15 @@ transform-origin: bottom left;
 }
 
 .small-medium-screen-explore-btn {
-    position: absolute;
-    top: 80%;  /* Adjust to position vertically within the top third */
-    left: 25%; /* Adjust to position horizontally to the left */
-    transform: translate(0, 0); /* Ensure no centering from previous styles */
-    width: 50%; /* Optional: Control width */
+
+    width: 50%; /* Control width */
+    position: relative;
     padding: 2.5rem;
     background-color: rgba(0, 0, 0, 0.0); /* Semi-transparent background */
-    text-align: left;
+    text-align: center; /* Center text inside the button */
     color: white;
 }
+
 
 .jumbotron.remove-background {
     background-color: transparent !important;
@@ -488,7 +500,7 @@ transform-origin: bottom left;
     margin-top: 0;
 }
 
-/* GALLERY PAGE */
+/* GALLERY */
 
 .img-gallery {
     width: 80%;
@@ -537,7 +549,7 @@ transform-origin: bottom left;
 /* sm screens and up */
 @media screen and (min-width: 576px){ 
     #photos{
-        column-count: 1;
+        column-count: 2;
     }
 }
 /* md screens and up */

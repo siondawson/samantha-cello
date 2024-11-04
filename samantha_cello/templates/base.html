@@ -18,7 +18,9 @@
         <div class="container-fluid navalert-container">
              <nav class="navbar-home-transparent navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand text-white logo-font" href="index.html">Samantha Cello</a>
+                    <a class="navbar-brand" href="index.html">
+                        <img src="{{ url_for('static', filename='images/logos/samantha-cello-logo-white.png') }}" alt="Samantha Cello Logo" class="logo-image">
+                    </a>                    
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -54,13 +56,24 @@
         <footer class="footer mt-auto">
             <div class="container">
                 <div class="row justify-content-center p-3">
-                    <div class="col-sm-12 col-md-4 text-center text-white">
-                        <ul class="footer-icon-list">
-                            <li><a href="https://www.youtube.com/channel/UC2Zzr7n2rOFXWL53pgNSaHQ" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
-                            <li><a href="https://www.instagram.com/serenadestrings_uk/?igsh=NWtoM295NGcyZ3Zi&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <div class="col-12 text-center"> <!-- Added text-center class to center content -->
+                        <img src="{{ url_for('static', filename='images/logos/samantha-cello-logo-white.png') }}" alt="Samantha Cello Logo" class="logo-image img-fluid">
+                    </div> 
+                    <div class="col-sm-12 col-md-4 text-white d-flex flex-column align-items-center">
+                        <ul class="footer-icon-list list-unstyled text-center">
+                            <li class="mb-2">
+                                <a href="https://www.youtube.com/channel/UC2Zzr7n2rOFXWL53pgNSaHQ" target="_blank" class="d-flex align-items-center">
+                                    <i class="fab fa-youtube me-2"></i> YouTube
+                                </a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="https://www.instagram.com/serenadestrings_uk/?igsh=NWtoM295NGcyZ3Zi&utm_source=qr" target="_blank" class="d-flex align-items-center">
+                                    <i class="fab fa-instagram me-2"></i> Instagram
+                                </a>
+                            </li>
                         </ul>
-                    </div>
-                    <div class="col-sm-12 col-md-4 text-center">
+                    </div>                    
+                    <div class="col-sm-12 col-md-4 text-center pb-3">
                         <a href="contact.html" class="btn btn-primary">Make Enquiry</a>
                     </div>
                     <div class="row pt-sm-3">
