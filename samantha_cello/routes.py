@@ -64,14 +64,15 @@ def contact():
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
-        phone = request.form['phone']
+        # Set phone to None if it's empty; otherwise, use the provided value
+        phone = request.form['phone'] if request.form['phone'] else None
         message = request.form['message']
         submitted_at = datetime.now().isoformat()
 
         enquiry = {
             'name': name,
             'email': email,
-            'phone': phone,
+            'phone': phone,  # This will be None if not provided
             'message': message,
             'submitted_at': submitted_at,
             'converted': False
@@ -86,7 +87,7 @@ def contact():
         <html><body><h2>New Contact Form Submission from {name}</h2>
         <p><strong>Name:</strong> {name}</p>
         <p><strong>Email:</strong> {email}</p>
-        <p><strong>Phone:</strong> {phone}</p>
+        <p><strong>Phone:</strong> {phone if phone else 'None'}</p>
         <p><strong>Message:</strong></p>
         <p>{message}</p></body></html>
         """

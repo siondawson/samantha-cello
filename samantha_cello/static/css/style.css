@@ -113,6 +113,46 @@ p, a, button, ul, li {
 }
 
 
+.btn-warning {
+    font-size: 1.25rem;         /* Makes it larger than an average button */
+    padding: 0.75rem 2rem;     /* Adjusts padding for a spacious look */
+    color: white;
+    border: 2px solid white;   /* Subtle, upscale border */
+    background-color: transparent;
+    text-transform: uppercase; /* Gives it a classy, sophisticated look */
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-block;
+    
+}
+
+.btn-warning:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Adds a gentle highlight */
+    color: white;
+    border-color: white;
+}
+
+
+.btn-secondary {
+    font-size: 1.25rem;         /* Makes it larger than an average button */
+    padding: 0.75rem 2rem;     /* Adjusts padding for a spacious look */
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);   /* Subtle, upscale border */
+    background-color: transparent;
+    text-transform: uppercase; /* Gives it a classy, sophisticated look */
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-block;
+    
+}
+
+.btn-secondary:hover {
+    background-color: rgb(0, 0, 0); /* Adds a gentle highlight */
+    color: rgb(255, 255, 255);
+    border-color: rgb(0, 0, 0);
+}
+
+
 
 
 /* NAVBAR */
@@ -608,10 +648,8 @@ transform-origin: bottom left;
 
 /* CONTACT PAGE */
 
-/* Contact Section Styles */
 #contact {
-    background-color: #f8f9fa; /* Optional: background color for the section */
-    height: 80vh;
+    min-height: 60vh;
 }
 
 .contact-form {
@@ -728,12 +766,15 @@ transform-origin: bottom left;
 }
 
 .agent-badge {
-    width: 150px;
-    height: 150px;
+    width: 150px; /* Fixed width */
+    height: 150px; /* Fixed height */
     position: relative;
     margin: 0 auto; /* Center the badge horizontally within its container */
     display: block;
+    border-radius: 50%; /* Ensure all badges are circular */
+    object-fit: cover; /* Cover the entire badge area without distortion */
 }
+
 
 /* Optional: If you want to center the badges vertically within the container */
 .agent-badge-wrapper {
