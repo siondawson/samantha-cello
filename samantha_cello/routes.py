@@ -27,6 +27,13 @@ jsonbin_headers = {
 
 @app.route('/')
 def home():
+    title = "Samantha Cello | Solo Cello Music for Weddings and Events"
+    meta_description = """Welcome to Samantha Cello's website, your premier choice for wedding music in Cardiff, South Wales.
+                          Specialising in enchanting cello performances, available for events across the UK, including London and surrounding areas.
+                          Book now for a magical musical experience!"""
+    print(title)
+    print(meta_description)
+
     gallery_dir = 'samantha_cello/static/images/gallery/'
     image_paths = [img for img in os.listdir(gallery_dir) if img.endswith(('.png', '.jpg', '.jpeg', '.webp'))]
     random.shuffle(image_paths)
@@ -35,32 +42,47 @@ def home():
     with open('samantha_cello/static/json/reviews.json', 'r') as f:
         reviews = json.load(f)
 
-    return render_template('index.html', image_paths=image_paths, reviews=reviews)
+    return render_template('index.html', image_paths=image_paths, reviews=reviews, title=title, meta_description=meta_description)
 
 
 
 @app.route('/about')
 def about():
+    title = "About | Samantha Cello | Solo Cello Music for Weddings and Events"
+    meta_description = """Welcome to Samantha Cello's website, your premier choice for wedding music in Cardiff, South Wales.
+                          Specialising in enchanting cello performances, available for events across the UK, including London and surrounding areas.
+                          Book now for a magical musical experience!"""
     with open('samantha_cello/static/json/about.json') as f:
         about_data = json.load(f)
-    return render_template('about.html', about_data=about_data)
+    return render_template('about.html', about_data=about_data, title=title, meta_description=meta_description)
 
 @app.route('/repertoire')
 def repertoire():
+    title = "Repertoire | Samantha Cello | Solo Cello Music for Weddings and Events"
+    meta_description = """Discover the enchanting repertoire of Samantha Cello, your premier wedding musician based in Cardiff, South Wales. 
+                        Browse through our diverse selection of pieces, perfect for any occasion, including weddings and events across the UK. 
+                        Book now to bring beautiful music to your special day!"""
     with open('samantha_cello/static/json/repertoire.json') as f:
         songs = json.load(f)
-    return render_template('repertoire.html', songs=songs)
+    return render_template('repertoire.html', songs=songs, title=title, meta_description=meta_description)
 
 @app.route('/faq')
 def faq():
+    title = "Faqs |Samantha Cello | Solo Cello Music for Weddings and Events"
+    meta_description = """Have questions about hiring Samantha Cello for your wedding or event in Cardiff, South Wales? 
+                            Explore our FAQ page for answers to common inquiries about performance details, booking processes, and more. 
+                            Get all the information you need to ensure a magical musical experience!"""
     json_path = os.path.join(app.root_path, 'static/json/faq.json')
     with open(json_path) as f:
         faq_data = json.load(f)
-    return render_template('faq.html', faqs=faq_data)
+    return render_template('faq.html', faqs=faq_data, title=title, meta_description=meta_description)
 
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
+    title = "Contact | Samantha Cello | Solo Cello Music for Weddings and Events"
+    meta_description = """Get in touch with Samantha Cello for exceptional wedding music services in Cardiff and beyond. 
+                          Fill out our contact form for a free, no-obligation quote, and let us bring the perfect sound to your special day!"""
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
@@ -133,7 +155,7 @@ def contact():
             return "An error occurred", 500
 
         message = "Thank you, your message has been received."
-        return render_template('contact.html', message=message, enquiry=enquiry)
+        return render_template('contact.html', message=message, enquiry=enquiry, title=title, meta_description=meta_description)
 
     return render_template('contact.html')
 
