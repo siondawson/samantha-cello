@@ -1,16 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 <main>
-    <section id="contact">
+    <section id="contact py-5 my-5">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-md-6 col-lg-4 g-0 text-center py-5"> <!-- Centering the content -->
+                <div class="col-md-6 col-lg-4 g-0 d-flex align-items-center justify-content-center"> <!-- Centering the image -->
+                    <div class="image-container">
+                        <img src="{{ url_for('static', filename='images/samantha-blue-outfit-smile.webp') }}" alt="Contact Image" class="contact-image">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 g-0 py-5"> <!-- Form Column -->
                     {% if message %}
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-success text-center" role="alert">
                             {{ message }}
                         </div>
-                        <h2>Your Submitted Details:</h2>
-                        <ul class="list-unstyled">
+                        <h2 class="text-center">Your Submitted Details:</h2>
+                        <ul class="list-unstyled text-center">
                             <li><strong>Name:</strong> {{ enquiry.name }}</li>
                             <li><strong>Email:</strong> {{ enquiry.email }}</li>
                             <li><strong>Phone:</strong> {{ enquiry.phone }}</li>
@@ -18,9 +23,9 @@
                         </ul>
                     {% else %}
                         <form method="POST" id="form" class="contact-form text-white p-4" autocomplete="on">
-                            <h1 class="font-montserrat mb-4">Get In Touch</h1>
+                            <h1 class="mb-4">Get In Touch</h1>
                             <p class="mb-4">
-                                Fill out the form below for a free, no-obligation quote. We aim to respond to all enquiries on the day. If you don't receive a reply, please check your junk. Alternatively, you can call us directly at 07792 091467.
+                                Fill out the form below for a free, no-obligation quote. I aim to respond to all enquiries on the day. If you don't receive a reply, please check your spam folder. Alternatively, you can call me directly at 07555 685947.
                             </p>
                             <div class="form-group">
                                 <label for="name">Name</label>
@@ -38,7 +43,7 @@
                                 <label for="message">Message</label>
                                 <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
                             </div>
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex justify-content-center mt-3">
                                 <button type="submit" class="btn btn-primary">Submit Form</button>
                             </div>
                         </form>
