@@ -2,25 +2,28 @@
         {% block meta_description %}{{ meta_description }}{% endblock %}
         {% block title %}{{ title }}{% endblock %}
         {% block content %}
-        <main>
-            <!-- callout -->
-            <section>
-                <div class="container-fluid callout-container">
-                    <div class="opaque-overlay">&nbsp;</div>
-                    <div class="row">
-                        <div class="col-12 d-none d-lg-block">
-                            <div class="callout text-center text-white rounded jumbotron">
-                                <a href="#about" class="btn btn-lg btn-danger text-center mt-5">Explore</a>
-                            </div>
+        <section>
+            <div class="container-fluid callout-container">
+                <div class="opaque-overlay">&nbsp;</div>
+                <div class="row">
+                    <div class="col-12 d-none d-lg-block">
+                        <!-- Visually hidden heading for SEO -->
+                        <h1 class="visually-hidden">Wedding Cellist based in Cardiff.</h1>
+                        <div class="callout text-center text-white rounded jumbotron">
+                            <a href="#about" class="btn btn-lg btn-danger text-center mt-5">Explore</a>
                         </div>
-                        <div class="col-12 d-lg-none small-medium-screen-explore-btn mt-5">
-                            <div class="callout text-center text-white rounded">
-                                <a href="#about" class="btn btn-lg btn-danger text-center mt-5">Explore</a>
-                            </div>
-                        </div>                    
                     </div>
+                    <div class="col-12 d-lg-none small-medium-screen-explore-btn mt-5">
+                        <!-- Visually hidden heading for SEO -->
+                        <h1 class="visually-hidden">Wedding Cellist based in Cardiff</h1>
+                        <div class="callout text-center text-white rounded">
+                            <a href="#about" class="btn btn-lg btn-danger text-center mt-5">Explore</a>
+                        </div>
+                    </div>                    
                 </div>
-            </section>
+            </div>
+        </section>
+        
             
             <!-- about -->
             <section class="bg-off-white" id="about">
@@ -99,7 +102,7 @@
             <section>
                 <h2 class="text-center pt-5">Gallery</h2>
                 <div class="full-img" id="fullImgBox" style="display: none;">
-                    <img src="" alt="Full Image" id="fullImg">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/8X+Jz0AAAAASUVORK5CYII=" alt="Full Image" id="fullImg">
                     <span id="close" onclick="closeFullImg()">X</span>
                 </div>
                 <div class="img-gallery">
@@ -110,7 +113,6 @@
             </section>
             
             
-        </main>
 
     {% endblock %}  
 
