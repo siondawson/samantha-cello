@@ -28,7 +28,7 @@ jsonbin_headers = {
 
 @app.route('/')
 def home():
-    title = "Samantha Cello | Solo Cello Music for Weddings and Events"
+    title = "Samantha Cello | Solo Cello Music for Weddings and Events | Cardiff"
     meta_description = (
         "Welcome to Samantha Cello's website, your premier choice for wedding music "
         "in Cardiff, South Wales. Specialising in enchanting cello performances, available "
@@ -238,3 +238,10 @@ def update_enquiry(enquiry_index):
 def logout():
     session.clear()
     return redirect('/enquiries')
+
+
+@app.route("/env")
+def show_environment():
+    environment = os.getenv("ENVIRONMENT", "production")
+    return f"Current environment: {environment}"
+
