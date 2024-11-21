@@ -96,8 +96,6 @@
                     </div>
                 </div>
             </section>
-            
-            
             <!-- gallery -->
             <section>
                 <h2 class="text-center pt-5">Gallery</h2>
@@ -107,13 +105,10 @@
                 </div>
                 <div class="img-gallery">
                     {% for img_filename in image_paths %}
-                        <img src="{{ url_for('static', filename='images/gallery/' + img_filename) }}" alt="Gallery Image" class="gallery-img" data-full-img="{{ url_for('static', filename='images/gallery/' + img_filename) }}">
+                        <img src="{{ url_for('static', filename='images/gallery/' + img_filename) }}" alt="Gallery Image" class="gallery-img" data-full-img="{{ url_for('static', filename='images/gallery/' + img_filename) }}" loading="lazy">
                     {% endfor %}
                 </div>
             </section>
-            
-            
-
     {% endblock %}  
 
     {% block js %}
