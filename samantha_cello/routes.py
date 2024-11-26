@@ -30,10 +30,7 @@ jsonbin_headers = {
 def home():
     title = "Samantha Cello | Solo Cello Music for Weddings and Events | Cardiff"
     meta_description = (
-        "Welcome to Samantha Cello's website, your premier choice for wedding music "
-        "in Cardiff, South Wales. Specialising in enchanting cello performances, available "
-        "for events across the UK, including London and surrounding areas. Book now for a "
-        "magical musical experience!"
+        "Cardiff-based wedding cellist specializing in elegant live music for ceremonies and receptions. Available across the UK, including London. Book your date today!"
     )
 
     gallery_dir = 'samantha_cello/static/images/gallery/'
