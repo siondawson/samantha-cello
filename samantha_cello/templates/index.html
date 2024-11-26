@@ -56,26 +56,29 @@
             <!-- videos --> 
             <section id="video">
                 <div class="container">
-                        <div class="row">
-                            <div class="col-12 text-center pt-5">
-                                <h2>Videos</h2>
+                    <div class="row">
+                        <div class="col-12 text-center pt-5">
+                            <h2>Showreel</h2>
+                        </div>
+                    </div>
+                    <div class="row pb-3">
+                        <div class="col-12 mb-md-0">
+                            <div class="video-container">
+                                <iframe 
+                                    src="https://www.youtube.com/embed/2LPzA8zZqHg" 
+                                    title="Showreel 2025" 
+                                    frameborder="0" 
+                                    allowfullscreen>
+                                </iframe>
                             </div>
                         </div>
-                        <div class="row pb-3">
-                            <!-- Loaded Video Column (Full width on small screens) -->
-                            <div class="col-12 col-lg-8 mb-4 mb-md-0">
-                                <div id="loadedVideo"></div>
-                            </div>
-                            <!-- Video List Column (Full width on small screens) -->
-                            <div class="col-12 col-lg-4 pb-3">
-                                <h3 class="pb-2">Select Video <i class="fas fa-play-circle"></i></h3>
-                                <ul id="videoList" class="list-group text-center">
-                                    <!-- Video list items will be dynamically added here --> 
-                                </ul>
-                            </div>
+                        <div class="col-12 pb-3 text-center">
+                            <a href="{{ url_for('all_videos') }}" class="btn btn-primary my-3">More Videos</a>
                         </div>
+                    </div>
                 </div>
             </section>
+            
             <!-- reviews -->
             <section>
                 <div class="container-fluid review-bg">
@@ -112,7 +115,6 @@
     {% endblock %}  
 
     {% block js %}
-        <script src="{{ url_for('static', filename='js/videos.js') }}"></script>
         <script src="{{ url_for('static', filename='js/transparent-nav.js') }}"></script>
         <script src="{{ url_for('static', filename='js/homepage-reviews.js') }}"></script>
         <script src="{{ url_for('static', filename='js/gallery.js') }}"></script>

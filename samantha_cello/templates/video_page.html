@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block meta_description %}{{ video['metaDescription'] }}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<article>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12">
+                <h1>{{ video['title'] }}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="video-container">
+                    <iframe 
+                        src="{{ video['embedUrl'] }}" 
+                        title="{{ video['title'] }}" 
+                        frameborder="0" 
+                        allowfullscreen>
+                    </iframe>
+                </div>                
+            </div>
+            <div class="col-12 pt-5">
+                <h4>Description</h4>
+                <p>{{ video['description'] }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p>Tags: {{ ", ".join(video['tags']) }}</p>
+                <p>Uploaded on: {{ video['uploadDate'] }}</p>
+                <a href="{{ video['contentUrl'] }}" target="_blank">Watch on YouTube</a>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}

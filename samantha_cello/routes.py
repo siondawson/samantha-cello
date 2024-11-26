@@ -245,3 +245,49 @@ def show_environment():
     environment = os.getenv("ENVIRONMENT", "production")
     return f"Current environment: {environment}"
 
+
+@app.route('/videos')
+def all_videos():
+    """Display all videos."""
+    json_path = os.path.join(app.root_path, 'static/json/videos.json')
+    try:
+        with open(json_path, 'r') as file:
+            videos = json.load(file)
+    except FileNotFoundError:
+        videos = []
+
+    title = "Videos | Samantha Cello | Performances and Concerts"
+    meta_description = (
+        "Explore a curated selection of performances by Samantha Cello. "
+        "Watch videos of enchanting cello music from weddings, events, and concerts."
+    )
+
+    return render_template(
+        'videos.html', videos=videos, 
+        title=title, meta_description=meta_description
+    )
+
+
+
+@app.route('/videos/<slug>')
+def video_page(slug):
+    """Display a single video based on its slug."""
+    json_path = os.path.join(app.root_path, 'static/json/videos.json')
+    try:
+        with open(json_path, 'r') as file:
+            videos = json.load(file)
+    except FileNotFoundError:
+        return "Videos data not found", 404
+
+    video = next((v for v in videos if v['pageSlug'] == slug), None)
+    if not video:
+        return "Video not found", 404
+
+    title = f"{video['title']} | Samantha Cello Video"
+    meta_description = video['metaDescription']  # Use metaDescription for the meta tag
+
+    return render_template(
+        'video_page.html', video=video, 
+        title=title, meta_description=meta_description
+    )
+

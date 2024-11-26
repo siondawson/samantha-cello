@@ -43,8 +43,12 @@
                                 <a class="nav-link {{ 'active' if request.path == '/faq' else '' }}" href="{{ url_for('faq') }}">FAQs</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link {{ 'active' if request.path == '/contact' else '' }}" href="{{ url_for('all_videos') }}">Videos</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link {{ 'active' if request.path == '/contact' else '' }}" href="{{ url_for('contact') }}">Contact</a>
                             </li>
+                                                      
                         </ul>                        
                     </div>
                 </div>

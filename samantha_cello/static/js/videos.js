@@ -1,3 +1,5 @@
+// OBSOLETE NO LONGER IN USE
+
 document.addEventListener("DOMContentLoaded", function () {
     const videoList = document.getElementById('videoList');
     const loadedVideoContainer = document.getElementById('loadedVideo');
