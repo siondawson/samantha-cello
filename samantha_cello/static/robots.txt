@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /enquiries/
+Disallow: /update/
+Disallow: /logout/
+
+# Allow everything else to be indexed
+Allow: /
+
+# Sitemap placeholder (update when you generate a sitemap)
+# Sitemap: https://www.samanthacello.com/sitemap.xml

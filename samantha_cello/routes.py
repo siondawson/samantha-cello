@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, session
+from flask import render_template, request, redirect, session, Response
 import os
 import json
 import requests
@@ -7,7 +7,7 @@ from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib
-from samantha_cello import app  # Import app from __init__.py
+from samantha_cello import app, sitemap  # Import app from __init__.py
 
 # Environment variables for email
 GMAIL_ADDRESS = os.getenv("GMAIL_ADDRESS")
@@ -48,6 +48,7 @@ def home():
         'index.html', image_paths=image_paths, reviews=reviews, 
         title=title, meta_description=meta_description
     )
+
 
 
 @app.route('/about')
@@ -287,4 +288,49 @@ def video_page(slug):
         'video_page.html', video=video, 
         title=title, meta_description=meta_description
     )
+
+
+@app.route('/robots.txt')
+def robots():
+    return app.send_static_file('robots.txt')
+
+
+# Register routes for the sitemap
+@sitemap.register_generator
+def sitemap_urls():
+    # Static routes
+    yield 'home', {}
+    yield 'about', {}
+    yield 'repertoire', {}
+    yield 'faq', {}
+    yield 'contact', {}
+    yield 'all_videos', {}
+
+    # Load the videos from the JSON file
+    with open(os.path.join(app.root_path, 'static', 'json', 'videos.json')) as f:
+        videos = json.load(f)
+
+    # Loop through each video and generate its URL
+    for video in videos:
+        yield 'video_page', {'slug': video['pageSlug']}
+
+
+@app.route('/sitemap.xml')
+def sitemap():
+    # This will generate the sitemap dynamically using the generator
+    return Response(generate_sitemap(), mimetype='application/xml')
+
+def generate_sitemap():
+    # Create the XML structure for the sitemap
+    sitemap_xml = ['<?xml version="1.0" encoding="UTF-8"?>']
+    sitemap_xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+
+    # Call the generator function to get the dynamic URLs
+    for endpoint, params in sitemap_urls():
+        url = url_for(endpoint, **params, _external=True)
+        sitemap_xml.append(f'<url><loc>{url}</loc></url>')
+
+    sitemap_xml.append('</urlset>')
+
+    return ''.join(sitemap_xml)
 
