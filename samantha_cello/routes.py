@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, session, Response
+from flask import render_template, request, redirect, session, Response, url_for
 import os
 import json
 import requests
@@ -26,6 +26,10 @@ jsonbin_headers = {
 }
 
 
+def get_canonical_url():
+    return url_for(request.endpoint, **request.view_args, _external=True)
+
+
 @app.route('/')
 def home():
     title = "Samantha Cello | Solo Cello Music for Weddings and Events | Cardiff"
@@ -44,9 +48,12 @@ def home():
     with open('samantha_cello/static/json/reviews.json', 'r') as f:
         reviews = json.load(f)
 
+    # Get canonical URL
+    canonical_url = get_canonical_url()
+
     return render_template(
         'index.html', image_paths=image_paths, reviews=reviews, 
-        title=title, meta_description=meta_description
+        title=title, meta_description=meta_description, canonical_url=canonical_url
     )
 
 
@@ -63,9 +70,12 @@ def about():
     with open('samantha_cello/static/json/about.json') as f:
         about_data = json.load(f)
 
+    # Get canonical URL
+    canonical_url = get_canonical_url()
+
     return render_template(
         'about.html', about_data=about_data, 
-        title=title, meta_description=meta_description
+        title=title, meta_description=meta_description, canonical_url=canonical_url
     )
 
 
@@ -81,9 +91,13 @@ def repertoire():
     with open('samantha_cello/static/json/repertoire.json') as f:
         songs = json.load(f)
 
+    
+    # Get canonical URL
+    canonical_url = get_canonical_url()
+
     return render_template(
         'repertoire.html', songs=songs, 
-        title=title, meta_description=meta_description
+        title=title, meta_description=meta_description, canonical_url=canonical_url
     )
 
 
@@ -99,9 +113,12 @@ def faq():
     with open(json_path) as f:
         faq_data = json.load(f)
 
+    # Get canonical URL
+    canonical_url = get_canonical_url()
+
     return render_template(
         'faq.html', faqs=faq_data, 
-        title=title, meta_description=meta_description
+        title=title, meta_description=meta_description, canonical_url=canonical_url
     )
 
 
@@ -178,9 +195,11 @@ def contact():
             return "An error occurred", 500
 
         message = "Thank you, your message has been received."
+        # Get canonical URL
+        canonical_url = get_canonical_url()
         return render_template(
             'contact.html', message=message, 
-            enquiry=enquiry, title=title, meta_description=meta_description
+            enquiry=enquiry, title=title, meta_description=meta_description, canonical_url=canonical_url
         )
 
     return render_template('contact.html', title=title, meta_description=meta_description)
@@ -205,7 +224,8 @@ def enquiries():
             enquiry['submitted_at'] = original_date.strftime('%d/%m/%y %H:%M')
 
         return render_template('enquiries.html', enquiries=enquiries)
-
+    
+    
     return render_template('enquiries.html')
 
 
@@ -260,9 +280,12 @@ def all_videos():
         "Watch videos of enchanting cello music from weddings, events, and concerts."
     )
 
+    # Get canonical URL
+    canonical_url = get_canonical_url()
+
     return render_template(
         'videos.html', videos=videos, 
-        title=title, meta_description=meta_description
+        title=title, meta_description=meta_description, canonical_url=canonical_url
     )
 
 
@@ -284,9 +307,12 @@ def video_page(slug):
     title = f"{video['title']} | Samantha Cello Video"
     meta_description = video['metaDescription']  # Use metaDescription for the meta tag
 
+    # Get canonical URL
+    canonical_url = get_canonical_url()
+
     return render_template(
         'video_page.html', video=video, 
-        title=title, meta_description=meta_description
+        title=title, meta_description=meta_description, canonical_url=canonical_url
     )
 
 
@@ -333,4 +359,5 @@ def generate_sitemap():
     sitemap_xml.append('</urlset>')
 
     return ''.join(sitemap_xml)
+
 
