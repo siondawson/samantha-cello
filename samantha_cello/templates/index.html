@@ -15,101 +15,133 @@
                     </div>
                     <div class="col-12 d-lg-none small-medium-screen-explore-btn mt-5">
                         <div class="callout text-center text-white rounded">
-                            <a href="#about" class="btn btn-lg btn-danger text-center mt-5">Explore</a>
+                            <a href="#video" class="btn btn-lg btn-danger text-center mt-5">Explore</a>
                         </div>
                     </div>                    
                 </div>
             </div>
         </section>
-        
+        <!-- videos --> 
+<section id="video" class="bg-light py-5">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="row">
+            <div class="col-12 text-center mb-4">
+                <h2 class="display-4">Showreel</h2>
+                <p class="lead">
+                    Discover the timeless elegance of live cello music for weddings, events, and special occasions. 
+                    Watch the showreel below to see why Samantha Cello is a favorite across Cardiff and beyond.
+                </p>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-8 col-md-10 mb-4">
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/2LPzA8zZqHg" 
+                        title="Showreel 2025 - Samantha Cello" 
+                        frameborder="0" 
+                        allowfullscreen 
+                        class="rounded shadow-lg">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Supporting Text Section -->
+        <div class="row text-center">
+            <div class="col-md-6 mb-3">
+                <h4>Perfect for Weddings</h4>
+                <p>
+                    Add a touch of sophistication to your special day. Whether it’s a heartfelt ceremony or an elegant reception, live cello music creates unforgettable moments.
+                </p>
+            </div>
+            <div class="col-md-6 mb-3">
+                <h4>Ideal for Events</h4>
+                <p>
+                    From corporate events to private parties, Samantha Cello brings professionalism and a stunning musical atmosphere that your guests will remember.
+                </p>
+            </div>
+        </div>
+
+        <!-- Call-to-Action -->
+        <div class="row text-center mt-4">
+            <div class="col-12">
+                <a href="{{ url_for('all_videos') }}" class="btn btn-primary btn-lg my-3">Watch More Videos</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- about -->
+        <section class="bg-off-white" id="about">
+            <div class="container pt-5 pb-5">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-8">
+                        <article>
+                            <h3>Samantha: Exceptional Solo Cello for Weddings and Events</h3>
+                            <p>Samantha, a gifted and experienced solo cellist, brings elegance and beauty to weddings and special events across South Wales, Cardiff, Bristol, the Cotswolds, and beyond. Specializing in live wedding music, Samantha tailors her repertoire to enhance each moment of your day, from the walk down the aisle to the reception and wedding breakfast, creating a unique, personalized musical experience.</p>
+                            <p>Renowned for her artistry, versatility, and professional excellence, Samantha’s solo cello performances provide a touch of sophistication and charm that elevates any wedding. With a wide-ranging repertoire—from classical pieces to modern love songs—she ensures that your wedding soundtrack resonates with the ambiance and emotion of the day, crafting memories through music that will last a lifetime.</p>
+                            <p>Contact Samantha today to explore how live cello music can add a captivating touch to your celebration, bringing an unforgettable and enchanting atmosphere to your wedding day.</p>
+                        </article>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-4 mb-3 pt-sm-3">
+                        <h3 class="mb-3">Samantha offers:</h3>
+                        <ul class="in-brief-list">
+                            <li class="mb-2"><i class="far fa-check-circle"></i> Bespoke packages to suit you.</li>
+                            <li class="mb-2"><i class="far fa-check-circle"></i> Versatile & Professional musician</li>
+                            <li class="mb-2"><i class="far fa-check-circle"></i> Vast repertoire covering all styles.</li>
+                            <li class="mb-2"><i class="far fa-check-circle"></i> Happy to learn new songs for your booking.</li>
+                            <li class="mb-2"><i class="far fa-check-circle"></i> Unique Arrangements of Pop, Rock, Classical & More.</li>
+                            <li class="mb-2"><i class="far fa-check-circle"></i> Available U.K. wide and abroad.</li>
+                            <li><i class="far fa-check-circle"></i> Book direcly with Samantha</li>
+                        </ul>
+                        <a class="btn btn-primary mt-3" href="{{ url_for('about') }}">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>    
+        <!-- reviews -->
+        <section>
+            <div class="container-fluid review-bg">
+                <div class="overlay d-flex flex-column align-items-center justify-content-center">
+                    <h2 class="review-title text-center text-white pt-2 pb-2">Reviews</h2>
+                    <div class="row review-row w-100">
+                        <div class="col-12 col-md-6 d-flex align-items-center justify-content-center text-md-left">
+                            <div class="review-content text-center mx-3">
+                                <p class="text-white" id="reviewText"></p>
+                                <p class="text-warning" id="reviewStars"></p>
+                                <p class="text-white" id="clientName"></p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 d-flex align-items-center justify-content-center pb-5">
+                            <button class="btn btn-primary next-review-btn mb-5" id="nextBtn">Next Review</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- gallery -->
+        <section>
+            <h2 class="text-center pt-5">Gallery</h2>
+            <div class="full-img" id="fullImgBox" style="display: none;">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/8X+Jz0AAAAASUVORK5CYII=" alt="Full Image" id="fullImg">
+                <span id="close" onclick="closeFullImg()">X</span>
+            </div>
+            <div class="img-gallery">
+                {% for image in gallery_data %}
+                    <img 
+                        src="{{ url_for('static', filename='images/gallery/' ~ image.src) }}" 
+                        alt="{{ image.alt }}" 
+                        class="gallery-img" 
+                        data-full-img="{{ url_for('static', filename='images/gallery/' ~ image.src) }}" 
+                        loading="lazy">
+                {% endfor %}
+            </div>
             
-            <!-- about -->
-            <section class="bg-off-white" id="about">
-                <div class="container pt-5 pb-5">
-                    <div class="row">
-                        <div class="col-12 col-md-12 col-lg-8">
-                            <article>
-                                <h3>Samantha: Exceptional Solo Cello for Weddings and Events</h3>
-                                <p>Samantha, a gifted and experienced solo cellist, brings elegance and beauty to weddings and special events across South Wales, Cardiff, Bristol, the Cotswolds, and beyond. Specializing in live wedding music, Samantha tailors her repertoire to enhance each moment of your day, from the walk down the aisle to the reception and wedding breakfast, creating a unique, personalized musical experience.</p>
-                                <p>Renowned for her artistry, versatility, and professional excellence, Samantha’s solo cello performances provide a touch of sophistication and charm that elevates any wedding. With a wide-ranging repertoire—from classical pieces to modern love songs—she ensures that your wedding soundtrack resonates with the ambiance and emotion of the day, crafting memories through music that will last a lifetime.</p>
-                                <p>Contact Samantha today to explore how live cello music can add a captivating touch to your celebration, bringing an unforgettable and enchanting atmosphere to your wedding day.</p>
-                            </article>
-                        </div>
-                        <div class="col-12 col-md-12 col-lg-4 mb-3 pt-sm-3">
-                            <h3 class="mb-3">Samantha offers:</h3>
-                            <ul class="in-brief-list">
-                                <li class="mb-2"><i class="far fa-check-circle"></i> Bespoke packages to suit you.</li>
-                                <li class="mb-2"><i class="far fa-check-circle"></i> Versatile & Professional musician</li>
-                                <li class="mb-2"><i class="far fa-check-circle"></i> Vast repertoire covering all styles.</li>
-                                <li class="mb-2"><i class="far fa-check-circle"></i> Happy to learn new songs for your booking.</li>
-                                <li class="mb-2"><i class="far fa-check-circle"></i> Unique Arrangements of Pop, Rock, Classical & More.</li>
-                                <li class="mb-2"><i class="far fa-check-circle"></i> Available U.K. wide and abroad.</li>
-                                <li><i class="far fa-check-circle"></i> Book direcly with Samantha</li>
-                            </ul>
-                            <a class="btn btn-primary mt-3" href="{{ url_for('about') }}">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- videos --> 
-            <section id="video">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 text-center pt-5">
-                            <h2>Showreel</h2>
-                        </div>
-                    </div>
-                    <div class="row pb-3">
-                        <div class="col-12 mb-md-0">
-                            <div class="video-container">
-                                <iframe 
-                                    src="https://www.youtube.com/embed/2LPzA8zZqHg" 
-                                    title="Showreel 2025" 
-                                    frameborder="0" 
-                                    allowfullscreen>
-                                </iframe>
-                            </div>
-                        </div>
-                        <div class="col-12 pb-3 text-center">
-                            <a href="{{ url_for('all_videos') }}" class="btn btn-primary my-3">More Videos</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- reviews -->
-            <section>
-                <div class="container-fluid review-bg">
-                    <div class="overlay d-flex flex-column align-items-center justify-content-center">
-                        <h2 class="review-title text-center text-white pt-2 pb-2">Reviews</h2>
-                        <div class="row review-row w-100">
-                            <div class="col-12 col-md-6 d-flex align-items-center justify-content-center text-md-left">
-                                <div class="review-content text-center mx-3">
-                                    <p class="text-white" id="reviewText"></p>
-                                    <p class="text-warning" id="reviewStars"></p>
-                                    <p class="text-white" id="clientName"></p>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 d-flex align-items-center justify-content-center pb-5">
-                                <button class="btn btn-primary next-review-btn mb-5" id="nextBtn">Next Review</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- gallery -->
-            <section>
-                <h2 class="text-center pt-5">Gallery</h2>
-                <div class="full-img" id="fullImgBox" style="display: none;">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/8X+Jz0AAAAASUVORK5CYII=" alt="Full Image" id="fullImg">
-                    <span id="close" onclick="closeFullImg()">X</span>
-                </div>
-                <div class="img-gallery">
-                    {% for img_filename in image_paths %}
-                        <img src="{{ url_for('static', filename='images/gallery/' + img_filename) }}" alt="Gallery Image" class="gallery-img" data-full-img="{{ url_for('static', filename='images/gallery/' + img_filename) }}" loading="lazy">
-                    {% endfor %}
-                </div>
-            </section>
+        </section>
     {% endblock %}  
 
     {% block js %}

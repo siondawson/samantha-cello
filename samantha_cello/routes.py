@@ -37,12 +37,12 @@ def home():
         "Cardiff-based wedding cellist specializing in elegant live music for ceremonies and receptions. Available across the UK, including London. Book your date today!"
     )
 
-    gallery_dir = 'samantha_cello/static/images/gallery/'
-    image_paths = [
-        img for img in os.listdir(gallery_dir)
-        if img.endswith(('.png', '.jpg', '.jpeg', '.webp'))
-    ]
-    random.shuffle(image_paths)
+    # Load gallery data from JSON
+    with open('samantha_cello/static/json/gallery.json', 'r') as f:
+        gallery_data = json.load(f)
+    
+    # Shuffle gallery data for randomness
+    random.shuffle(gallery_data)
 
     # Load reviews from JSON
     with open('samantha_cello/static/json/reviews.json', 'r') as f:
@@ -52,14 +52,19 @@ def home():
     canonical_url = get_canonical_url()
 
     return render_template(
-        'index.html', image_paths=image_paths, reviews=reviews, 
-        title=title, meta_description=meta_description, canonical_url=canonical_url
+        'index.html', 
+        gallery_data=gallery_data,  # Pass gallery data (src and alt)
+        reviews=reviews, 
+        title=title, 
+        meta_description=meta_description, 
+        canonical_url=canonical_url
     )
 
 
 
 @app.route('/about')
 def about():
+    """A route to return the home page. Gallery data fetched from a json file."""
     title = "About | Samantha Cello | Solo Cello Music for Weddings and Events"
     meta_description = (
         "Welcome to Samantha Cello's website, your premier choice for wedding music in "
@@ -300,20 +305,30 @@ def video_page(slug):
     except FileNotFoundError:
         return "Videos data not found", 404
 
+    # Find the requested video by slug
     video = next((v for v in videos if v['pageSlug'] == slug), None)
     if not video:
         return "Video not found", 404
 
-    title = f"{video['title']} | Samantha Cello Video"
-    meta_description = video['metaDescription']  # Use metaDescription for the meta tag
+    # Get related videos (excluding the current one)
+    related_videos = [v for v in videos if v['id'] != video['id']]
+
+    # Title and meta description
+    title = video['pageTitle']
+    meta_description = video['metaDescription']
 
     # Get canonical URL
     canonical_url = get_canonical_url()
 
     return render_template(
-        'video_page.html', video=video, 
-        title=title, meta_description=meta_description, canonical_url=canonical_url
+        'video_page.html',
+        video=video,
+        related_videos=related_videos,
+        title=title,
+        meta_description=meta_description,
+        canonical_url=canonical_url
     )
+
 
 
 @app.route('/robots.txt')

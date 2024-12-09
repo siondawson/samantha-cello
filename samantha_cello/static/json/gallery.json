@@ -1,16 +1,34 @@
 [
-    { "src": "assets/images/serenade-strings-2.webp", "alt": "serenade strings with bushes in background with red and pink flowers" },
-    { "src": "assets/images/serenade-strings-9.webp", "alt": "image of serenade strings with bushes with pink flowers in background. petals on the ground." },
-    { "src": "assets/images/serenade-strings-31.webp", "alt": "serenade strings on a bench playing and smiling" },
-    { "src": "assets/images/serenade-strings-6.webp", "alt": "image of serenade strings with bushes with pink flowers in background. petals on the ground." },
-    { "src": "assets/images/serenade-strings-43.webp", "alt": "image of cellist and violinist walking. image taken from behind." },
-    { "src": "assets/images/serenade-strings-34.webp", "alt": "image of violin with violinists blue flowery dress in background" },
-    { "src": "assets/images/serenade-strings-35.webp", "alt": "image of cello scroll from behind" },
-    { "src": "assets/images/serenade-strings-40.webp", "alt": "image from behind violinist with case on her back walking. cello and violin also in background." },
-    { "src": "assets/images/serenade-strings-37.webp", "alt": "cellist and violinist walking with cases on backs. photo from behind." },
-    { "src": "assets/images/serenade-strings-36.webp", "alt": "image from behind violinist with case on her back walking. cello and violin also in background." },
-    { "src": "assets/images/serenade-strings-22.webp", "alt": "viola case with 'do what you love' sticker" },
-    { "src": "assets/images/serenade-strings-27.webp", "alt": "serenade strings on a bench. cello and violin sitting down. viola and violin standing" },
-    { "src": "assets/images/serenade-strings-miskin.webp", "alt": "serenade strings outside miskin manor" },
-    { "src": "assets/images/serenade-strings-1-small.webp", "alt": "serenade strings playing in miskin manor" }
+    { 
+        "src": "samantha-cello-1.webp", 
+        "alt": "Wedding cellist playing an acoustic cello" 
+    },
+    { 
+        "src": "samantha-cello-acoustic-electric-cello.jpg", 
+        "alt": "Wedding cellist holding both electric and acoustic cellos" 
+    },
+    { 
+        "src": "samantha-cello-forehead.webp", 
+        "alt": "Cardiff wedding cellist resting her forehead on a cello scroll" 
+    },
+    { 
+        "src": "samantha-cello-mirror.jpg", 
+        "alt": "Wedding cellist in Wales captured in a mirror reflection" 
+    },
+    { 
+        "src": "samantha-cello-portrait-blue-outfit.jpg", 
+        "alt": "Portrait of a Welsh wedding cellist wearing a blue outfit" 
+    },
+    { 
+        "src": "samantha-dawson-solo-cello.jpg", 
+        "alt": "Black-and-white portrait of a wedding and events cellist" 
+    },
+    { 
+        "src": "solo-cello-mansion-house-llansteffan.jpg", 
+        "alt": "Cardiff wedding cellist performing live music during a reception" 
+    },
+    { 
+        "src": "wedding-cellist-cardiff.jpg", 
+        "alt": "Black-and-white image of a Cardiff wedding cellist" 
+    }
 ]
