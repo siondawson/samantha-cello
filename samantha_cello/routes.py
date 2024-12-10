@@ -32,11 +32,15 @@ def get_canonical_url():
 
 @app.route('/')
 def home():
-    title = "Samantha Cello | Solo Cello Music for Weddings and Events | Cardiff"
-    meta_description = (
-        "Cardiff-based wedding cellist specializing in elegant live music for ceremonies and receptions. Available across the UK, including London. Book your date today!"
-    )
-
+    # Load meta tag data from JSON
+    with open('samantha_cello/static/json/meta_tags.json', 'r') as f:
+        meta_tags = json.load(f)
+    
+    # Extract data for the "home" page
+    meta_data = meta_tags.get("home", {})
+    title = meta_data.get("title", "Default Title")
+    meta_description = meta_data.get("meta_description", "Default Meta Description")
+    
     # Load gallery data from JSON
     with open('samantha_cello/static/json/gallery.json', 'r') as f:
         gallery_data = json.load(f)
@@ -65,13 +69,14 @@ def home():
 @app.route('/about')
 def about():
     """A route to return the home page. Gallery data fetched from a json file."""
-    title = "About | Samantha Cello | Solo Cello Music for Weddings and Events"
-    meta_description = (
-        "Welcome to Samantha Cello's website, your premier choice for wedding music in "
-        "Cardiff, South Wales. Specialising in enchanting cello performances, available "
-        "for events across the UK, including London and surrounding areas. Book now for "
-        "a magical musical experience!"
-    )
+     # Load meta tag data from JSON
+    with open('samantha_cello/static/json/meta_tags.json', 'r') as f:
+        meta_tags = json.load(f)
+    
+    # Extract data for the "about" page
+    meta_data = meta_tags.get("about", {})
+    title = meta_data.get("title", "Default Title")
+    meta_description = meta_data.get("meta_description", "Default Meta Description")
     with open('samantha_cello/static/json/about.json') as f:
         about_data = json.load(f)
 
@@ -86,13 +91,14 @@ def about():
 
 @app.route('/repertoire')
 def repertoire():
-    title = "Repertoire | Samantha Cello | Solo Cello Music for Weddings and Events"
-    meta_description = (
-        "Discover the enchanting repertoire of Samantha Cello, your premier wedding musician "
-        "based in Cardiff, South Wales. Browse through our diverse selection of pieces, perfect "
-        "for any occasion, including weddings and events across the UK. Book now to bring beautiful "
-        "music to your special day!"
-    )
+     # Load meta tag data from JSON
+    with open('samantha_cello/static/json/meta_tags.json', 'r') as f:
+        meta_tags = json.load(f)
+    
+    # Extract data for the "repertoire" page
+    meta_data = meta_tags.get("repertoire", {})
+    title = meta_data.get("title", "Default Title")
+    meta_description = meta_data.get("meta_description", "Default Meta Description")
     with open('samantha_cello/static/json/repertoire.json') as f:
         songs = json.load(f)
 
@@ -108,12 +114,14 @@ def repertoire():
 
 @app.route('/faq')
 def faq():
-    title = "Faqs | Samantha Cello | Solo Cello Music for Weddings and Events"
-    meta_description = (
-        "Have questions about hiring Samantha Cello for your wedding or event in Cardiff, South Wales? "
-        "Explore our FAQ page for answers to common inquiries about performance details, booking processes, "
-        "and more. Get all the information you need to ensure a magical musical experience!"
-    )
+     # Load meta tag data from JSON
+    with open('samantha_cello/static/json/meta_tags.json', 'r') as f:
+        meta_tags = json.load(f)
+    
+    # Extract data for the "faqs" page
+    meta_data = meta_tags.get("faqs", {})
+    title = meta_data.get("title", "Default Title")
+    meta_description = meta_data.get("meta_description", "Default Meta Description")
     json_path = os.path.join(app.root_path, 'static/json/faq.json')
     with open(json_path) as f:
         faq_data = json.load(f)
@@ -129,11 +137,14 @@ def faq():
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    title = "Contact | Samantha Cello | Solo Cello Music for Weddings and Events"
-    meta_description = (
-        "Get in touch with Samantha Cello for exceptional wedding music services in Cardiff and beyond. "
-        "Fill out our contact form for a free, no-obligation quote, and let us bring the perfect sound to your special day!"
-    )
+     # Load meta tag data from JSON
+    with open('samantha_cello/static/json/meta_tags.json', 'r') as f:
+        meta_tags = json.load(f)
+    
+    # Extract data for the "contact" page
+    meta_data = meta_tags.get("contact", {})
+    title = meta_data.get("title", "Default Title")
+    meta_description = meta_data.get("meta_description", "Default Meta Description")
 
     if request.method == 'POST':
         name = request.form['name']
