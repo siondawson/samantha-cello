@@ -375,28 +375,15 @@ def generate_sitemap():
     # Create the XML structure for the sitemap
     sitemap_xml = ['<?xml version="1.0" encoding="UTF-8"?>']
     sitemap_xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
-    
+
     # Call the generator function to get the dynamic URLs
     for endpoint, params in sitemap_urls():
-        url = url_for(endpoint, **params, _external=True, _scheme='https')
+        url = url_for(endpoint, **params, _external=True)
         sitemap_xml.append(f'<url><loc>{url}</loc></url>')
-    
+
     sitemap_xml.append('</urlset>')
+
     return ''.join(sitemap_xml)
-
-def sitemap_urls():
-    # This is a placeholder function. Replace it with your logic to generate URLs.
-    # Example:
-    return [
-        ('static_page', {'page': 'index'}),
-        ('static_page', {'page': 'about'}),
-        # Add more pages as needed
-    ]
-
-@app.route('/<page>')
-def static_page(page):
-    # Example static page route
-    return f"This is the {page} page."
 
 
 # Error handler for 404
