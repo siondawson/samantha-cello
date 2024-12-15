@@ -24,7 +24,14 @@
                             <li><strong>Message:</strong> {{ enquiry.message }}</li>
                         </ul>
                     {% else %}
-                        <form method="POST" id="form" class="contact-form text-white p-4" autocomplete="on">
+                        <!-- Load the reCAPTCHA library -->
+                        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                        {% if error %}
+                        <div class="alert alert-danger text-center" role="alert">
+                            {{ error }}
+                        </div>
+                        {% endif %}
+                        <form method="POST" id="form" class="contact-form text-white p-4" autocomplete="on" onsubmit="event.preventDefault(); grecaptcha.execute();">
                             <h1 class="mb-4">Get In Touch</h1>
                             <p class="mb-4">
                                 Fill out the form below for a free, no-obligation quote. I aim to respond to all enquiries on the day. If you don't receive a reply, please check your spam folder. Alternatively, you can call me directly at 07555 685947.
@@ -48,10 +55,31 @@
                             <div class="d-flex justify-content-center mt-3">
                                 <button type="submit" class="btn btn-warning">Send Message</button>
                             </div>
-                        </form>
+                        </form>                        
                     {% endif %}
                 </div>
+                
             </div>
         </div>
     </section>
+{% endblock %}
+{% block js %}
+<script>
+    function onSubmit(token) {
+        document.getElementById("form").submit();  // Submit the form after reCAPTCHA validation
+    }
+
+    grecaptcha.ready(function() {
+        grecaptcha.execute('YOUR_SITE_KEY', { action: 'contact' }).then(function(token) {
+            // Insert the token into a hidden input field before submitting the form
+            var recaptchaResponse = document.createElement('input');
+            recaptchaResponse.setAttribute('type', 'hidden');
+            recaptchaResponse.setAttribute('name', 'g-recaptcha-response');
+            recaptchaResponse.setAttribute('value', token);
+            document.getElementById('form').appendChild(recaptchaResponse);
+        });
+    });
+</script>
+
+
 {% endblock %}

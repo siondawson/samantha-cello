@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, session, Response, url_for
+from flask import render_template, request, redirect, session, Response, url_for, flash
 import os
 import json
 import requests
@@ -137,16 +137,39 @@ def faq():
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
-     # Load meta tag data from JSON
+    # Load meta tag data from JSON
     with open('samantha_cello/static/json/meta_tags.json', 'r') as f:
         meta_tags = json.load(f)
-    
-    # Extract data for the "contact" page
     meta_data = meta_tags.get("contact", {})
     title = meta_data.get("title", "Default Title")
     meta_description = meta_data.get("meta_description", "Default Meta Description")
 
     if request.method == 'POST':
+        # Verify reCAPTCHA
+        recaptcha_response = request.form.get('g-recaptcha-response')
+        recaptcha_secret = os.getenv("RECAPTCHA_SECRET_KEY")  # Ensure this is loaded
+        recaptcha_verify_url = "https://www.google.com/recaptcha/api/siteverify"
+
+        recaptcha_data = {
+            'secret': recaptcha_secret,
+            'response': recaptcha_response,
+        }
+
+        recaptcha_verification = requests.post(recaptcha_verify_url, data=recaptcha_data)
+        recaptcha_result = recaptcha_verification.json()
+
+        if not recaptcha_result.get('success'):
+            # You don't need to display an error message explicitly here
+            # Just reload the form to let the user try again
+            return render_template(
+                'contact.html',
+                title=title,
+                meta_description=meta_description,
+                error="reCAPTCHA validation failed. Please try again."  # Optional, can be left out
+            )
+
+
+        # Process form data if reCAPTCHA is successful
         name = request.form['name']
         email = request.form['email']
         phone = request.form['phone'] or None
@@ -162,7 +185,7 @@ def contact():
             'converted': False
         }
 
-        # Email handling
+        # Email handling (unchanged)
         sender_email = GMAIL_ADDRESS
         receiver_email = GMAIL_ADDRESS
         password = GMAIL_APP_PASSWORD
@@ -191,7 +214,7 @@ def contact():
         except Exception as e:
             print(f"Error sending email: {e}")
 
-        # Retrieve and update enquiries from JSONBin
+        # Retrieve and update enquiries from JSONBin (unchanged)
         try:
             response = requests.get(JSONBIN_URL, headers=jsonbin_headers)
             enquiries = response.json().get('record', []) if response.status_code == 200 else []
@@ -219,6 +242,7 @@ def contact():
         )
 
     return render_template('contact.html', title=title, meta_description=meta_description)
+
 
 
 @app.route('/enquiries', methods=['GET', 'POST'])
