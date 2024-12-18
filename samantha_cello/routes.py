@@ -377,7 +377,6 @@ def page_not_found(error):
     return render_template('404.html'), 404
 
 
-# Register routes for the sitemap
 @sitemap.register_generator
 def sitemap_urls():
     # Static routes
@@ -387,60 +386,88 @@ def sitemap_urls():
     yield 'faq', {}
     yield 'contact', {}
     yield 'all_videos', {}
-
+    
     # Load the videos from the JSON file
-    with open(os.path.join(app.root_path, 'static', 'json', 'videos.json')) as f:
-        videos = json.load(f)
-
-    # Loop through each video and generate its URL
-    for video in videos:
-        yield 'video_page', {'slug': video['pageSlug']}
-
+    try:
+        with open(os.path.join(app.root_path, 'static', 'json', 'videos.json')) as f:
+            videos = json.load(f)
+        # Loop through each video and generate its URL
+        for video in videos:
+            yield 'video_page', {'slug': video['pageSlug']}
+    except Exception as e:
+        app.logger.error(f"Error loading videos.json: {str(e)}")
 
 @app.route('/sitemap.xml')
 def sitemap():
-    return Response(generate_sitemap(), mimetype='application/xml')
+    """Generate sitemap.xml. Makes a list of URLs and date modified."""
+    # Force HTTPS for production
+    if not request.is_secure and app.env == 'production':
+        url = request.url.replace('http://', 'https://', 1)
+        return redirect(url, code=301)
+
+    return Response(
+        generate_sitemap(),
+        mimetype='application/xml',
+        headers={'Content-Type': 'application/xml; charset=utf-8'}
+    )
 
 def generate_sitemap():
+    """Generate the sitemap XML."""
     sitemap_xml = ['<?xml version="1.0" encoding="UTF-8"?>']
     sitemap_xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
 
-    # Get environment settings
-    environment = os.getenv("ENVIRONMENT", "production")
-    scheme = 'https' if environment == 'production' else 'http'
-    
+    # Force HTTPS in production
+    scheme = 'https' if app.env == 'production' else request.scheme
+
+    # Get the hostname
+    host = request.host_url.rstrip('/')
+
     # Call the generator function to get the dynamic URLs
     for endpoint, params in sitemap_urls():
         try:
-            # Generate URL with appropriate scheme
-            url = url_for(endpoint, 
-                         _external=True, 
+            # Generate absolute URL with forced HTTPS in production
+            url = url_for(endpoint,
+                         _external=True,
                          _scheme=scheme,
                          **params)
-            
+
+            # Ensure URL is absolute and uses HTTPS in production
+            if app.env == 'production' and url.startswith('http://'):
+                url = url.replace('http://', 'https://', 1)
+
             # Add lastmod, changefreq, and priority
             current_date = datetime.now().strftime('%Y-%m-%d')
-            
-            # Set priority based on endpoint
-            priority = '1.0' if endpoint == 'home' else '0.8'
-            if 'video_page' in endpoint:
-                priority = '0.7'
-            
-            # Set changefreq based on endpoint
-            changefreq = 'weekly' if endpoint in ['home', 'all_videos'] else 'monthly'
-            
-            sitemap_xml.append(f'''
-    <url>
+
+            # Set priority based on endpoint importance
+            priorities = {
+                'home': '1.0',
+                'about': '0.8',
+                'repertoire': '0.8',
+                'video_page': '0.7',
+                'all_videos': '0.7',
+            }
+            priority = priorities.get(endpoint, '0.5')
+
+            # Set changefreq based on content type
+            frequencies = {
+                'home': 'daily',
+                'all_videos': 'weekly',
+                'video_page': 'weekly',
+            }
+            changefreq = frequencies.get(endpoint, 'monthly')
+
+            sitemap_xml.append(
+                f'''    <url>
         <loc>{url}</loc>
         <lastmod>{current_date}</lastmod>
         <changefreq>{changefreq}</changefreq>
         <priority>{priority}</priority>
-    </url>''')
-            
+    </url>'''
+            )
+
         except Exception as e:
             app.logger.error(f"Error generating URL for endpoint {endpoint}: {str(e)}")
             continue
 
     sitemap_xml.append('</urlset>')
-    return ''.join(sitemap_xml)
-
+    return '\n'.join(sitemap_xml)
