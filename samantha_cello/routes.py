@@ -403,7 +403,7 @@ def generate_sitemap():
 
     # Call the generator function to get the dynamic URLs
     for endpoint, params in sitemap_urls():
-        url = url_for(endpoint, **params, _external=True)
+        url = url_for(endpoint, **params, _external=True, _scheme='https')
         sitemap_xml.append(f'<url><loc>{url}</loc></url>')
 
     sitemap_xml.append('</urlset>')

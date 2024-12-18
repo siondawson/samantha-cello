@@ -9,6 +9,9 @@ if os.path.exists("env.py"):
 # Initialize the Flask app
 app = Flask(__name__)
 
+# Set the preferred URL scheme to HTTPS
+app.config['PREFERRED_URL_SCHEME'] = 'https'
+
 # Set the secret key from environment variables
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "default_secret_key")
 
