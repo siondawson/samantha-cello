@@ -393,28 +393,51 @@ def sitemap_urls():
 
 @app.route('/sitemap.xml')
 def sitemap():
-    # This will generate the sitemap dynamically using the generator
     return Response(generate_sitemap(), mimetype='application/xml')
 
 def generate_sitemap():
-    # Create the XML structure for the sitemap
     sitemap_xml = ['<?xml version="1.0" encoding="UTF-8"?>']
     sitemap_xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
 
-    # Check the environment to set the correct URL scheme (http or https)
+    # Get environment settings
     environment = os.getenv("ENVIRONMENT", "production")
     scheme = 'https' if environment == 'production' else 'http'
-
+    
     # Call the generator function to get the dynamic URLs
     for endpoint, params in sitemap_urls():
-        url = url_for(endpoint, **params, _external=True)
-        # Update the URL to use the correct scheme
-        url = url.replace('http://', f'{scheme}://')
-        sitemap_xml.append(f'<url><loc>{url}</loc></url>')
+        try:
+            # Generate URL with appropriate scheme
+            url = url_for(endpoint, 
+                         _external=True, 
+                         _scheme=scheme,
+                         **params)
+            
+            # Add lastmod, changefreq, and priority
+            current_date = datetime.now().strftime('%Y-%m-%d')
+            
+            # Set priority based on endpoint
+            priority = '1.0' if endpoint == 'home' else '0.8'
+            if 'video_page' in endpoint:
+                priority = '0.7'
+            
+            # Set changefreq based on endpoint
+            changefreq = 'weekly' if endpoint in ['home', 'all_videos'] else 'monthly'
+            
+            sitemap_xml.append(f'''
+    <url>
+        <loc>{url}</loc>
+        <lastmod>{current_date}</lastmod>
+        <changefreq>{changefreq}</changefreq>
+        <priority>{priority}</priority>
+    </url>''')
+            
+        except Exception as e:
+            app.logger.error(f"Error generating URL for endpoint {endpoint}: {str(e)}")
+            continue
 
     sitemap_xml.append('</urlset>')
-
     return ''.join(sitemap_xml)
+
 
 # Error handler for 404
 @app.errorhandler(404)
