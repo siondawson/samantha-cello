@@ -22,7 +22,10 @@ domain = os.getenv('DOMAIN', 'samanthacello.com' if environment == 'production' 
 # Configure the app
 app.config.update(
     SERVER_NAME=domain,
-    PREFERRED_URL_SCHEME=scheme
+    PREFERRED_URL_SCHEME=scheme,
+    # Add these Sitemap specific configurations
+    SITEMAP_INCLUDE_RULES_WITHOUT_PARAMS=True,
+    SITEMAP_URL_SCHEME=scheme
 )
 
 # Initialize Flask-Sitemap

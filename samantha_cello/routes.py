@@ -1,4 +1,5 @@
 from flask import render_template, request, redirect, session, Response, url_for, flash
+from flask import current_app as app
 import os
 import json
 import requests
@@ -8,6 +9,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib
 from samantha_cello import app, sitemap  # Import app from __init__.py
+
 
 # Environment variables for email
 GMAIL_ADDRESS = os.getenv("GMAIL_ADDRESS")
@@ -377,8 +379,13 @@ def page_not_found(error):
     return render_template('404.html'), 404
 
 
+import os
+import json
+
+
 @sitemap.register_generator
 def sitemap_urls():
+    """Generate sitemap URLs"""
     # Static routes
     yield 'home', {}
     yield 'about', {}
@@ -387,67 +394,13 @@ def sitemap_urls():
     yield 'contact', {}
     yield 'all_videos', {}
     
-    # Load the videos from the JSON file
+    # Load and yield video pages
     try:
-        with open(os.path.join(app.root_path, 'static', 'json', 'videos.json')) as f:
-            videos = json.load(f)
-        for video in videos:
-            yield 'video_page', {'slug': video['pageSlug']}
+        videos_path = os.path.join(app.root_path, 'static', 'json', 'videos.json')
+        if os.path.exists(videos_path):
+            with open(videos_path) as f:
+                videos = json.load(f)
+            for video in videos:
+                yield 'video_page', {'slug': video['pageSlug']}
     except Exception as e:
-        app.logger.error(f"Error loading videos.json: {str(e)}")
-
-@app.route('/sitemap.xml')
-def sitemap():
-    """Generate sitemap.xml."""
-    return Response(
-        generate_sitemap(),
-        mimetype='application/xml',
-        headers={'Content-Type': 'application/xml; charset=utf-8'}
-    )
-
-def generate_sitemap():
-    base_url = "https://samanthacello.com"  # Hardcode the HTTPS base URL
-    
-    sitemap_xml = ['<?xml version="1.0" encoding="UTF-8"?>']
-    sitemap_xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">')
-
-    # Get current date for lastmod
-    current_date = datetime.now().strftime('%Y-%m-%d')
-
-    # Define your routes and their properties
-    routes = {
-        '': {'priority': '1.0', 'changefreq': 'weekly'},
-        'about': {'priority': '0.8', 'changefreq': 'monthly'},
-        'repertoire': {'priority': '0.8', 'changefreq': 'monthly'},
-        'faq': {'priority': '0.7', 'changefreq': 'monthly'},
-        'contact': {'priority': '0.7', 'changefreq': 'monthly'},
-        'videos': {'priority': '0.8', 'changefreq': 'weekly'},
-    }
-
-    # Add static routes
-    for route, properties in routes.items():
-        url = f"{base_url}/{route}" if route else base_url
-        sitemap_xml.append(f'''    <url>
-        <loc>{url}</loc>
-        <lastmod>{current_date}</lastmod>
-        <changefreq>{properties['changefreq']}</changefreq>
-        <priority>{properties['priority']}</priority>
-    </url>''')
-
-    # Add video pages
-    try:
-        with open(os.path.join(app.root_path, 'static', 'json', 'videos.json')) as f:
-            videos = json.load(f)
-        for video in videos:
-            video_url = f"{base_url}/videos/{video['pageSlug']}"
-            sitemap_xml.append(f'''    <url>
-        <loc>{video_url}</loc>
-        <lastmod>{current_date}</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>''')
-    except Exception as e:
-        app.logger.error(f"Error loading videos.json: {str(e)}")
-
-    sitemap_xml.append('</urlset>')
-    return '\n'.join(sitemap_xml)
+        app.logger.error(f"Error generating video URLs for sitemap: {str(e)}")
