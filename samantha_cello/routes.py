@@ -381,18 +381,33 @@ def page_not_found(error):
 
 import os
 import json
-
+from flask import current_app as app
+from samantha_cello import sitemap
+from datetime import datetime
 
 @sitemap.register_generator
 def sitemap_urls():
-    """Generate sitemap URLs"""
-    # Static routes
-    yield 'home', {}
-    yield 'about', {}
-    yield 'repertoire', {}
-    yield 'faq', {}
-    yield 'contact', {}
-    yield 'all_videos', {}
+    """Generate sitemap URLs with priorities and change frequencies"""
+    # Get current date for lastmod
+    current_date = datetime.now().strftime('%Y-%m-%d')
+    
+    # Static routes with their properties
+    routes = {
+        'home': {'priority': 1.0, 'changefreq': 'weekly'},
+        'about': {'priority': 0.8, 'changefreq': 'monthly'},
+        'repertoire': {'priority': 0.8, 'changefreq': 'monthly'},
+        'faq': {'priority': 0.7, 'changefreq': 'monthly'},
+        'contact': {'priority': 0.7, 'changefreq': 'monthly'},
+        'all_videos': {'priority': 0.8, 'changefreq': 'weekly'}
+    }
+    
+    # Generate static routes
+    for endpoint, properties in routes.items():
+        yield (endpoint, 
+               {},  # Empty dict for no parameters
+               current_date,  # lastmod
+               properties['changefreq'],  # changefreq
+               properties['priority'])  # priority
     
     # Load and yield video pages
     try:
@@ -401,6 +416,10 @@ def sitemap_urls():
             with open(videos_path) as f:
                 videos = json.load(f)
             for video in videos:
-                yield 'video_page', {'slug': video['pageSlug']}
+                yield ('video_page', 
+                       {'slug': video['pageSlug']},  # URL parameters
+                       current_date,  # lastmod
+                       'monthly',  # changefreq
+                       0.7)  # priority
     except Exception as e:
         app.logger.error(f"Error generating video URLs for sitemap: {str(e)}")
