@@ -390,6 +390,7 @@ def sitemap_urls():
     for video in videos:
         yield 'video_page', {'slug': video['pageSlug']}
 
+
 @app.route('/sitemap.xml')
 def sitemap():
     # This will generate the sitemap dynamically using the generator
@@ -400,17 +401,15 @@ def generate_sitemap():
     sitemap_xml = ['<?xml version="1.0" encoding="UTF-8"?>']
     sitemap_xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
 
-    # Check environment to determine if the URL should be https or http
+    # Check the environment to set the correct URL scheme (http or https)
     environment = os.getenv("ENVIRONMENT", "production")
-    url_scheme = "https" if environment == "production" else "http"
+    scheme = 'https' if environment == 'production' else 'http'
 
     # Call the generator function to get the dynamic URLs
     for endpoint, params in sitemap_urls():
         url = url_for(endpoint, **params, _external=True)
-        
-        # Replace the scheme (http or https) in the URL
-        url = url.replace("http", url_scheme, 1)
-
+        # Update the URL to use the correct scheme
+        url = url.replace('http://', f'{scheme}://')
         sitemap_xml.append(f'<url><loc>{url}</loc></url>')
 
     sitemap_xml.append('</urlset>')
