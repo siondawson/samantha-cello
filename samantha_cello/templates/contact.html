@@ -2,84 +2,91 @@
 {% block meta_description %}{{ meta_description }}{% endblock %}
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
-    <section id="contact" class="py-5">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-md-6 col-lg-4 g-0 d-none d-lg-flex align-items-center justify-content-center">
-                    <!-- Centering the image -->
-                    <div class="image-container">
-                        <img src="{{ url_for('static', filename='images/samantha-blue-outfit-smile.webp') }}" alt="Contact Image" class="contact-image">
+<section id="contact" class="py-5">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <!-- Contact Image Column -->
+            <div class="col-md-6 col-lg-4 g-0 d-none d-lg-flex align-items-center justify-content-center">
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/samantha-blue-outfit-smile.webp') }}" alt="Contact Image" class="contact-image">
+                </div>
+            </div>
+
+            <!-- Form Column -->
+            <div class="col-md-6 col-lg-4 g-0 mt-5 py-5">
+                {% if message %}
+                    <div class="alert alert-success text-center" role="alert">
+                        {{ message }}
                     </div>
-                </div>                
-                <div class="col-md-6 col-lg-4 g-0 mt-5 py-5"> <!-- Form Column -->
-                    {% if message %}
-                        <div class="alert alert-success text-center" role="alert">
-                            {{ message }}
-                        </div>
-                        <h2 class="text-center">Your Submitted Details:</h2>
-                        <ul class="list-unstyled text-center">
-                            <li><strong>Name:</strong> {{ enquiry.name }}</li>
-                            <li><strong>Email:</strong> {{ enquiry.email }}</li>
-                            <li><strong>Phone:</strong> {{ enquiry.phone }}</li>
-                            <li><strong>Message:</strong> {{ enquiry.message }}</li>
-                        </ul>
-                    {% else %}
-                        <!-- Load the reCAPTCHA library -->
-                        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                        {% if error %}
+                    <h2 class="text-center">Your Submitted Details:</h2>
+                    <ul class="list-unstyled text-center">
+                        <li><strong>Name:</strong> {{ enquiry.name }}</li>
+                        <li><strong>Email:</strong> {{ enquiry.email }}</li>
+                        <li><strong>Phone:</strong> {{ enquiry.phone or "None" }}</li>
+                        <li><strong>Message:</strong> {{ enquiry.message }}</li>
+                    </ul>
+                {% else %}
+                    {% if error %}
                         <div class="alert alert-danger text-center" role="alert">
                             {{ error }}
                         </div>
-                        {% endif %}
-                        <form method="POST" id="form" class="contact-form text-white p-4" autocomplete="on" onsubmit="event.preventDefault(); grecaptcha.execute();">
-                            <h1 class="mb-4">Get In Touch</h1>
-                            <p class="mb-4">
-                                Fill out the form below for a free, no-obligation quote. I aim to respond to all enquiries on the day. If you don't receive a reply, please check your spam folder. Alternatively, you can call me directly at 07555 685947.
-                            </p>
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="text" id="phone" name="phone" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
-                            </div>
-                            <div class="d-flex justify-content-center mt-3">
-                                <button type="submit" class="btn btn-warning">Send Message</button>
-                            </div>
-                        </form>                        
                     {% endif %}
-                </div>
-                
+                    <form method="POST" id="form" class="contact-form text-white p-4" autocomplete="on" onsubmit="return validateRecaptcha();">
+                        <h1 class="mb-4">Get In Touch</h1>
+                        <p class="mb-4">
+                            Fill out the form below for a free, no-obligation quote. I aim to respond to all enquiries on the day. If you don't receive a reply, please check your spam folder. Alternatively, you can call me directly at 07555 685947.
+                        </p>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="text" id="phone" name="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+                        </div>
+                        
+                        <!-- reCAPTCHA Widget -->
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="{{ site_key }}"></div>
+                            <span id="recaptcha-error" style="color: red; display: none;">Please verify that you are not a robot.</span>
+                        </div>
+                        
+                        <div class="d-flex justify-content-center mt-3">
+                            <button type="submit" class="btn btn-warning">Send Message</button>
+                        </div>
+                    </form>                    
+                {% endif %}
             </div>
         </div>
-    </section>
+    </div>
+</section>
 {% endblock %}
 {% block js %}
 <script>
     function onSubmit(token) {
-        document.getElementById("form").submit();  // Submit the form after reCAPTCHA validation
+        document.getElementById('g-recaptcha-response').value = token;
+        document.getElementById('form').submit();
     }
 
-    grecaptcha.ready(function() {
-        grecaptcha.execute('6LdNjpwqAAAAAMe-eEyWM80M8j19QrbUmOLtUgAc', { action: 'contact' }).then(function(token) {
-            // Insert the token into a hidden input field before submitting the form
-            var recaptchaResponse = document.createElement('input');
-            recaptchaResponse.setAttribute('type', 'hidden');
-            recaptchaResponse.setAttribute('name', 'g-recaptcha-response');
-            recaptchaResponse.setAttribute('value', token);
-            document.getElementById('form').appendChild(recaptchaResponse);
-        });
-    });
+    function validateRecaptcha() {
+        var recaptchaResponse = grecaptcha.getResponse();
+        if (recaptchaResponse.length === 0) {
+            // If the reCAPTCHA is not checked, prevent the form submission
+            document.getElementById("recaptcha-error").style.display = "block";
+            return false;  // Prevent the form from submitting
+        } else {
+            // If the reCAPTCHA is checked, hide the error message
+            document.getElementById("recaptcha-error").style.display = "none";
+            return true;  // Allow the form to submit
+        }
+    }
 </script>
-
-
 {% endblock %}

@@ -25,6 +25,10 @@ jsonbin_headers = {
     'X-Master-Key': JSONBIN_API_KEY
 }
 
+# google recaptcha
+SITE_KEY = '6LeCmZ8qAAAAAMO_tZXZNbBT_kTIuJ30ZF8MxsRF'
+RECAPTCHA_SECRET_KEY = os.getenv('RECAPTCHA_SECRET_KEY')
+
 
 def get_canonical_url():
     return url_for(request.endpoint, **request.view_args, _external=True)
@@ -135,6 +139,7 @@ def faq():
     )
 
 
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     # Load meta tag data from JSON
@@ -145,37 +150,32 @@ def contact():
     meta_description = meta_data.get("meta_description", "Default Meta Description")
 
     if request.method == 'POST':
-        # Verify reCAPTCHA
-        recaptcha_response = request.form.get('g-recaptcha-response')
-        recaptcha_secret = os.getenv("RECAPTCHA_SECRET_KEY")  # Ensure this is loaded
-        recaptcha_verify_url = "https://www.google.com/recaptcha/api/siteverify"
-
-        recaptcha_data = {
-            'secret': recaptcha_secret,
-            'response': recaptcha_response,
-        }
-
-        recaptcha_verification = requests.post(recaptcha_verify_url, data=recaptcha_data)
-        recaptcha_result = recaptcha_verification.json()
-
-        if not recaptcha_result.get('success'):
-            # You don't need to display an error message explicitly here
-            # Just reload the form to let the user try again
-            return render_template(
-                'contact.html',
-                title=title,
-                meta_description=meta_description,
-                error="reCAPTCHA validation failed. Please try again."  # Optional, can be left out
-            )
-
-
-        # Process form data if reCAPTCHA is successful
+        # Retrieve form fields
         name = request.form['name']
         email = request.form['email']
         phone = request.form['phone'] or None
         message = request.form['message']
-        submitted_at = datetime.now().isoformat()
+        recaptcha_response = request.form.get('g-recaptcha-response')
 
+        # Verify reCAPTCHA
+        verify_url = "https://www.google.com/recaptcha/api/siteverify"
+        data = {
+            'secret': RECAPTCHA_SECRET_KEY,
+            'response': recaptcha_response
+        }
+        try:
+            recaptcha_result = requests.post(verify_url, data=data).json()
+            if not recaptcha_result.get('success'):
+                # reCAPTCHA failed
+                flash("reCAPTCHA verification failed. Please try again.", "danger")
+                return render_template('contact.html', title=title, meta_description=meta_description, site_key=SITE_KEY)
+        except Exception as e:
+            print(f"Error verifying reCAPTCHA: {e}")
+            flash("An error occurred with reCAPTCHA. Please try again.", "danger")
+            return render_template('contact.html', title=title, meta_description=meta_description, site_key=SITE_KEY)
+
+        # Process form data
+        submitted_at = datetime.now().isoformat()
         enquiry = {
             'name': name,
             'email': email,
@@ -237,11 +237,12 @@ def contact():
         # Get canonical URL
         canonical_url = get_canonical_url()
         return render_template(
-            'contact.html', message=message, 
+            'contact.html', message=message,
             enquiry=enquiry, title=title, meta_description=meta_description, canonical_url=canonical_url
         )
 
-    return render_template('contact.html', title=title, meta_description=meta_description)
+    return render_template('contact.html', title=title, meta_description=meta_description, site_key=SITE_KEY)
+
 
 
 
