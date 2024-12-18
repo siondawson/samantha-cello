@@ -391,7 +391,6 @@ def sitemap_urls():
     try:
         with open(os.path.join(app.root_path, 'static', 'json', 'videos.json')) as f:
             videos = json.load(f)
-        # Loop through each video and generate its URL
         for video in videos:
             yield 'video_page', {'slug': video['pageSlug']}
     except Exception as e:
@@ -399,12 +398,7 @@ def sitemap_urls():
 
 @app.route('/sitemap.xml')
 def sitemap():
-    """Generate sitemap.xml. Makes a list of URLs and date modified."""
-    # Force HTTPS for production
-    if not request.is_secure and app.env == 'production':
-        url = request.url.replace('http://', 'https://', 1)
-        return redirect(url, code=301)
-
+    """Generate sitemap.xml."""
     return Response(
         generate_sitemap(),
         mimetype='application/xml',
@@ -412,62 +406,48 @@ def sitemap():
     )
 
 def generate_sitemap():
-    """Generate the sitemap XML."""
+    base_url = "https://samanthacello.com"  # Hardcode the HTTPS base URL
+    
     sitemap_xml = ['<?xml version="1.0" encoding="UTF-8"?>']
-    sitemap_xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+    sitemap_xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">')
 
-    # Force HTTPS in production
-    scheme = 'https' if app.env == 'production' else request.scheme
+    # Get current date for lastmod
+    current_date = datetime.now().strftime('%Y-%m-%d')
 
-    # Get the hostname
-    host = request.host_url.rstrip('/')
+    # Define your routes and their properties
+    routes = {
+        '': {'priority': '1.0', 'changefreq': 'weekly'},
+        'about': {'priority': '0.8', 'changefreq': 'monthly'},
+        'repertoire': {'priority': '0.8', 'changefreq': 'monthly'},
+        'faq': {'priority': '0.7', 'changefreq': 'monthly'},
+        'contact': {'priority': '0.7', 'changefreq': 'monthly'},
+        'videos': {'priority': '0.8', 'changefreq': 'weekly'},
+    }
 
-    # Call the generator function to get the dynamic URLs
-    for endpoint, params in sitemap_urls():
-        try:
-            # Generate absolute URL with forced HTTPS in production
-            url = url_for(endpoint,
-                         _external=True,
-                         _scheme=scheme,
-                         **params)
-
-            # Ensure URL is absolute and uses HTTPS in production
-            if app.env == 'production' and url.startswith('http://'):
-                url = url.replace('http://', 'https://', 1)
-
-            # Add lastmod, changefreq, and priority
-            current_date = datetime.now().strftime('%Y-%m-%d')
-
-            # Set priority based on endpoint importance
-            priorities = {
-                'home': '1.0',
-                'about': '0.8',
-                'repertoire': '0.8',
-                'video_page': '0.7',
-                'all_videos': '0.7',
-            }
-            priority = priorities.get(endpoint, '0.5')
-
-            # Set changefreq based on content type
-            frequencies = {
-                'home': 'daily',
-                'all_videos': 'weekly',
-                'video_page': 'weekly',
-            }
-            changefreq = frequencies.get(endpoint, 'monthly')
-
-            sitemap_xml.append(
-                f'''    <url>
+    # Add static routes
+    for route, properties in routes.items():
+        url = f"{base_url}/{route}" if route else base_url
+        sitemap_xml.append(f'''    <url>
         <loc>{url}</loc>
         <lastmod>{current_date}</lastmod>
-        <changefreq>{changefreq}</changefreq>
-        <priority>{priority}</priority>
-    </url>'''
-            )
+        <changefreq>{properties['changefreq']}</changefreq>
+        <priority>{properties['priority']}</priority>
+    </url>''')
 
-        except Exception as e:
-            app.logger.error(f"Error generating URL for endpoint {endpoint}: {str(e)}")
-            continue
+    # Add video pages
+    try:
+        with open(os.path.join(app.root_path, 'static', 'json', 'videos.json')) as f:
+            videos = json.load(f)
+        for video in videos:
+            video_url = f"{base_url}/videos/{video['pageSlug']}"
+            sitemap_xml.append(f'''    <url>
+        <loc>{video_url}</loc>
+        <lastmod>{current_date}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>''')
+    except Exception as e:
+        app.logger.error(f"Error loading videos.json: {str(e)}")
 
     sitemap_xml.append('</urlset>')
     return '\n'.join(sitemap_xml)
