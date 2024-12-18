@@ -390,7 +390,6 @@ def sitemap_urls():
     for video in videos:
         yield 'video_page', {'slug': video['pageSlug']}
 
-
 @app.route('/sitemap.xml')
 def sitemap():
     # This will generate the sitemap dynamically using the generator
@@ -401,19 +400,24 @@ def generate_sitemap():
     sitemap_xml = ['<?xml version="1.0" encoding="UTF-8"?>']
     sitemap_xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
 
+    # Check environment to determine if the URL should be https or http
+    environment = os.getenv("ENVIRONMENT", "production")
+    url_scheme = "https" if environment == "production" else "http"
+
     # Call the generator function to get the dynamic URLs
     for endpoint, params in sitemap_urls():
-        url = url_for(endpoint, **params, _external=True, _scheme='https')
+        url = url_for(endpoint, **params, _external=True)
+        
+        # Replace the scheme (http or https) in the URL
+        url = url.replace("http", url_scheme, 1)
+
         sitemap_xml.append(f'<url><loc>{url}</loc></url>')
 
     sitemap_xml.append('</urlset>')
 
     return ''.join(sitemap_xml)
 
-
 # Error handler for 404
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html'), 404
-
-
