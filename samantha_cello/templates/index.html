@@ -74,35 +74,69 @@
         </div>
     </div>
 </section>
-
-        <!-- about -->
-        <section class="bg-off-white" id="about">
-            <div class="container pt-5 pb-5">
-                <div class="row">
-                    <div class="col-12 col-md-12 col-lg-8">
-                        <article>
-                            <h3>Samantha: Exceptional Solo Cello for Weddings and Events</h3>
-                            <p>Samantha, a gifted and experienced solo cellist, brings elegance and beauty to weddings and special events across South Wales, Cardiff, Bristol, the Cotswolds, and beyond. Specializing in live wedding music, Samantha tailors her repertoire to enhance each moment of your day, from the walk down the aisle to the reception and wedding breakfast, creating a unique, personalized musical experience.</p>
-                            <p>Renowned for her artistry, versatility, and professional excellence, Samantha’s solo cello performances provide a touch of sophistication and charm that elevates any wedding. With a wide-ranging repertoire—from classical pieces to modern love songs—she ensures that your wedding soundtrack resonates with the ambiance and emotion of the day, crafting memories through music that will last a lifetime.</p>
-                            <p>Contact Samantha today to explore how live cello music can add a captivating touch to your celebration, bringing an unforgettable and enchanting atmosphere to your wedding day.</p>
-                        </article>
+<!-- About Section -->
+<section class="bg-off-white" id="about" aria-label="About Samantha - Wedding Cellist">
+    <div class="container pt-5 pb-5">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-8">
+                <article>
+                    <h2>Samantha Drees: Luxury Wedding Cellist in Cardiff & South Wales</h2>
+                    <div class="content-wrapper">
+                        <p class="lead">Professional solo cellist bringing elegant live music to weddings and events across South Wales, Cardiff, Bristol, and the Cotswolds.</p>
+                        
+                        <p>As a gifted and experienced wedding cellist, Samantha creates bespoke musical experiences that enhance every moment of your celebration. From the emotional walk down the aisle to the joyful atmosphere of your reception, her live cello music adds sophistication and charm to your special day.</p>
+                        
+                        <p>With an extensive repertoire spanning classical masterpieces to contemporary love songs, Samantha ensures your wedding soundtrack perfectly captures the romance and elegance of your celebration. Each performance is thoughtfully curated to create lasting memories through the captivating sound of live cello music.</p>
+                        
+                        <div class="cta-wrapper mt-4">
+                            <a href="{{ url_for('contact') }}" class="btn btn-secondary me-2">Request a Quote</a>
+                            <a href="{{ url_for('repertoire') }}" class="btn btn-secondary">View Repertoire</a>
+                        </div>
                     </div>
-                    <div class="col-12 col-md-12 col-lg-4 mb-3 pt-sm-3">
-                        <h3 class="mb-3">Samantha offers:</h3>
-                        <ul class="in-brief-list">
-                            <li class="mb-2"><i class="far fa-check-circle"></i> Bespoke packages to suit you.</li>
-                            <li class="mb-2"><i class="far fa-check-circle"></i> Versatile & Professional musician</li>
-                            <li class="mb-2"><i class="far fa-check-circle"></i> Vast repertoire covering all styles.</li>
-                            <li class="mb-2"><i class="far fa-check-circle"></i> Happy to learn new songs for your booking.</li>
-                            <li class="mb-2"><i class="far fa-check-circle"></i> Unique Arrangements of Pop, Rock, Classical & More.</li>
-                            <li class="mb-2"><i class="far fa-check-circle"></i> Available U.K. wide and abroad.</li>
-                            <li><i class="far fa-check-circle"></i> Book direcly with Samantha</li>
-                        </ul>
-                        <a class="btn btn-primary mt-3" href="{{ url_for('about') }}">About Samantha</a>
-                    </div>
+                </article>
+            </div>
+            
+            <div class="col-12 col-md-12 col-lg-4 mb-3 pt-sm-3">
+                <div class="services-overview">
+                    <h3 class="mb-3">Professional Wedding Cellist Services:</h3>
+                    <ul class="in-brief-list list-unstyled">
+                        <li class="mb-3">
+                            <i class="far fa-check-circle"></i>
+                            <span>Bespoke wedding music packages</span>
+                        </li>
+                        <li class="mb-3">
+                            <i class="far fa-check-circle"></i>
+                            <span>Versatile professional musician</span>
+                        </li>
+                        <li class="mb-3">
+                            <i class="far fa-check-circle"></i>
+                            <span>Extensive repertoire of all music styles</span>
+                        </li>
+                        <li class="mb-3">
+                            <i class="far fa-check-circle"></i>
+                            <span>Custom song requests welcomed</span>
+                        </li>
+                        <li class="mb-3">
+                            <i class="far fa-check-circle"></i>
+                            <span>Unique arrangements of pop, rock & classical</span>
+                        </li>
+                        <li class="mb-3">
+                            <i class="far fa-check-circle"></i>
+                            <span>Available throughout the UK & internationally</span>
+                        </li>
+                        <li class="mb-3">
+                            <i class="far fa-check-circle"></i>
+                            <span>Direct booking with personal service</span>
+                        </li>
+                    </ul>
+                    <a class="btn btn-secondary mt-3" href="{{ url_for('about') }}">
+                        Learn More About Samantha
+                    </a>
                 </div>
             </div>
-        </section>    
+        </div>
+    </div>
+</section>
         <!-- reviews -->
         <section>
             <div class="container-fluid review-bg">
@@ -182,6 +216,38 @@
                 });
             });
         </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "MusicianProfile",
+                "name": "Samantha Drees",
+                "alternateName": "Wedding Cellist Cardiff",
+                "description": "Professional wedding cellist providing elegant live music for ceremonies and receptions across South Wales, Cardiff, Bristol, and the Cotswolds.",
+                "knowsAbout": ["Wedding Music", "Classical Music", "Contemporary Music", "Cello Performance"],
+                "hasOccupation": {
+                    "@type": "Occupation",
+                    "name": "Wedding Cellist",
+                    "occupationLocation": {
+                        "@type": "City",
+                        "name": "Cardiff"
+                    }
+                },
+                "makesOffer": {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Wedding Ceremony Music",
+                        "description": "Professional cello music for wedding ceremonies and receptions",
+                        "areaServed": ["Cardiff", "South Wales", "Bristol", "Cotswolds"]
+                    }
+                },
+                "memberOf": {
+                    "@type": "MusicGroup",
+                    "name": "Aderyn Strings",
+                    "url": "https://aderynstringquartet.com"
+                }
+            }
+            </script>
         
         
         
