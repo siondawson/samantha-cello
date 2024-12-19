@@ -1,71 +1,118 @@
 {% extends "base.html" %}
-    {% block meta_description %}{{ meta_description }}{% endblock %}
-    {% block title %}{{ title }}{% endblock %}
-    {% block content %}
- 
-        <article>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 p-0 position-relative"> <!-- Add position-relative class to the column -->
-                        <div class="image-banner">
-                            <img src="{{ url_for('static', filename='images/cello-wedding-music.webp') }}" alt="Serenade Strings Musicians">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-12 text-center p-5">
-                        <h1 class="mb-3">Samantha Drees</h2>
-                        <h3>Luxury Modern Wedding Cellist in Cardiff and London</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="container pb-3">
-                {% for section in about_data %}
-                    <div class="row align-items-center">
-                        {% if loop.index % 2 == 1 %}
-                            <!-- Title on left, content on right for odd-indexed items (1-based index) -->
-                            <div class="col-12 col-md-6 order-md-1">
-                                <h2 class="text-md-center">{{ section.title }}</h2>
-                            </div>
-                            <div class="col-12 col-md-6 order-md-2">
-                                <p class="text-md-start">{{ section.content }}</p>
-                            </div>
-                        {% else %}
-                            <!-- Title on right, content on left for even-indexed items (1-based index) -->
-                            <div class="col-12 col-md-6 order-md-2">
-                                <h2 class="text-md-center">{{ section.title }}</h2>
-                            </div>
-                            <div class="col-12 col-md-6 order-md-1">
-                                <p class="text-md-start">{{ section.content }}</p>
-                            </div>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-            </div>
-        </article>
-        <article>
-            <div class="container my-5">
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-6 mb-4 mb-md-0">
-                        <h2 class="text-center text-md-start mb-3">An Aderyn Strings Act</h2>
-                        <p class="lead">
-                            Samantha is proud to be a part of the Aderyn Strings family, a renowned ensemble known for its exquisite performances. Established in 2013, the Aderyn String Quartet has delighted audiences with their exceptional musicianship and diverse repertoire. Whether it's a wedding, corporate event, or private gathering, Aderyn Strings brings a touch of elegance and sophistication to every occasion.
-                        </p>
-                        <p>
-                            With a commitment to creating unforgettable musical experiences, the quartet's talented musicians work closely with clients to curate a personalized selection of pieces that enhance the atmosphere of any event. Their passion for live music shines through in every performance, making Aderyn Strings a favorite choice for celebrations across the UK and beyond.
-                        </p>
-                        <a href="https://aderynstringquartet.com" class="btn btn-secondary">Visit Aderyn Strings Website</a>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="text-center">
-                            <img src="{{ url_for('static', filename='images/logos/aderyn-strings-round.png') }}" alt="Aderyn Strings Logo" class="img-fluid rounded-circle aderyn-strings-round-logo">
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </article>
+{% block meta_description %}Professional wedding cellist in Cardiff and London. Part of the acclaimed Aderyn Strings ensemble, offering solo cello and string quartet performances for luxury weddings.{% endblock %}
+{% block title %}Samantha Drees | Cardiff Wedding Cellist | Aderyn Strings{% endblock %}
 
-    {% endblock %}
+{% block content %}
+<article>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 p-0 position-relative">
+                <div class="image-banner">
+                    <img src="{{ url_for('static', filename='images/cello-wedding-music.webp') }}" alt="Professional wedding cellist Samantha Drees performing at a luxury wedding ceremony">
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12 text-center p-5">
+                <h1 class="mb-3">Samantha Drees - Cardiff Wedding Cellist</h1>
+                <h2 class="h3">Luxury Modern Wedding Cellist in Cardiff and London</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pb-3">
+        {% for section in about_data %}
+            <div class="row align-items-center mb-5">
+                {% if loop.index % 2 == 1 %}
+                    <div class="col-12 col-md-6 order-md-1">
+                        <h2 class="text-md-center">{{ section.title }}</h2>
+                    </div>
+                    <div class="col-12 col-md-6 order-md-2">
+                        <p class="text-md-start">{{ section.content }}</p>
+                    </div>
+                {% else %}
+                    <div class="col-12 col-md-6 order-md-2">
+                        <h2 class="text-md-center">{{ section.title }}</h2>
+                    </div>
+                    <div class="col-12 col-md-6 order-md-1">
+                        <p class="text-md-start">{{ section.content }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</article>
+
+<article class="bg-light py-5">
+    <div class="container my-5">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6 mb-4 mb-md-0">
+                <h2 class="text-center text-md-start mb-3">Part of Aderyn Strings</h2>
+                <p class="lead">
+                    As the principal cellist of Aderyn Strings, Samantha offers both solo cello performances and leads the acclaimed Aderyn String Quartet. Established in 2013, Aderyn Strings has become South Wales' premier choice for wedding and event music, combining classical excellence with contemporary style.
+                </p>
+                <p>
+                    Whether you're seeking an elegant solo cellist or the full quartet experience, Aderyn Strings provides versatile musical options for your special day. From intimate ceremonies to grand celebrations, Samantha and the Aderyn ensemble create bespoke musical experiences across Cardiff, London, and the UK.
+                </p>
+                <div class="d-flex gap-3 mb-4">
+                    <a href="https://aderynstringquartet.com" class="btn btn-secondary" target="_blank" rel="noopener">Visit Aderyn Strings</a>
+                    <a href="{{ url_for('repertoire') }}" class="btn btn-secondary">Explore Repertoire</a>
+                </div>
+                <div class="service-links mt-4">
+                    <h3>Available Services</h3>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-music me-2"></i><a href="{{ url_for('home') }}">Solo Cello Performances</a></li>
+                        <li><i class="fas fa-users me-2"></i><a href="https://aderynstringquartet.com">String Quartet</a></li>
+                        <li><i class="fas fa-list me-2"></i><a href="{{ url_for('repertoire') }}">Browse Repertoire</a></li>
+                        <li><i class="fas fa-envelope me-2"></i><a href="{{ url_for('contact') }}">Enquire About Availability</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="text-center">
+                    <img src="{{ url_for('static', filename='images/logos/aderyn-strings-round.png') }}" alt="Aderyn Strings Logo - Professional Wedding Musicians in Cardiff" class="img-fluid rounded-circle aderyn-strings-round-logo">
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+</script>
+{% endblock %}
+{% block js %}
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "Performer"],
+        "name": "Samantha Drees - Wedding Cellist",
+        "image": "{{ url_for('static', filename='images/logos/samantha-cello-logo-white.png', _external=True) }}",
+        "description": "Professional wedding cellist in Cardiff and London, principal cellist of Aderyn Strings offering elegant cello music for ceremonies and receptions.",
+        "url": "{{ url_for('about', _external=True) }}",
+        "telephone": "+447XXX XXX XXX",
+        "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Cardiff",
+            "addressCountry": "UK"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "51.4816",
+            "longitude": "-3.1791"
+        },
+        "areaServed": ["Cardiff", "South Wales", "London", "Bristol"],
+        "priceRange": "££",
+        "memberOf": {
+            "@type": "MusicGroup",
+            "name": "Aderyn Strings",
+            "url": "https://aderynstringquartet.com"
+        },
+        "sameAs": [
+            "https://www.youtube.com/channel/UCqpwuSgaiAFsvqPvKwL9YVw",
+            "https://www.instagram.com/aderynstringquartet",
+            "https://www.facebook.com/aderynstringquartet"
+        ]
+    }
+    </script>
+{% endblock %}
