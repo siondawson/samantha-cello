@@ -29,24 +29,26 @@
 
 {% block content %}
 <div class="container my-5">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h1>Videos</h1>
-            <h2>Discover performances by Samantha Cello.</h2>
-        </div>
-    </div>
-    <div class="row justify-content-center">  <!-- Remove d-flex and just use justify-content-center -->
-        {% for video in videos %}
-            <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">  <!-- Add d-flex and justify-content-center to each col -->
-                <div class="video-card bg-dark p-4 text-white">
-                    <a href="{{ url_for('video_page', slug=video['pageSlug']) }}" class="d-block">
-                        <img class="video-thumbnail w-100" src="{{ video['thumbnailUrl'] }}" alt="{{ video['alt'] }}">
-                        <h3 class="mt-3">{{ video['title'] }}</h3>
-                        <p>{{ video['description'][:100] }}...</p>
-                    </a>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+  <div class="row">
+      <div class="col-12 text-center">
+          <h1>Videos</h1>
+          <h2>Discover performances by Samantha Cello.</h2>
+      </div>
+  </div>
+  <div class="row justify-content-center g-4">
+      {% for video in videos %}
+          <div class="col-12 col-md-6 col-lg-4">
+              <div class="video-card">
+                  <a href="{{ url_for('video_page', slug=video['pageSlug']) }}">
+                      <div class="thumbnail-wrapper">
+                          <img class="video-thumbnail" src="{{ video['thumbnailUrl'] }}" alt="{{ video['alt'] }}">
+                      </div>
+                      <h3>{{ video['title'] }}</h3>
+                      <p>{{ video['description'][:100] }}...</p>
+                  </a>
+              </div>
+          </div>
+      {% endfor %}
+  </div>
 </div>
 {% endblock %}

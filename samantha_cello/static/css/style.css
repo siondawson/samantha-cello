@@ -832,97 +832,59 @@ transform-origin: bottom left;
 }
 
 
-/* VIDEOS */
-
-/* Styling for video thumbnail */
-.video-thumbnail {
-    width: 100%; /* Ensures the image spans the full width of its container */
-    max-width: 300px; /* Sets a maximum width to prevent oversized thumbnails */
-    height: auto; /* Maintains the aspect ratio */
-    border-radius: 8px; /* Adds rounded corners for a polished look */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-}
-
-/* Hover effect applied to the entire card, scaling the image inside */
-.video-card:hover .video-thumbnail {
-    transform: scale(1.05); /* Slightly enlarges the thumbnail on hover */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhances the shadow on hover */
-}
-
-/* Styling for the video card */
+/* Base video card styling */
 .video-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin: 15px; /* Adds space between video cards */
-    width: 100%; /* Make sure the cards are fully responsive */
-    max-width: 300px; /* Ensures that the cards don’t stretch beyond this width */
-    height: 400px; /* Standardize the height of the card */
-    transition: transform 0.3s ease; /* Smooth transition for card hover effect */
-    overflow: hidden; /* Ensures content doesn't overflow the card */
+    height: 100%;
+    background-color: #212529;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
-.video-card img {
-    width: 100%; /* Ensure the image takes full width of the card */
-    height: 200px; /* Fixed height for the thumbnail */
-    object-fit: cover; /* Ensures the image covers the area without distorting */
-    border-radius: 8px; /* Optional: Adds rounded corners to the image */
+/* Link styling */
+.video-card a {
+    color: white;
+    text-decoration: none;
+    display: block;
 }
 
+/* Thumbnail container */
+.thumbnail-wrapper {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* Thumbnail image */
+.video-thumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Text content */
 .video-card h3 {
-    margin-top: 10px;
-    font-size: 1.1rem; /* Slightly bigger font for the title */
-    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .video-card p {
     font-size: 0.9rem;
-    color: #ccc; /* Optional: Slightly lighter color for the description */
-    margin-top: 5px;
-    flex-grow: 1; /* Allow the paragraph to grow and take the remaining space */
+    color: #ccc;
+    margin: 0;
 }
 
-/* Hover effect for the video card */
+/* Hover effects */
 .video-card:hover {
-    transform: scale(1.05); /* Slightly enlarges the card on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    transform: translateY(-5px);
 }
 
-
-/* Hover effect for the video card itself (no scale, only the thumbnail inside it scales) */
-.video-card:hover {
-    transform: scale(1.02); /* Slightly enlarges the entire card */
-}
-
-/* Styling for video titles */
-.video-title {
-    margin-top: 10px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-/* Title hover effect */
-.video-title:hover {
-    color: #007bff; /* Changes color on hover to indicate interactivity */
-}
-
-/* Styling for the video grid */
-.video-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem;
-}
-
-/* Container for video iframe */
+/* Video container for iframe */
 .video-container {
     position: relative;
-    padding-bottom: 56.25%;  /* Aspect ratio of 16:9 (height / width) */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     max-width: 100%;
@@ -936,22 +898,35 @@ transform-origin: bottom left;
     height: 100%;
 }
 
-/* Remove link styling within the video card */
-.video-card a {
-    color: inherit;           /* Inherit the color from the surrounding text */
-    text-decoration: none;    /* Remove underline from links */
-}
+/* VIDEO PAGE */
 
-/* Optional: Add hover effects for links within the card */
-.video-card a:hover {
-    text-decoration: none;  /* Optional: underline on hover for visual feedback */
-    color: #f8f9fa;             /* Optional: change color on hover */
-}
-
-
+/* Specific styling for the "More Videos" thumbnails */
 .video-page-thumbnail-img {
-    object-fit: cover; /* Ensure the image covers the container while preserving aspect ratio */
-    object-position: center; /* Ensure the image is centered */
-    width: 100px; /* Set fixed width */
-    height: 60px; /* Set fixed height */
+    width: 160px;  /* Fixed width */
+    height: 90px;  /* Fixed height - maintains 16:9 ratio */
+    object-fit: contain;  /* Ensures no cropping */
+    background-color: #000;  /* Optional: adds black background for letterboxing */
+}
+
+/* Make the related videos list more responsive */
+.list-group-item {
+    padding: 0.75rem 0;  /* Reduce vertical padding */
+}
+
+/* Adjust the flex container for thumbnail and text */
+.list-group-item .d-flex {
+    gap: 1rem;  /* Consistent spacing */
+}
+
+/* Make text content wrap properly */
+.list-group-item .d-flex > div {
+    min-width: 0;  /* Allows text to wrap */
+}
+
+/* Ensure text doesn't overflow */
+.list-group-item p {
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.25rem;
 }

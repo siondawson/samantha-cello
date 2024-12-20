@@ -65,27 +65,24 @@
             <!-- Related Videos Section -->
             <div class="col-lg-5">
                 <h4 class="mb-3 mt-5">More Videos</h4>
-                <ul class="list-group">
+                <div class="list-group">
                     {% for related_video in related_videos %}
-                    <li class="list-group-item border-0">
+                    <div class="list-group-item border-0">
                         <a href="{{ url_for('video_page', slug=related_video['pageSlug']) }}" class="text-decoration-none">
-                            <div class="d-flex align-items-center">
-                                <!-- Strip 'static/' prefix from the thumbnailUrl -->
+                            <div class="d-flex align-items-start">
                                 <img src="{{ url_for('static', filename=related_video['thumbnailUrl'][7:]) }}" 
-                                    alt="{{ related_video['alt'] }}"
-                                    class="img-fluid rounded me-3 video-page-thumbnail-img">
-                                <div>
-                                    <p class="mb-0 fw-bold">{{ related_video['title'] }}</p>
+                                     alt="{{ related_video['alt'] }}"
+                                     class="video-page-thumbnail-img rounded">
+                                <div class="flex-grow-1">
+                                    <p class="mb-1 fw-bold text-dark">{{ related_video['title'] }}</p>
                                     <small class="text-muted">{{ related_video['uploadDate'] }}</small>
                                 </div>
                             </div>
                         </a>
-                    </li>
+                    </div>
                     {% endfor %}
-                </ul>
-            </div>
-
-
+                </div>
+            </div>           
         </div>
     </div>
 </article>
