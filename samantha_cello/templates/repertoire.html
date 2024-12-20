@@ -1,28 +1,207 @@
 
-    {% extends "base.html" %}
-    {% block meta_description %}{{ meta_description }}{% endblock %}
-    {% block title %}{{ title }}{% endblock %}
-    {% block content %}
-        <div class="container-fluid" id="repertoire-banner">
-        </div>
+{% extends "base.html" %}
+{% block meta_description %}{{ meta_description }}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+{# repertoire.html #}
 
-        <div class="container pt-5">
-            <div class="row pb-5">
-                <div class="col-12 text-center font-montserrat">
-                    <h1>Sample Repertoire</h1>
-                    <p>Want me to play something that's not listed? Just let me know. Requests are included in every booking!</p>
+    <!-- Hero Section with Showreels  -->
+<div class="hero-section bg-dark text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 mb-4">Repertoire</h1>
+                <p class="lead">Over {{ stats.total_songs }} songs across {{ stats.genres }} genres</p>
+                <p class="mb-4">From classical masterpieces to modern hits, explore my diverse collection.</p>
+                <div class="d-flex gap-3">
+                    <a href="#pop" class="btn btn-outline-light">Pop</a>
+                    <a href="#classical" class="btn btn-outline-light">Classical</a>
+                    <a href="#film" class="btn btn-outline-light">Film</a>
+                    <a href="#rock" class="btn btn-outline-light">Rock</a>
+                    <a href="#bollywood" class="btn btn-outline-light">Bollywood</a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <ul>
-                        {% for song in songs %}
-                            <li>
-                                {{ song.title }} - {{ song.artist }}
-                            </li>
-                        {% endfor %}
-                    </ul>
+            <div class="col-lg-6">
+                <div class="featured-showreel">
+                    {% for showreel in showreels %}
+                    {% if loop.first %}
+                    <div class="ratio ratio-16x9">
+                        <iframe src="{{ showreel.embedUrl }}" 
+                                title="{{ showreel.title }}" 
+                                allowfullscreen 
+                                class="rounded shadow"></iframe>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
-    {% endblock %}
+    </div>
+</div>
+
+<!-- Quick Stats Section -->
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <h3 class="display-4 mb-2">{{ stats.total_songs }}</h3>
+                    <p class="text-muted mb-0">Songs</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <h3 class="display-4 mb-2">{{ stats.genres }}</h3>
+                    <p class="text-muted mb-0">Genres</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <a href="{{ url_for('all_videos') }}" class="text-decoration-none">
+                <div class="card h-100 border-0 shadow-sm hover-card">
+                    <div class="card-body text-center">
+                        <h3 class="display-4 mb-2 text-dark">{{ stats.videos }}</h3>
+                        <p class="text-muted mb-0">Video Demos <i class="fas fa-arrow-right ms-1"></i></p>
+                    </div>
+                </div>
+            </a>
+        </div>            
+        <div class="col-md-3">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <h3 class="display-4 mb-2">10+</h3>
+                    <p class="text-muted mb-0">Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Search Section -->
+<div class="container mb-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-text bg-white border-end-0">
+                    <i class="fas fa-search text-muted"></i>
+                </span>
+                <input type="text" 
+                       id="songSearch" 
+                       class="form-control border-start-0" 
+                       placeholder="Search songs, artists, or genres...">
+            </div>
+        </div>
+    </div>
+    <div id="noResults" class="mt-4" style="display: none;">
+        No songs found matching your search.
+    </div>
+</div>
+
+<!-- Main Repertoire Section -->
+<div class="container py-5">
+    {% set genres = songs|groupby('genre') %}
+    {% set genre_order = ['Pop', 'Classical', 'Rock', 'Film', 'Bollywood', 'Jazz', 'Musical', 'Country'] %}
+    
+    {% for ordered_genre in genre_order %}
+        {% for genre_name, genre_songs in genres %}
+            {% if genre_name == ordered_genre %}
+                <section id="{{ genre_name.lower() }}" class="mb-5">
+                    <h2 class="mb-4">{{ genre_name }}</h2>
+                    <div class="row g-4">
+                        {% for song in genre_songs %}
+                        <div class="col-md-4 col-lg-3">
+                            <div class="card h-100 border-0 shadow-sm hover-lift">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-1">{{ song.title }}</h5>
+                                    <p class="text-muted mb-2">{{ song.artist }}</p>
+                                    {% if song.hasVideo %}
+                                    <a href="{{ url_for('video_page', slug=song.videoSlug) }}" 
+                                        class="btn btn-sm btn-outline-primary">
+                                        Watch Demo
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>
+
+
+<!-- Request Section -->
+<div class="container-fluid bg-light py-5">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+                <h2>Can't Find Your Song?</h2>
+                <p class="lead mb-4">
+                    Want me to play something that's not listed? Just let me know. 
+                    Requests are included in every booking!
+                </p>
+                <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">
+                    Request a Song
+                </a>
+            </div>
+        </div>
+    </div>
+</div>    
+{% endblock %}
+{% block js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('songSearch');
+        if (!searchInput) return;
+    
+        searchInput.addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.card');
+            let hasResults = false;
+    
+            cards.forEach(card => {
+                const titleElement = card.querySelector('.card-title');
+                const artistElement = card.querySelector('.text-muted');
+                const sectionElement = card.closest('section');
+                const genreElement = sectionElement ? sectionElement.querySelector('h2') : null;
+    
+                if (!titleElement || !artistElement || !genreElement) return;
+    
+                const title = titleElement.textContent.toLowerCase();
+                const artist = artistElement.textContent.toLowerCase();
+                const genre = genreElement.textContent.toLowerCase();
+                const cardContainer = card.closest('.col-md-4.col-lg-3');
+    
+                if (!cardContainer) return;
+    
+                if (searchTerm === '' || 
+                    title.includes(searchTerm) || 
+                    artist.includes(searchTerm) || 
+                    genre.includes(searchTerm)) {
+                    cardContainer.style.display = '';
+                    hasResults = true;
+                } else {
+                    cardContainer.style.display = 'none';
+                }
+            });
+    
+            // Handle sections visibility
+            document.querySelectorAll('section').forEach(section => {
+                const visibleCards = Array.from(section.querySelectorAll('.col-md-4.col-lg-3')).filter(card => 
+                    card.style.display !== 'none'
+                ).length;
+                section.style.display = visibleCards === 0 ? 'none' : '';
+            });
+    
+            // Show/hide no results message
+            const noResultsElement = document.getElementById('noResults');
+            if (noResultsElement) {
+                noResultsElement.style.display = !hasResults && searchTerm !== '' ? 'block' : 'none';
+            }
+        });
+    });
+    </script>
+{% endblock %}

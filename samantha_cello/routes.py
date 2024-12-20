@@ -96,24 +96,43 @@ def about():
 
 @app.route('/repertoire')
 def repertoire():
-     # Load meta tag data from JSON
+    # Load meta tag data from JSON
     with open('samantha_cello/static/json/meta_tags.json', 'r') as f:
         meta_tags = json.load(f)
     
-    # Extract data for the "repertoire" page
-    meta_data = meta_tags.get("repertoire", {})
-    title = meta_data.get("title", "Default Title")
-    meta_description = meta_data.get("meta_description", "Default Meta Description")
+    # Load repertoire
     with open('samantha_cello/static/json/repertoire.json') as f:
         songs = json.load(f)
 
+    # Load videos for showreels
+    with open('samantha_cello/static/json/videos.json') as f:
+        videos = json.load(f)
+        showreels = [v for v in videos if 'showreel' in v['pageSlug']]
+
+    # Calculate stats
+    stats = {
+        'total_songs': len(songs),
+        'genres': len(set(song['genre'] for song in songs)),
+        'videos': len([song for song in songs if song['hasVideo']]),
+        'popular_genres': ['Classical', 'Pop', 'Film']  # You might want to customize this
+    }
+
+    genre_order = ['Pop', 'Classical', 'Rock', 'Film', 'Bollywood', 'Jazz', 'Musical', 'Country']
     
-    # Get canonical URL
+    meta_data = meta_tags.get("repertoire", {})
+    title = meta_data.get("title", "Default Title")
+    meta_description = meta_data.get("meta_description", "Default Meta Description")
     canonical_url = get_canonical_url()
 
     return render_template(
-        'repertoire.html', songs=songs, 
-        title=title, meta_description=meta_description, canonical_url=canonical_url
+        'repertoire.html',
+        songs=songs,
+        showreels=showreels,
+        genre_order=genre_order,
+        stats=stats,
+        title=title,
+        meta_description=meta_description,
+        canonical_url=canonical_url
     )
 
 

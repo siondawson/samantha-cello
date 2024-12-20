@@ -1,138 +1,985 @@
 [
-  {"title": "A Sky Full Of Stars", "artist": "Cold Play"},
-  {"title": "A Thousand Miles", "artist": "Vanessa Carlton"},
-  {"title": "A Thousand Years", "artist": "Christina Perry"},
-  {"title": "Adventure of a Lifetime", "artist": "Cold Play"},
-  {"title": "Africa", "artist": "Toto"},
-  {"title": "All I Ask of You", "artist": "The Phantom of the Opera"},
-  {"title": "All of Me", "artist": "John Legend"},
-  {"title": "All You Need is Love", "artist": "The Beatles"},
-  {"title": "Always Remember Us This Way", "artist": "Lady Gaga"},
-  {"title": "Anti-Hero", "artist": "Taylor Swift"},
-  {"title": "Appalachian Waltz", "artist": "Mark O’Connor"},
-  {"title": "At Last", "artist": "Etta James"},
-  {"title": "Ave Maria", "artist": "Gounod"},
-  {"title": "Ave Maria", "artist": "Schubert"},
-  {"title": "Bad Blood", "artist": "Taylor Swift"},
-  {"title": "Bad Habits", "artist": "Ed Sheeran"},
-  {"title": "Beautiful Day", "artist": "U2"},
-  {"title": "Beauty and the Beast Theme", "artist": ""},
-  {"title": "Better Together", "artist": "Jack Johnson"},
-  {"title": "Bittersweet Symphony", "artist": "The Verve"},
-  {"title": "Brown Eyed Girl", "artist": "Van Morrison"},
-  {"title": "Can You Feel the Love Tonight", "artist": "Elton John"},
-  {"title": "Can’t Help Falling in Love", "artist": "Elvis"},
-  {"title": "Cardigan", "artist": "Taylor Swift"},
-  {"title": "Cheap Thrills", "artist": "Sia"},
-  {"title": "Claire de Lune", "artist": "Debussy"},
-  {"title": "Colours of the Wind", "artist": "Pocahontas"},
-  {"title": "Crazy", "artist": "Patsy Klein"},
-  {"title": "Crazy in Love", "artist": "Beyonce"},
-  {"title": "Crazy Little Thing Called Love", "artist": "Queen"},
-  {"title": "Dancing in the Moonlight", "artist": "Toploader"},
-  {"title": "Dancing On My Own", "artist": "Calum Scott"},
-  {"title": "Dancing Queen", "artist": "Abba"},
-  {"title": "Despacito", "artist": "Luis Fonsi"},
-  {"title": "Diamonds", "artist": "Sam Smith"},
-  {"title": "Do I Love You", "artist": "Bruce Springsteen"},
-  {"title": "Don’t Know Why", "artist": "Nora Jones"},
-  {"title": "Dream a Little Dream of Me", "artist": "The Mamas and the Papas"},
-  {"title": "Dynamite", "artist": "Taio Cruz"},
-  {"title": "Easy on Me", "artist": "Adele"},
-  {"title": "Endless Love", "artist": "Mariah Carey"},
-  {"title": "Enchanted", "artist": "Taylor Swift"},
-  {"title": "Espresso", "artist": "Sabrina Carpenter"},
-  {"title": "Every Breath You Take", "artist": "The Police"},
-  {"title": "Fearless", "artist": "Taylor Swift"},
-  {"title": "Fields of Gold", "artist": "Sting"},
-  {"title": "Flightless Bird American Mouth", "artist": "Twilight"},
-  {"title": "Fly Me to the Moon", "artist": "Frank Sinatra"},
-  {"title": "Flowers", "artist": "Miley Cyrus"},
-  {"title": "Fortnight", "artist": "Taylor Swift"},
-  {"title": "From This Moment on", "artist": "Shania Twain"},
-  {"title": "Glasgow Love Theme", "artist": "Love Actually"},
-  {"title": "Give Me Everything", "artist": "Afrojack"},
-  {"title": "Girls Like You", "artist": "Maroon 5"},
-  {"title": "Glimpse of Us", "artist": "Joji"},
-  {"title": "Hallelujah", "artist": "Leonard Cohen"},
-  {"title": "Happy", "artist": "Pharrell Williams"},
-  {"title": "Have You Ever Seen the Rain", "artist": "John Fogerty"},
-  {"title": "Here Comes the Sun", "artist": "The Beatles"},
-  {"title": "Heroes", "artist": "David Bowie"},
-  {"title": "Hooked on a Feeling", "artist": "Blue Swede"},
-  {"title": "How Sweet It Is (To Be Loved By You)", "artist": "James Taylor"},
-  {"title": "Hotel California", "artist": "Eagles"},
-  {"title": "I Don’t Want to Miss a Thing", "artist": "Aerosmith"},
-  {"title": "I’m Yours", "artist": "Jason Mraz"},
-  {"title": "If I Ain’t Got You", "artist": "Alicia Keys"},
-  {"title": "In My Blood", "artist": "Shawn Mendes"},
-  {"title": "Invisible String", "artist": "Taylor Swift"},
-  {"title": "Iris", "artist": "The Goo Goo Dolls"},
-  {"title": "It Must Be Love", "artist": "Madness"},
-  {"title": "Jurassic Park Theme", "artist": "Jurassic Park"},
-  {"title": "Just the Way You", "artist": "Bruno Mars"},
-  {"title": "Late Night Talking", "artist": "Harry Styles"},
-  {"title": "Levitating", "artist": "Dua Lipa"},
-  {"title": "Let It Go", "artist": "Frozen"},
-  {"title": "Lovely Day", "artist": "Bill Withers"},
-  {"title": "Lose Control", "artist": "Teddy Swims"},
-  {"title": "Love of My Life", "artist": "Queen"},
-  {"title": "Love Story", "artist": "Taylor Swift"},
-  {"title": "Lover", "artist": "Taylor Swift"},
-  {"title": "Make You Feel My Love", "artist": "Bob Dylan/Adele"},
-  {"title": "Marry You", "artist": "Bruno Mars"},
-  {"title": "Metallica", "artist": "Nothing Else Matters"},
-  {"title": "Misirlou", "artist": "The Beach Boys"},
-  {"title": "Murder on the Dance Floor", "artist": "Sophie Ellis Bextor"},
-  {"title": "Never Enough", "artist": "The Greatest Showman"},
-  {"title": "One Summer’s Day", "artist": "Spirited Away"},
-  {"title": "Only You", "artist": "Yazoo"},
-  {"title": "Paradise", "artist": "Cold Play"},
-  {"title": "Pehli Nazar Mein", "artist": "Race"},
-  {"title": "Perfect", "artist": "Ed Sheeran"},
-  {"title": "Please Please Please", "artist": "Sabrina Carpenter"},
-  {"title": "Pink Pony Club", "artist": "Chappell Roan"},
-  {"title": "Power of Love", "artist": "Jennifer Rush"},
-  {"title": "Roxanne", "artist": "The Police"},
-  {"title": "Rather Be", "artist": "Clean Bandit"},
-  {"title": "Salvation D’Amour", "artist": "Elgar"},
-  {"title": "Secret Wedding", "artist": "Brave Heart"},
-  {"title": "September", "artist": "Earth Wind and Fire"},
-  {"title": "Shake It Off", "artist": "Taylor Swift"},
-  {"title": "Shape of You", "artist": "Ed Sheeran"},
-  {"title": "Sheep May Safely Graze", "artist": "Bach"},
-  {"title": "Single Ladies", "artist": "Beyonce"},
-  {"title": "Slow It Down", "artist": "Benson Boone"},
-  {"title": "Somebody to Love", "artist": "Queen"},
-  {"title": "Someone Like You", "artist": "Adele"},
-  {"title": "Somewhere Over the Rainbow", "artist": "Judy Garland"},
-  {"title": "Somewhere Over the Rainbow", "artist": "Israel Kamakawiwo’ole"},
-  {"title": "Stand By Me", "artist": "Ben E King"},
-  {"title": "Stay with Me", "artist": "Sam Smith"},
-  {"title": "Strange", "artist": "Celeste"},
-  {"title": "Summer of '69", "artist": "Bryan Adams"},
-  {"title": "Sweet Child O Mine", "artist": "Guns and Roses"},
-  {"title": "Sweet Dreams", "artist": "Eurythmics"},
-  {"title": "Tame As Old As Time", "artist": "Beauty and the Beast"},
-  {"title": "Thank U, Next", "artist": "Ariana Grande"},
-  {"title": "The Four Seasons", "artist": "Vivaldi"},
-  {"title": "The Scientist", "artist": "Cold Play"},
-  {"title": "The Time of My Life", "artist": "Dirty Dancing"},
-  {"title": "Theme and Rains of Castermere", "artist": "Game of Thrones"},
-  {"title": "To Die For", "artist": "Sam Smith"},
-  {"title": "Treasure", "artist": "Bruno Mars"},
-  {"title": "Vampire", "artist": "Olivia Rodrigo"},
-  {"title": "Viva La Vida", "artist": "Cold Play"},
-  {"title": "Watermelon Sugar", "artist": "Harry Styles"},
-  {"title": "What About Us", "artist": "Pink"},
-  {"title": "What a Wonderful World", "artist": "Louis Armstrong"},
-  {"title": "When a Man Loves a Woman", "artist": "Percy Sledge"},
-  {"title": "Wildest Dreams", "artist": "Taylor Swift"},
-  {"title": "Yellow", "artist": "Cold Play"},
-  {"title": "You are the Reason", "artist": "Calum Scott"},
-  {"title": "You Belong with Me", "artist": "Taylor Swift"},
-  {"title": "You’ll Be in My Heart", "artist": "Phil Collins"},
-  {"title": "You’ve Got a Friend in Me", "artist": "Randy Newman"},
-  {"title": "You’ve Got the Love", "artist": "Florence and the Machine"},
-  {"title": "You’re My Best Friend", "artist": "Queen"}
+  {
+    "title": "Prelude No.1",
+    "artist": "Bach",
+    "genre": "Classical",
+    "hasVideo": true,
+    "videoSlug": "prelude-no-1-bach"
+  },
+  {
+    "title": "Perfect",
+    "artist": "Ed Sheeran",
+    "genre": "Pop",
+    "hasVideo": true,
+    "videoSlug": "perfect-cello-cover"
+  },
+  {
+    "title": "A Sky Full Of Stars",
+    "artist": "Coldplay",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "A Thousand Miles",
+    "artist": "Vanessa Carlton",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "A Thousand Years",
+    "artist": "Christina Perri",
+    "genre": "Pop",
+    "hasVideo": true,
+    "videoSlug": "showreel-2025"
+  },
+  {
+    "title": "Adventure of a Lifetime",
+    "artist": "Coldplay",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Africa",
+    "artist": "Toto",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "All I Ask of You",
+    "artist": "The Phantom of the Opera",
+    "genre": "Musical",
+    "hasVideo": false
+  },
+  {
+    "title": "All of Me",
+    "artist": "John Legend",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "All You Need is Love",
+    "artist": "The Beatles",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Always Remember Us This Way",
+    "artist": "Lady Gaga",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Anti-Hero",
+    "artist": "Taylor Swift",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Appalachian Waltz",
+    "artist": "Mark O'Connor",
+    "genre": "Classical",
+    "hasVideo": false
+  },
+  {
+    "title": "At Last",
+    "artist": "Etta James",
+    "genre": "Jazz",
+    "hasVideo": false
+  },
+  {
+    "title": "Ave Maria",
+    "artist": "Gounod",
+    "genre": "Classical",
+    "hasVideo": false
+  },
+  {
+    "title": "Ave Maria",
+    "artist": "Schubert",
+    "genre": "Classical",
+    "hasVideo": false
+  },
+  {
+    "title": "Bad Blood",
+    "artist": "Taylor Swift",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Bad Habits",
+    "artist": "Ed Sheeran",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Beautiful Day",
+    "artist": "U2",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "Beauty and the Beast Theme",
+    "artist": "Disney",
+    "genre": "Film",
+    "hasVideo": false
+  },
+  {
+    "title": "Better Together",
+    "artist": "Jack Johnson",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Bittersweet Symphony",
+    "artist": "The Verve",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "Brown Eyed Girl",
+    "artist": "Van Morrison",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+
+  {
+    "title": "Can You Feel the Love Tonight",
+    "artist": "Elton John",
+    "genre": "Film",
+    "hasVideo": false
+  },
+  {
+    "title": "Can't Help Falling in Love",
+    "artist": "Elvis Presley",
+    "genre": "Pop",
+    "hasVideo": true,
+    "videoSlug": "showreel-2021"
+  },
+  {
+    "title": "Cardigan",
+    "artist": "Taylor Swift",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Cheap Thrills",
+    "artist": "Sia",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Claire de Lune",
+    "artist": "Debussy",
+    "genre": "Classical",
+    "hasVideo": false
+  },
+  {
+    "title": "Colours of the Wind",
+    "artist": "Disney",
+    "genre": "Film",
+    "hasVideo": false
+  },
+  {
+    "title": "Crazy",
+    "artist": "Patsy Cline",
+    "genre": "Country",
+    "hasVideo": false
+  },
+  {
+    "title": "Crazy in Love",
+    "artist": "Beyoncé",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Crazy Little Thing Called Love",
+    "artist": "Queen",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "Dancing in the Moonlight",
+    "artist": "Toploader",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Dancing On My Own",
+    "artist": "Calum Scott",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Dancing Queen",
+    "artist": "ABBA",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Despacito",
+    "artist": "Luis Fonsi",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Diamonds",
+    "artist": "Sam Smith",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Do I Love You",
+    "artist": "Bruce Springsteen",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "Don't Know Why",
+    "artist": "Norah Jones",
+    "genre": "Jazz",
+    "hasVideo": false
+  },
+  {
+    "title": "Dream a Little Dream of Me",
+    "artist": "The Mamas and the Papas",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Dynamite",
+    "artist": "Taio Cruz",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Easy on Me",
+    "artist": "Adele",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Endless Love",
+    "artist": "Mariah Carey",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Enchanted",
+    "artist": "Taylor Swift",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Espresso",
+    "artist": "Sabrina Carpenter",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Every Breath You Take",
+    "artist": "The Police",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "Fearless",
+    "artist": "Taylor Swift",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Fields of Gold",
+    "artist": "Sting",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Flightless Bird American Mouth",
+    "artist": "Iron & Wine",
+    "genre": "Film",
+    "hasVideo": false
+  },
+  {
+    "title": "Fly Me to the Moon",
+    "artist": "Frank Sinatra",
+    "genre": "Jazz",
+    "hasVideo": false
+  },
+  {
+    "title": "Flowers",
+    "artist": "Miley Cyrus",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Fortnight",
+    "artist": "Taylor Swift",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "From This Moment On",
+    "artist": "Shania Twain",
+    "genre": "Country",
+    "hasVideo": false
+  },
+  {
+    "title": "Glasgow Love Theme",
+    "artist": "Craig Armstrong",
+    "genre": "Film",
+    "hasVideo": false
+  },
+  {
+    "title": "Give Me Everything",
+    "artist": "Pitbull ft. Ne-Yo",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Girls Like You",
+    "artist": "Maroon 5",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Glimpse of Us",
+    "artist": "Joji",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Hallelujah",
+    "artist": "Leonard Cohen",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Happy",
+    "artist": "Pharrell Williams",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Have You Ever Seen the Rain",
+    "artist": "Creedence Clearwater Revival",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "Here Comes the Sun",
+    "artist": "The Beatles",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Heroes",
+    "artist": "David Bowie",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "Hooked on a Feeling",
+    "artist": "Blue Swede",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "How Sweet It Is (To Be Loved By You)",
+    "artist": "James Taylor",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Hotel California",
+    "artist": "Eagles",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "I Don't Want to Miss a Thing",
+    "artist": "Aerosmith",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "I'm Yours",
+    "artist": "Jason Mraz",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "If I Ain't Got You",
+    "artist": "Alicia Keys",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "In My Blood",
+    "artist": "Shawn Mendes",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Invisible String",
+    "artist": "Taylor Swift",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Iris",
+    "artist": "Goo Goo Dolls",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "It Must Be Love",
+    "artist": "Madness",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Jurassic Park Theme",
+    "artist": "John Williams",
+    "genre": "Film",
+    "hasVideo": false
+  },
+  {
+    "title": "Just the Way You Are",
+    "artist": "Bruno Mars",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Late Night Talking",
+    "artist": "Harry Styles",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Levitating",
+    "artist": "Dua Lipa",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Let It Go",
+    "artist": "Disney",
+    "genre": "Film",
+    "hasVideo": false
+  },
+  {
+    "title": "Lovely Day",
+    "artist": "Bill Withers",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Lose Control",
+    "artist": "Teddy Swims",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Love of My Life",
+    "artist": "Queen",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "Love Story",
+    "artist": "Taylor Swift",
+    "genre": "Pop",
+    "hasVideo": true,
+    "videoSlug": "showreel-2025"
+  },
+  {
+    "title": "Lover",
+    "artist": "Taylor Swift",
+    "genre": "Pop",
+    "hasVideo": true,
+    "videoSlug": "showreel-2025"
+  },
+  {
+    "title": "Make You Feel My Love",
+    "artist": "Bob Dylan/Adele",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Marry You",
+    "artist": "Bruno Mars",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Nothing Else Matters",
+    "artist": "Metallica",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "Misirlou",
+    "artist": "Dick Dale",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "Murder on the Dance Floor",
+    "artist": "Sophie Ellis-Bextor",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Never Enough",
+    "artist": "The Greatest Showman",
+    "genre": "Musical",
+    "hasVideo": false
+  },
+  {
+    "title": "One Summer's Day",
+    "artist": "Joe Hisaishi",
+    "genre": "Film",
+    "hasVideo": false
+  },
+  {
+    "title": "Only You",
+    "artist": "Yazoo",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Paradise",
+    "artist": "Coldplay",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Please Please Please",
+    "artist": "Sabrina Carpenter",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Pink Pony Club",
+    "artist": "Chappell Roan",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Power of Love",
+    "artist": "Jennifer Rush",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Roxanne",
+    "artist": "The Police",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "Rather Be",
+    "artist": "Clean Bandit",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Salut D'Amour",
+    "artist": "Elgar",
+    "genre": "Classical",
+    "hasVideo": false
+  },
+  {
+    "title": "Secret Wedding",
+    "artist": "James Horner",
+    "genre": "Film",
+    "hasVideo": false
+  },
+  {
+    "title": "September",
+    "artist": "Earth Wind and Fire",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Shake It Off",
+    "artist": "Taylor Swift",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Shape of You",
+    "artist": "Ed Sheeran",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Sheep May Safely Graze",
+    "artist": "Bach",
+    "genre": "Classical",
+    "hasVideo": false
+  },
+  {
+    "title": "Single Ladies",
+    "artist": "Beyoncé",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Slow It Down",
+    "artist": "Benson Boone",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Somebody to Love",
+    "artist": "Queen",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "Someone Like You",
+    "artist": "Adele",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Somewhere Over the Rainbow",
+    "artist": "Judy Garland",
+    "genre": "Film",
+    "hasVideo": false
+  },
+  {
+    "title": "Somewhere Over the Rainbow",
+    "artist": "Israel Kamakawiwo'ole",
+    "genre": "Pop",
+    "hasVideo": true,
+    "videoSlug": "showreel-2025"
+  },
+  {
+    "title": "Stand By Me",
+    "artist": "Ben E King",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Stay with Me",
+    "artist": "Sam Smith",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Strange",
+    "artist": "Celeste",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Summer of '69",
+    "artist": "Bryan Adams",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "Sweet Child O' Mine",
+    "artist": "Guns N' Roses",
+    "genre": "Rock",
+    "hasVideo": false
+  },
+  {
+    "title": "Sweet Dreams (Are Made of This)",
+    "artist": "Eurythmics",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Tale As Old As Time",
+    "artist": "Disney",
+    "genre": "Film",
+    "hasVideo": false
+  },
+  {
+    "title": "Thank U, Next",
+    "artist": "Ariana Grande",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "The Four Seasons",
+    "artist": "Vivaldi",
+    "genre": "Classical",
+    "hasVideo": false
+  },
+  {
+    "title": "The Scientist",
+    "artist": "Coldplay",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "(I've Had) The Time of My Life",
+    "artist": "Bill Medley & Jennifer Warnes",
+    "genre": "Film",
+    "hasVideo": false
+  },
+  {
+    "title": "The Rains of Castamere",
+    "artist": "Game of Thrones",
+    "genre": "Film",
+    "hasVideo": false
+  },
+  {
+    "title": "To Die For",
+    "artist": "Sam Smith",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Treasure",
+    "artist": "Bruno Mars",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+    "title": "Vampire",
+    "artist": "Olivia Rodrigo",
+    "genre": "Pop",
+    "hasVideo": false
+  },
+  {
+  "title": "Viva La Vida",
+  "artist": "Coldplay",
+  "genre": "Pop",
+  "hasVideo": false
+},
+{
+  "title": "Watermelon Sugar",
+  "artist": "Harry Styles",
+  "genre": "Pop",
+  "hasVideo": false
+},
+{
+  "title": "What About Us",
+  "artist": "Pink",
+  "genre": "Pop",
+  "hasVideo": false
+},
+{
+  "title": "What a Wonderful World",
+  "artist": "Louis Armstrong",
+  "genre": "Jazz",
+  "hasVideo": false
+},
+{
+  "title": "When a Man Loves a Woman",
+  "artist": "Percy Sledge",
+  "genre": "Pop",
+  "hasVideo": false
+},
+{
+  "title": "Wildest Dreams",
+  "artist": "Taylor Swift",
+  "genre": "Pop",
+  "hasVideo": false
+},
+{
+  "title": "Yellow",
+  "artist": "Coldplay",
+  "genre": "Pop",
+  "hasVideo": false
+},
+{
+  "title": "You Are the Reason",
+  "artist": "Calum Scott",
+  "genre": "Pop",
+  "hasVideo": false
+},
+{
+  "title": "You Belong with Me",
+  "artist": "Taylor Swift",
+  "genre": "Pop",
+  "hasVideo": false
+},
+{
+  "title": "You'll Be in My Heart",
+  "artist": "Phil Collins",
+  "genre": "Film",
+  "hasVideo": false
+},
+{
+  "title": "You've Got a Friend in Me",
+  "artist": "Randy Newman",
+  "genre": "Film",
+  "hasVideo": false
+},
+{
+  "title": "You've Got the Love",
+  "artist": "Florence + The Machine",
+  "genre": "Pop",
+  "hasVideo": false
+},
+{
+  "title": "You're My Best Friend",
+  "artist": "Queen",
+  "genre": "Rock",
+  "hasVideo": false
+},
+{
+  "title": "Bole Chudiyan",
+  "artist": "Kabhi Khushi Kabhi Gham",
+  "genre": "Bollywood",
+  "hasVideo": true,
+  "videoSlug": "bollywood-showreel"
+},
+{
+  "title": "Chand Sifarish",
+  "artist": "Fanaa",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Chura Liya Hai Tumne Yeh Dil Ko",
+  "artist": "Yaadon Ki Baraat",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Humko Humise Churo Lo",
+  "artist": "Mohabbatien",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Jashn-e-Bahaaraa",
+  "artist": "Jodhaa Akbar",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Jug Jug Jeeve",
+  "artist": "Shiddat",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Kaho Naa Pyaar Hai",
+  "artist": "Hrithik Roshan",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Kivien Mukhde",
+  "artist": "The Wedding Song",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Main Agar Kahoon",
+  "artist": "Om Shanti Om",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Mere Haath Mein",
+  "artist": "Fanaa",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Navrai Majhi",
+  "artist": "English Vinglish",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Pehli Nazar Mein",
+  "artist": "Race",
+  "genre": "Bollywood",
+  "hasVideo": true,
+  "videoSlug": "bollywood-showreel"
+},
+{
+  "title": "Pee Loon",
+  "artist": "Once Upon a Time in Mumbai",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Raabta",
+  "artist": "Agent Vinod",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Sadi Gali",
+  "artist": "Lehmber Hussainpuri",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Selections from Dil To Pagal Hai",
+  "artist": "Various Artists",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Selections from Kuch Kuch Hota Hai",
+  "artist": "Various Artists",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Selections from Mehndi Hai Rachnewali",
+  "artist": "Various Artists",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Selections from Mohabbatien",
+  "artist": "Various Artists",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Selections from Pehla Nasha",
+  "artist": "Various Artists",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Selections from Kal Ho Na Ho",
+  "artist": "Various Artists",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Selections from Tanu Weds Manu",
+  "artist": "Various Artists",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Selections from Zubeidaa",
+  "artist": "Various Artists",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Tere Vaasta",
+  "artist": "Zara Hatke Zara Bachke",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Tum Hi Ho",
+  "artist": "Aashiqui 2",
+  "genre": "Bollywood",
+  "hasVideo": false
+},
+{
+  "title": "Tujhe Kitna Chahne Lage",
+  "artist": "Kabir Singh",
+  "genre": "Bollywood",
+  "hasVideo": false
+}
 ]
+
