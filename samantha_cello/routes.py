@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, session, Response, url_for, flash
+from flask import render_template, request, redirect, session, Response, url_for, flash, make_response
 from flask import current_app as app
 import os
 import json
@@ -9,7 +9,6 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib
 from samantha_cello import app, sitemap  # Import app from __init__.py
-
 
 # Environment variables for email
 GMAIL_ADDRESS = os.getenv("GMAIL_ADDRESS")
@@ -379,12 +378,6 @@ def page_not_found(error):
     return render_template('404.html'), 404
 
 
-import os
-import json
-from flask import current_app as app
-from samantha_cello import sitemap
-from datetime import datetime
-
 @sitemap.register_generator
 def sitemap_urls():
     """Generate sitemap URLs with priorities and change frequencies"""
@@ -423,3 +416,45 @@ def sitemap_urls():
                        0.7)  # priority
     except Exception as e:
         app.logger.error(f"Error generating video URLs for sitemap: {str(e)}")
+
+
+@app.route('/video-sitemap.xml')
+def video_sitemap():
+    """Generate video sitemap XML."""
+    json_path = os.path.join(app.root_path, 'static/json/videos.json')
+    try:
+        with open(json_path, 'r') as file:
+            videos = json.load(file)
+    except FileNotFoundError:
+        return "Videos data not found", 404
+
+    xml = '''<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+            xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">'''
+    
+    for video in videos:
+        # Clean description - remove any XML-invalid characters
+        clean_description = video['description'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+        clean_title = video['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+        
+        xml += f'''
+        <url>
+            <loc>{url_for('video_page', slug=video['pageSlug'], _external=True)}</loc>
+            <video:video>
+                <video:thumbnail_loc>{url_for('static', filename=video['thumbnailUrl'][7:], _external=True)}</video:thumbnail_loc>
+                <video:title>{clean_title}</video:title>
+                <video:description>{clean_description}</video:description>
+                <video:content_loc>{video['contentUrl']}</video:content_loc>
+                <video:player_loc>{video['embedUrl']}</video:player_loc>
+                <video:publication_date>{video['uploadDate']}</video:publication_date>
+                <video:family_friendly>yes</video:family_friendly>
+                <video:tag>{', '.join(video['tags'])}</video:tag>
+            </video:video>
+        </url>'''
+    
+    xml += '</urlset>'
+    
+    response = make_response(xml)
+    response.headers['Content-Type'] = 'application/xml'
+    return response
+

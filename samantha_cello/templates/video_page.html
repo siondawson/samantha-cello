@@ -2,7 +2,32 @@
 
 {% block meta_description %}{{ video['metaDescription'] }}{% endblock %}
 {% block title %}{{ title }}{% endblock %}
-
+{% block schema_markup %}
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "Showreel 2025",
+      "description": "Discover the magic of cello with Samantha Cello's showreel, featuring performances from weddings and events across South Wales and beyond.",
+      "uploadDate": "2024-04-10",
+      "thumbnailUrl": "{{ url_for('static', filename='images/samantha-cello-1.webp', _external=True) }}",
+      "embedUrl": "https://www.youtube.com/embed/2LPzA8zZqHg",
+      "contentUrl": "https://www.youtube.com/watch?v=2LPzA8zZqHg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Aderyn String Quartet",
+        "url": "https://aderynstringquartet.com",
+        "subOrganization": {
+          "@type": "MusicGroup",
+          "name": "Samantha Cello",
+          "url": "{{ canonical_url }}"
+        }
+      },
+      "keywords": ["Showreel", "Cello Music", "Weddings", "Events"],
+      "inLanguage": "en"
+    }
+</script> 
+{% endblock %}
 {% block content %}
 <article>
     <div class="container my-5">

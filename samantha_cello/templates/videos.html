@@ -1,6 +1,32 @@
 {% extends "base.html" %}
 {% block meta_description %}{{ meta_description }}{% endblock %}
 {% block title %}{{ title }}{% endblock %}
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {% for video in videos %}
+    {
+      "@type": "ListItem",
+      "position": {{ loop.index }},
+      "item": {
+        "@type": "VideoObject",
+        "name": "{{ video.title }}",
+        "description": "{{ video.description }}",
+        "uploadDate": "{{ video.uploadDate }}",
+        "thumbnailUrl": "{{ url_for('static', filename=video.thumbnailUrl[7:], _external=True) }}",
+        "embedUrl": "{{ video.embedUrl }}",
+        "contentUrl": "{{ video.contentUrl }}"
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 <div class="container my-5">
     <div class="row">
