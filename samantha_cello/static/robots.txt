@@ -1,8 +1,0 @@
-User-agent: *
-Disallow: /enquiries/
-Disallow: /update/
-Disallow: /logout/
-
-# Sitemap
-Sitemap: https://www.samanthacello.com/sitemap.xml
-Sitemap: https://samanthacello.com/video-sitemap.xml

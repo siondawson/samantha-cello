@@ -388,7 +388,27 @@ def video_page(slug):
 
 @app.route('/robots.txt')
 def robots():
-    return app.send_static_file('robots.txt')
+    """Serve robots.txt with proper headers"""
+    # Get the current domain
+    domain = request.host_url.rstrip('/')
+    
+    # Define robots.txt content
+    robots_content = f"""User-agent: *
+Disallow: /enquiries/
+Disallow: /update/
+Disallow: /logout/
+
+# Sitemaps
+Sitemap: {domain}/sitemap.xml
+Sitemap: {domain}/video-sitemap.xml"""
+    
+    # Create response with proper headers
+    response = make_response(robots_content)
+    response.headers["Content-Type"] = "text/plain"
+    response.headers["X-Content-Type-Options"] = "nosniff"  # Security header to prevent MIME-type sniffing
+    response.headers["Cache-Control"] = "public, max-age=43200"  # Cache for 12 hours
+    
+    return response
 
 
 # Error handler for 404
