@@ -3,7 +3,7 @@ from samantha_cello import app
 import json
 import os
 
-# Set the destination for the frozen static files to the /docs directory
+# Set the destination for the frozen static files directly to the /docs directory
 app.config['FREEZER_DESTINATION'] = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'docs')
 
 freezer = Freezer(app)
