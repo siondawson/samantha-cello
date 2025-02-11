@@ -16,7 +16,7 @@
         "name": "{{ video.title }}",
         "description": "{{ video.description }}",
         "uploadDate": "{{ video.uploadDate }}",
-        "thumbnailUrl": "{{ url_for('static', filename=video.thumbnailUrl[7:], _external=True) }}",
+        "thumbnailUrl": "{{ url_for('static', filename='images/thumbnails/' ~ video.thumbnailFilename, _external=True) }}"
         "embedUrl": "{{ video.embedUrl }}",
         "contentUrl": "{{ video.contentUrl }}"
       }
@@ -41,7 +41,7 @@
               <div class="video-card">
                   <a href="{{ url_for('video_page', slug=video['pageSlug']) }}">
                       <div class="thumbnail-wrapper">
-                          <img class="video-thumbnail" src="{{ video['thumbnailUrl'] }}" alt="{{ video['alt'] }}">
+                        <img class="video-thumbnail" src="{{ url_for('static', filename='images/thumbnails/' ~ video['thumbnailFilename']) }}" alt="{{ video['alt'] }}">
                       </div>
                       <h3>{{ video['title'] }}</h3>
                       <p>{{ video['description'][:100] }}...</p>
