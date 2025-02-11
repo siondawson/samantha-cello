@@ -1,0 +1,72 @@
+[
+    {
+        "id": "1",
+        "title": "Showreel 2025",
+        "description": "Discover the magic of cello with Samantha Cello's showreel, featuring performances from weddings and events across South Wales and beyond.",
+        "tags": ["Showreel", "Cello Music", "Weddings", "Events"],
+        "uploadDate": "2024-04-10T00:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/2LPzA8zZqHg",
+        "contentUrl": "https://www.youtube.com/watch?v=2LPzA8zZqHg",
+        "thumbnailFilename": "showreel-2025-thumbnail.jpg",
+        "alt": "Click here to see Samantha Cello Showreel 2025 featuring cello performances at weddings and events",
+        "pageSlug": "showreel-2025",
+        "metaDescription": "Discover the magic of cello with performances perfect for wedding ceremonies and receptions across South Wales. Watch the 2025 showreel now!",
+        "pageTitle": "Showreel 2025 | Cello Music for Wedding Ceremonies"
+    },
+    {
+        "id": "2",
+        "title": "Prelude No.1 - Bach",
+        "description": "A stunning rendition of Bach's Prelude No.1 by Samantha Cello, perfect for wedding ceremonies and special events.",
+        "tags": ["Classical Music", "Bach", "Wedding Music", "Cello Performance"],
+        "uploadDate": "2024-11-26T00:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/SqOsghRGpUo",
+        "contentUrl": "https://www.youtube.com/watch?v=SqOsghRGpUo",
+        "thumbnailFilename": "prelude-suite-no-1-thumbnail.jpg",
+        "alt": "Click here to see Samantha Cello performing Bach's Prelude No.1 for weddings and events",
+        "pageSlug": "prelude-no-1-bach",
+        "metaDescription": "Experience a stunning cello rendition of Bach's Prelude No.1, ideal for wedding ceremonies and special events.",
+        "pageTitle": "Bach's Prelude No.1 | Cello for Wedding Ceremonies"
+    },
+    {
+        "id": "3",
+        "title": "Ed Sheeran - Perfect (Cello Cover)",
+        "description": "A romantic cello cover of Ed Sheeran's 'Perfect', ideal for weddings and intimate events.",
+        "tags": ["Pop Covers", "Ed Sheeran", "Romantic Music", "Cello"],
+        "uploadDate": "2024-02-06T00:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/_D0w-SSCcKE",
+        "contentUrl": "https://www.youtube.com/watch?v=_D0w-SSCcKE",
+        "thumbnailFilename": "perfect-thumbnail.jpg",
+        "alt": "Click here for video of a romantic cello cover of Ed Sheeran's 'Perfect' by Samantha Cello",
+        "pageSlug": "perfect-cello-cover",
+        "metaDescription": "Enjoy a romantic cello cover of Ed Sheeran's 'Perfect', perfect for wedding receptions and intimate events. Listen now!",
+        "pageTitle": "Ed Sheeran's 'Perfect' | Cello Cover for Weddings"
+    },
+    {
+        "id": "4",
+        "title": "Bollywood Showreel",
+        "description": "Experience the vibrant world of Bollywood with Samantha Cello's unique showreel, blending classical and contemporary styles.",
+        "tags": ["Bollywood Music", "Fusion", "Cello Covers", "World Music"],
+        "uploadDate": "2024-01-30T00:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/sCqWRWcCw6w",
+        "contentUrl": "https://www.youtube.com/watch?v=sCqWRWcCw6w",
+        "thumbnailFilename": "bollywood-showreel-thumbnail.jpg",
+        "alt": "Click here to see video of Samantha Cello performing a Bollywood fusion cello showreel",
+        "pageSlug": "bollywood-showreel",
+        "metaDescription": "Explore the vibrant fusion of classical and contemporary music in Samantha Cello's Bollywood Showreel, ideal for wedding receptions.",
+        "pageTitle": "Bollywood Showreel | Cello Fusion for Weddings"
+    },
+    {
+        "id": "5",
+        "title": "Showreel 2022",
+        "description": "My first showreel. Filmed in 2021 for brides who were keen to see what I could bring to their wedding.",
+        "tags": ["Showreel", "Cello", "Cello Covers", "wedding", "Events"],
+        "uploadDate": "2021-10-13T00:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/ikTdJZvFnAc?si=wXMNmPUZxd6HzBP8",
+        "contentUrl": "https://www.youtube.com/watch?v=ikTdJZvFnAc",
+        "thumbnailFilename": "cello-showreel-2022-thumbnail.jpg",
+        "alt": "Click here to see video of Samantha Cello her first showreel",
+        "pageSlug": "showreel-2021",
+        "metaDescription": "Watch the 2022 showreel featuring classical and pop cello covers, perfect for wedding breakfasts and events.",
+        "pageTitle": "Showreel 2022 | Cello Music for Wedding Breakfasts"
+    }
+]

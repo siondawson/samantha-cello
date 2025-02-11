@@ -1,0 +1,1047 @@
+/* HTML AND BODY */
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+
+/* BACKGROUND COLORS */
+
+.background-blue {
+    background-color: #aeced0;
+}
+
+.bg-off-white {
+    background-color: #fafafa;
+}
+
+.bg-dark {
+    background-color: #000 !important;
+}
+
+/* FONTS */
+
+.logo-font {
+    font-family: 'Dancing Script', cursive !important;  /* Or any other whimsical font */
+    font-size: 40px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+p, a, button, ul, li {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.big-icons {
+    font-size: 400%;
+    height: 100px;
+}
+
+.big-icons i {
+    display: block;
+    margin: 0 auto;
+} 
+
+/* BUTTONS */
+
+.btn-primary {
+    background-color: #fafafa;
+    border-radius: 0;
+    border-color: #000;
+    border-width: 2px;
+    color: #000;
+}
+
+.btn-primary:hover {
+    background-color: #000000;
+    border-radius: 0;
+    border-color: #000000;
+    border-width: 0;
+    color: #fafafa;
+}
+
+.btn-success {
+    background-color: #fafafa;
+    border-radius: 0;
+    border-color: #000;
+    border-width: 2px;
+    color: #000000;
+}
+
+.btn-success:hover {
+    background-color: #010202;
+    border-radius: 0;
+    border-color: #fafafa;
+    border-width: 2px;
+    color: #fafafa
+;
+}
+
+.btn-danger {
+    font-size: 1.5rem;         /* Makes it larger than an average button */
+    padding: 0.75rem 2rem;     /* Adjusts padding for a spacious look */
+    color: white;
+    border: 2px solid white;   /* Subtle, upscale border */
+    background-color: transparent;
+    text-transform: uppercase; /* Gives it a classy, sophisticated look */
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out 2s forwards; /* 3s delay */
+}
+
+.btn-danger:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Adds a gentle highlight */
+    color: white;
+    border-color: white;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+.btn-warning {
+    font-size: 1.25rem;         /* Makes it larger than an average button */
+    padding: 0.75rem 2rem;     /* Adjusts padding for a spacious look */
+    color: white;
+    border: 2px solid white;   /* Subtle, upscale border */
+    background-color: transparent;
+    text-transform: uppercase; /* Gives it a classy, sophisticated look */
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-block;
+    
+}
+
+.btn-warning:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Adds a gentle highlight */
+    color: white;
+    border-color: white;
+}
+
+
+.btn-secondary {
+    font-size: 1.25rem;         /* Makes it larger than an average button */
+    padding: 0.75rem 2rem;     /* Adjusts padding for a spacious look */
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);   /* Subtle, upscale border */
+    background-color: transparent;
+    text-transform: uppercase; /* Gives it a classy, sophisticated look */
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-block;
+    
+}
+
+.btn-secondary:hover {
+    background-color: rgb(0, 0, 0); /* Adds a gentle highlight */
+    color: rgb(255, 255, 255);
+    border-color: rgb(0, 0, 0);
+}
+
+
+
+
+/* NAVBAR */
+
+.nav-toggler {
+    padding-right: 20px !important;
+}
+
+.active {
+    text-decoration: underline;
+}
+
+.navbar-dark .navbar-toggler {
+    color: rgb(255 255 255);
+    border-color: rgb(255 255 255);
+}
+
+.navalert-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding-left: 0;
+    padding-right: 0;
+    z-index: 1;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #000000;
+    transition: background-color 0.5s ease;
+    min-height: 80px;
+}
+
+
+.navbar-home { /* transparent nav bar originally applied to home page. Now site wide */
+    background-color: #000000;
+    transition: background-color 0.5s ease;
+    width: 100%;
+    z-index: 10;
+}
+
+/* .navbar-home-transparent { 
+    background-color: #00000000;
+    transition: background-color 0.5s ease;
+    position: absolute; 
+    width: 100%;
+    z-index: 10;
+} */
+
+.navbar-home.opaque-background {
+    background-color: #000000; /* Change to your desired color */
+}
+
+.navbar-home-transparent.opaque-background {
+    background-color: #000000; /* Change to your desired color */
+}
+
+.nav-link {
+    padding-left: 5px !important;
+    display: inline-block;
+    position: relative;
+    color: #0087ca;
+}
+
+
+
+
+  
+.nav-link::after {
+content: '';
+position: absolute;
+width: 100%;
+transform: scaleX(0);
+height: 2px;
+bottom: 0;
+left: 0;
+background-color: #fff;
+transform-origin: bottom right;
+transition: transform 0.25s ease-out;
+}
+  
+.nav-link:hover::after {
+transform: scaleX(1);
+transform-origin: bottom left;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 600; /* or use another value like 600, 700, etc. */
+}  
+
+.logo-image {
+    height: 80px; /* Default height for larger screens */
+    width: auto;
+}
+
+/* Media query for devices with a maximum width of 362px */
+@media (max-width: 362px) {
+    .logo-image {
+        height: 60px; /* Adjust height for smaller screens */
+    }
+}
+
+  
+/* HOME PAGE */
+
+.alert-container .col-12 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.site-wide-alert {
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 5px 15px;
+    background-color: #fafafa;
+    border-color: #fafafa;
+}
+
+.callout-container {
+    height: 100vh;
+    background-image: url('../images/samantha-cello-1.webp');
+    background-repeat: no-repeat;
+    background-position: center 0%; /* Adjusted to select the lowest part of the image */
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+@media (max-width: 1000px) { /* This a workaround to get the background image to look nice on iOS. Background scroll is not compatible. Scroll functionality sacrificed for a background img that will cover the entire background. Solution suggested by tutor Ed.*/
+    .callout-container {
+        background: url("../images/samantha-cello-forehead.webp") no-repeat center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-attachment: scroll !important;
+        
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        flex: 1 0 auto;
+    
+    }
+}
+
+.jumbotron {
+    position: absolute;
+    top: 80%;  /* Adjust to position vertically within the top third */
+    left: 25%; /* Adjust to position horizontally to the left */
+    transform: translate(0, 0); /* Ensure no centering from previous styles */
+    width: 50%; /* Optional: Control width */
+    padding: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.0); /* Semi-transparent background */
+    text-align: left;
+    color: white;
+}
+
+.small-medium-screen-explore-btn {
+
+    width: 50%; /* Control width */
+    position: relative;
+    padding: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.0); /* Semi-transparent background */
+    text-align: center; /* Center text inside the button */
+    color: white;
+}
+
+
+.jumbotron.remove-background {
+    background-color: transparent !important;
+    z-index: 0;
+}
+
+.in-brief-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.review-bg {
+    height: 60vh;
+    background: url('../images/samantha-cello-forehead.webp');
+    background-position: center 20%;
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media screen and (max-width: 576px) {
+    .review-bg {
+        height: 70vh;
+    }
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex; /* Added to enable flexbox for centering */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+}
+
+.review-row {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the review content */
+}
+
+.review-content {
+    min-height: 400px; /* Adjust this value based on the average height of your review text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center text vertically */
+}
+
+
+.hidden {
+    opacity: 0; /* For fade-out effect */
+}
+
+.next-review-btn {
+    font-size: 1.5rem; /* Adjust font size as needed */
+    background-color: transparent; /* Or use the same color as your 'Explore' button */
+    border: 2px solid white; /* Gives it a classy outline */
+    padding: 10px 20px; /* Adds some padding for a nicer feel */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+    color: #fff;
+}
+
+.next-review-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Change this for hover effect */
+    color: #fff; /* Text color on hover */
+}
+
+
+.review-title {
+    font-weight: 400;
+}
+
+
+
+.jumbotron-header {
+    color: white;
+}
+
+.img-thumbnail {
+    width: 100px; /* Adjust the width as needed */
+    height: 55px; /* Adjust the height as needed */
+    object-fit: cover; /* Apply crop to the top and bottom */
+    border: 0;
+    padding: 0;
+    border-radius: 0;
+}
+
+.play-icon {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: #d20000;
+    z-index: 2;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+.custom-list-item {
+    background-color: #f0f0f0; /* Light grey background color */
+    cursor: pointer; /* Add cursor pointer to indicate clickable */
+    transition: background-color 0.3s; /* Add transition for smooth color change */
+}
+
+.custom-list-item:hover {
+    background-color: #e0e0e0; /* Lighter grey background color on hover */
+}
+
+.custom-list-item.selected-video {
+    background-color: #333; /* Darker background color for the selected video */
+    color: #fff; /* Text color on the darker background */
+}
+
+
+.border-bottom {
+    border-bottom: 1px solid #ddd; /* Solid border color (light grey) */
+}
+
+
+
+/* ABOUT PAGE */
+
+.overlay-content {
+    position: absolute;
+    background-color: #0000007d;
+    border-radius: 5%;
+    padding: 20px;
+    top: 50%; /* Position the content vertically centered */
+    left: 50%; /* Position the content horizontally centered */
+    transform: translate(-50%, -50%); /* Center the content */
+    text-align: center; /* Center-align the text */
+    color: white; /* Set text color to white */
+    z-index: 0; /* Ensure the overlay content is above the image */
+}
+
+.image-banner {
+    position: relative;
+    text-align: center; /* Center the image */
+    overflow: hidden; /* Hide overflow if the image exceeds container width */
+}
+
+.image-banner img {
+    width: 100%; /* Set image width to fill the container */
+    height: 550px; /* Maintain aspect ratio */
+    display: block; /* Remove default inline display */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+    object-fit: cover;
+}
+
+
+/* Apply styles only on large screens and up */
+@media screen and (min-width: 1024px) {
+    .image-banner img {
+        width: 100%; /* Set image width to fill the container */
+        height: 950px; /* Maintain aspect ratio */
+        display: block; /* Remove default inline display */
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+        object-fit: cover;
+    }
+}
+
+.aderyn-strings-round-logo {
+    
+    border-radius: 50%; /* Ensures it's circular */
+    width: 100%; /* Makes the logo responsive */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures the logo fills the container */
+}
+
+
+
+
+
+/* FAQS PAGE */
+
+#faq-banner {
+    background-image: url('/assets/images/violin.webp'); /* Replace 'your-banner-image.jpg' with the actual path to your banner image */
+    background-size: cover; /* Cover the entire container with the background image */
+    background-position: center; /* Center the background image */
+    height: 98px; /* Calculate the height to cover the remaining viewport height after subtracting the navigation bar height */
+    position: relative; /* Ensure proper positioning within the layout */
+    z-index: -1; /* Place the banner behind other elements (e.g., navigation bar) */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+}
+
+.faq-hr {
+    margin-top: 0;
+}
+
+/* GALLERY */
+
+.img-gallery {
+    width: 80%;
+    margin: 30px auto 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+/* Media query for small screens (up to 649px) */
+@media (max-width: 649px) {
+    .img-gallery {
+        grid-template-columns: repeat(2, 1fr); /* Two images per row */
+    }
+}
+
+/* Media query for medium screens (650px to 987px) */
+@media (min-width: 650px) and (max-width: 987px) {
+    .img-gallery {
+        grid-template-columns: repeat(3, 1fr); /* Three images per row */
+    }
+}
+
+.img-gallery img {
+    width: 200px; 
+    height: 200px;
+    object-fit: cover; 
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin: 0 auto;
+}
+
+/* Media query for very small screens (320px to 440px) */
+@media (min-width: 320px) and (max-width: 440px) {
+    .img-gallery img {
+        width: 120px; /* Adjusted size for smaller screens */
+        height: 120px;
+    }
+}
+
+/* Media query for small screens (up to 649px) */
+@media (min-width: 441px) and (max-width: 649px) {
+    .img-gallery img {
+        width: 160px; 
+        height: 160px;
+    }
+}
+
+/* Media query for medium screens (650px to 987px) */
+@media (min-width: 650px) and (max-width: 987px) {
+    .img-gallery img  {
+        width: 165px; 
+        height: 165px;
+    }
+}
+
+
+
+.img-gallery img:hover {
+    transform: scale(1.1); /* Zoom in by 10% */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    object-fit: cover; 
+}
+
+.full-img {
+    width: 100%;
+    height: 100vh; /* This sets the container to full viewport height */
+    background: rgba(0,0,0,0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.full-img img {
+    max-width: 100%;    /* Allow the image to scale down to fit the container */
+    max-height: 100%;   /* Allow the image to scale down to fit the height of the viewport */
+    height: auto;       /* Maintain the aspect ratio */
+    width: auto;        /* Maintain the aspect ratio */
+    display: block;     /* Remove any inline spacing */
+    margin: 0 auto;    /* Center the image horizontally */
+}
+
+.full-img span { 
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* sm screens and up */
+@media screen and (min-width: 576px){ 
+    #photos{
+        column-count: 2;
+    }
+}
+/* md screens and up */
+@media screen and (min-width: 768px){
+    #photos{
+        column-count: 2;
+    }
+}
+/* lg screens and up */
+@media screen and (min-width: 992px){
+    #photos{
+        column-count: 3;
+    }
+}
+
+/* REPERTOIRE PAGE */
+
+#repertoire-banner {
+    background-image: url('/assets/images/violin.webp');
+    background-size: cover; /* Cover the entire container with the background image */
+    background-position: center; /* Center the background image */
+    height: 98px; /* Calculate the height to cover the remaining viewport height after subtracting the navigation bar height */
+    position: relative; /* Ensure proper positioning within the layout */
+    z-index: -1; /* Place the banner behind other elements (e.g., navigation bar) */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+}
+
+#repertoire-banner h1 {
+    color: black; /* Text color */
+    text-align: center; /* Center the text */
+    padding-top: 20px; /* Add padding to the top of the content within the banner */
+    margin-bottom: 20px;
+}
+
+#rock-pop-list,
+#classical-list,
+#film-list,
+#jazz-list,
+#traditional-list,
+#tango-list {
+    list-style-type: none; /* Remove bullets */
+    padding: 0;
+}
+
+
+.stat-card {
+    position: relative;
+    background: white;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.stat-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(0, 0, 0, 0.05) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card:hover::after {
+    opacity: 1;
+}
+
+/* Subtle indicator for clickable cards */
+.stat-card .indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        var(--bs-primary) 0%,
+        var(--bs-primary-light) 100%
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover .indicator {
+    transform: scaleX(1);
+}
+
+/* Content styling */
+.stat-number {
+    background: linear-gradient(45deg, var(--bs-primary), var(--bs-primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #6c757d;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.stat-label .icon {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-label .icon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* REPERTOIRE SEARCH */
+
+.input-group {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+}
+
+.input-group:focus-within {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+#songSearch {
+    border-radius: 0 20px 20px 0;
+    padding-left: 0;
+}
+
+.input-group-text {
+    border-radius: 20px 0 0 20px;
+}
+
+/* Optional: Add a "no results" message */
+#noResults {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+}
+
+
+
+
+/* CONTACT PAGE */
+
+#contact {
+    min-height: 60vh;
+}
+
+.contact-form {
+    background: #000; /* Semi-transparent background for the form */
+}
+
+.image-container {
+    background-color: black; /* Black background for the image container */
+    display: flex; /* Enable flexbox */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    padding: 10px; /* Optional padding around the image */
+}
+
+.contact-image {
+    width: 300px; /* Set the desired width for the image */
+    height: auto; /* Maintain the aspect ratio */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    padding: 20px
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .contact-form {
+        margin: 0 auto; /* Center form on smaller screens */
+    }
+}
+
+.form-group label {
+    text-align: left; /* Align labels to the left */
+    font-weight: bold; /* Optional: make labels bold for better visibility */
+}
+
+.contact-form .form-control {
+    text-align: left; /* Ensure text input is also aligned to the left */
+}
+
+
+.text-input {
+    background: transparent;
+    color: #fafafa;
+    width: 100%;
+    height: 30px;
+    margin: 5px 0 20px 0;
+    border: 1px solid #fafafa;
+    border-radius: 2px;
+}
+
+.text-input-msg {
+    background: transparent;
+    color: #fafafa;
+    width: 100%;
+    margin: 5px 0 20px 0;
+    border: 1px solid #fafafa;
+    border-radius: 2px;
+    
+}
+/* placeholder css from https://www.w3schools.com/howto/howto_css_placeholder.asp */
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fafafa;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #fafafa;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #fafafa;
+  }
+
+  .msg-send-btn {
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px 22px 10px 22px;
+    text-align: center;
+    font-size: 100%;
+    background-color: #b0b5a5;
+    color: #000000;
+    display: block;
+  }
+
+  .msg-send-btn:hover {
+    background-color: #8296ba;
+    color: #000000;
+}
+
+/* FOOTER */
+
+.footer {
+    background-color: #000;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+.footer-menu {
+    text-decoration: none;
+}
+
+.footer-icon-list {
+    list-style: none;
+    padding-left: 0;
+    
+}
+
+.footer-icon-list a {
+    text-decoration: none !important;
+    color: #fff;
+}
+
+.agent-container {
+    display: flex;
+    justify-content: space-around; /* Adjust as needed */
+}
+
+.agent-badge {
+    width: 150px; /* Fixed width */
+    height: 150px; /* Fixed height */
+    position: relative;
+    margin: 0 auto; /* Center the badge horizontally within its container */
+    display: block;
+    border-radius: 50%; /* Ensure all badges are circular */
+    object-fit: cover; /* Cover the entire badge area without distortion */
+}
+
+
+/* Optional: If you want to center the badges vertically within the container */
+.agent-badge-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.agent-badge-link {
+    text-align: center; /* Center the content within each link */
+}
+
+
+/* Base video card styling */
+.video-card {
+    height: 100%;
+    background-color: #212529;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Link styling */
+.video-card a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+/* Thumbnail container */
+.thumbnail-wrapper {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* Thumbnail image */
+.video-thumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Text content */
+.video-card h3 {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.video-card p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin: 0;
+}
+
+/* Hover effects */
+.video-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Video container for iframe */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* VIDEO PAGE */
+
+/* Specific styling for the "More Videos" thumbnails */
+.video-page-thumbnail-img {
+    width: 160px;  /* Fixed width */
+    height: 90px;  /* Fixed height - maintains 16:9 ratio */
+    object-fit: contain;  /* Ensures no cropping */
+    background-color: #000;  /* Optional: adds black background for letterboxing */
+}
+
+/* Make the related videos list more responsive */
+.list-group-item {
+    padding: 0.75rem 0;  /* Reduce vertical padding */
+}
+
+/* Adjust the flex container for thumbnail and text */
+.list-group-item .d-flex {
+    gap: 1rem;  /* Consistent spacing */
+}
+
+/* Make text content wrap properly */
+.list-group-item .d-flex > div {
+    min-width: 0;  /* Allows text to wrap */
+}
+
+/* Ensure text doesn't overflow */
+.list-group-item p {
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.25rem;
+}
