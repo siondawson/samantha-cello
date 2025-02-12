@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="all-testimonials" class="bg-white py-5">
+    <div class="container">
+        <h2 class="text-center">Testimonials</h2>
+        <ul class="list-unstyled">
+            {% for testimonial in testimonials %}
+            <li class="mb-4">
+                <blockquote class="blockquote">
+                    <p>"{{ testimonial.text }}"</p>
+                    <footer class="blockquote-footer">
+                        {{ testimonial.client_name }} - {{ testimonial.location }} ({{ testimonial.date }})
+                    </footer>
+                </blockquote>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock %}

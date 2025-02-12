@@ -34,13 +34,10 @@ def get_canonical_url():
 def home():
     """
     Render the home page of the Samantha Cello website.
-
-    This function loads various data from JSON files to populate the home page with dynamic content, 
-    including meta tags, gallery images, and reviews. It then renders the 'index.html' template with 
+    This function loads various data from JSON files to populate the home page with dynamic content,
+    including meta tags, gallery images, and testimonials. It then renders the 'index.html' template with
     this data, providing a consistent user experience.
 
-    Returns:
-        str: The rendered HTML content for the home page.
     """
     # Load meta tag data from JSON
     with open('samantha_cello/static/json/meta_tags.json', 'r') as f:
@@ -49,27 +46,27 @@ def home():
     meta_data = meta_tags.get("home", {})
     title = meta_data.get("title", "Default Title")
     meta_description = meta_data.get("meta_description", "Default Meta Description")
-
+    
     # Load gallery data from JSON
     with open('samantha_cello/static/json/gallery.json', 'r') as f:
         gallery_data = json.load(f)
-    # No shuffling for static content
-
-    # Load reviews from JSON
-    with open('samantha_cello/static/json/reviews.json', 'r') as f:
-        reviews = json.load(f)
-
+    
+    # Load testimonials from JSON
+    with open('samantha_cello/static/json/testimonials.json', 'r') as f:
+        testimonials = json.load(f)
+    
     # Generate the canonical URL
     canonical_url = get_canonical_url()
-
+    
     return render_template(
         'index.html',
         gallery_data=gallery_data,  # Pass gallery data (src and alt)
-        reviews=reviews,
+        testimonials=testimonials,  # Pass testimonials data
         title=title,
         meta_description=meta_description,
         canonical_url=canonical_url
     )
+
 
 
 
@@ -173,6 +170,12 @@ def faq():
     )
 
 
+@app.route('/testimonials/')
+def testimonials():
+    """Render the testimonials page."""
+    with open('samantha_cello/static/json/testimonials.json', 'r') as f:
+        testimonials = json.load(f)
+    return render_template('testimonials.html', testimonials=testimonials)
 
 
 @app.route('/contact/')

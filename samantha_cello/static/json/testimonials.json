@@ -1,0 +1,44 @@
+[
+  {
+      "client_name": "Carly",
+      "text": "I certainly recommend Sam – she was fantastic. I’ve attached our wedding video so you can hear how great it sounded. Thanks!",
+      "date": "2023",
+      "event_type": "Wedding",
+      "location": "The Angel Hotel, Abergavenny"
+  },
+  {
+      "client_name": "Amanda",
+      "text": "We hired Samantha to play for our ceremony and cocktail hour, and it was one of the best decisions we made for our wedding. Her music added class to the atmosphere and the guests loved naming the tunes she was playing. We received so many compliments from our guests about her performance. Thanks for making our day so memorable!",
+      "date": "2023",
+      "event_type": "Wedding",
+      "location": "St. David's Hotel, Cardiff"
+  },
+  {
+      "client_name": "Rebecca",
+      "text": "From the moment we heard Samantha play, we knew we had to have her at our wedding. Her solo performance during our ceremony was magical, and her rendition of my down the aisle song brought tears to my eyes. Samantha's professionalism and talent made our wedding day truly unforgettable. We highly recommend her to anyone looking for a talented musician for their event.",
+      "date": "2023",
+      "event_type": "Wedding",
+      "location": "Hensol Castle, Hensol"
+  },
+  {
+      "client_name": "Sophie",
+      "text": "Thank you so much for the incredible job you all did at our wedding! The music was beautiful and you captured so many of our favourite songs flawlessly. We've had so many compliments on your playing and couldn't have been more grateful to have you performing.",
+      "date": "2023",
+      "event_type": "Wedding",
+      "location": "The Vale Resort, Hensol"
+  },
+  {
+      "client_name": "Nicola",
+      "text": "Thank you so much for your beautiful music on our day. Everyone loved it.",
+      "date": "2023",
+      "event_type": "Wedding",
+      "location": "Oxwich Bay Hotel, Swansea"
+  },
+  {
+      "client_name": "Sarah",
+      "text": "A massive thank you for playing at our wedding. The guests were full of compliments for you, utter perfection! A number of them commented how great it was to hear 'Concerning Hobbits' - complete hit! You were wonderful, thank you for playing a part in the best day of our lives.",
+      "date": "2023",
+      "event_type": "Wedding",
+      "location": "The Old Rectory, Crickhowell"
+  }
+]
