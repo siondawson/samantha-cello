@@ -173,25 +173,33 @@
         </div>
     </div>
 </section>
-<!-- gallery -->
-<section>
-    <h2 class="text-center pt-5">Gallery</h2>
-    <div class="full-img" id="fullImgBox" style="display: none;">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/8X+Jz0AAAAASUVORK5CYII=" alt="Full Image" id="fullImg">
-        <span id="close" onclick="closeFullImg()">X</span>
+<section class="py-5 bg-dark text-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Gallery</h2>
+        <div class="img-gallery">
+            {% for image in gallery_images %}
+            <div class="gallery-item">
+                <img 
+                    src="{{ image.filename }}" 
+                    alt="{{ image.alt_text }}" 
+                    class="gallery-img" 
+                    data-full-img="{{ image.filename }}" 
+                >
+            </div>
+            {% endfor %}
+        </div>
     </div>
-    <div class="img-gallery">
-        {% for image in gallery_data %}
-            <img 
-                src="{{ url_for('static', filename='images/gallery/' ~ image.src) }}" 
-                alt="{{ image.alt }}" 
-                class="gallery-img" 
-                data-full-img="{{ url_for('static', filename='images/gallery/' ~ image.src) }}" 
-                loading="lazy">
-        {% endfor %}
-    </div>
-    
 </section>
+
+<div class="full-img" id="fullImgBox" style="display: none;">
+    <img src="" alt="Full Image" id="fullImg">
+    <span id="close" onclick="closeFullImg()">X</span>
+</div>
+
+
+
+
+
 {% endblock %}  
 
 {% block js %}

@@ -1,34 +1,36 @@
 [
     { 
-        "src": "samantha-cello-1.webp", 
+        "filename": "samantha-cello-1_jourgn.webp", 
         "alt": "Wedding cellist playing an acoustic cello" 
     },
     { 
-        "src": "samantha-cello-acoustic-electric-cello.jpg", 
+        "filename": "samantha-cello-acoustic-electric-cello-1_pvdtps.jpg", 
         "alt": "Wedding cellist holding both electric and acoustic cellos" 
     },
     { 
-        "src": "samantha-cello-forehead.webp", 
+        "filename": "samantha-cello-forehead-1_l7llhd.webp", 
         "alt": "Cardiff wedding cellist resting her forehead on a cello scroll" 
     },
     { 
-        "src": "samantha-cello-mirror.jpg", 
+        "filename": "samantha-cello-mirror_pxkqsw.jpg", 
         "alt": "Wedding cellist in Wales captured in a mirror reflection" 
     },
     { 
-        "src": "samantha-cello-portrait-blue-outfit.jpg", 
+        "filename": "samantha-cello-portrait-blue-outfit_uhmm9k.jpg", 
         "alt": "Portrait of a Welsh wedding cellist wearing a blue outfit" 
     },
     { 
-        "src": "samantha-dawson-solo-cello.jpg", 
+        "filename": "samantha-dawson-solo-cello_olauxi.jpg", 
         "alt": "Black-and-white portrait of a wedding and events cellist" 
     },
     { 
-        "src": "solo-cello-mansion-house-llansteffan.jpg", 
+        "filename": "solo-cello-mansion-house-llansteffan_dnf59l.jpg", 
         "alt": "Cardiff wedding cellist performing live music during a reception" 
     },
     { 
-        "src": "wedding-cellist-cardiff.jpg", 
+        "filename": "wedding-cellist-cardiff_slbmuz.jpg", 
         "alt": "Black-and-white image of a Cardiff wedding cellist" 
     }
 ]
+
+

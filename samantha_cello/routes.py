@@ -1,6 +1,10 @@
 from flask import Flask, render_template, url_for, request, make_response
 import os
 import json
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from .cloudinary_utils import init_cloudinary, get_cloudinary_url
 from datetime import datetime
 from samantha_cello import app, sitemap
 
@@ -34,40 +38,43 @@ def get_canonical_url():
 
 @app.route('/')
 def home():
-    """
-    Render the home page of the Samantha Cello website.
-    This function loads various data from JSON files to populate the home page with dynamic content,
-    including meta tags, gallery images, and testimonials. It then renders the 'index.html' template with
-    this data, providing a consistent user experience.
+    # Initialize Cloudinary
+    init_cloudinary()
 
-    """
     # Load meta tag data from JSON
     with open('samantha_cello/static/json/meta_tags.json', 'r') as f:
         meta_tags = json.load(f)
-    # Extract data for the "home" page
     meta_data = meta_tags.get("home", {})
     title = meta_data.get("title", "Default Title")
     meta_description = meta_data.get("meta_description", "Default Meta Description")
-    
+
     # Load gallery data from JSON
     with open('samantha_cello/static/json/gallery.json', 'r') as f:
         gallery_data = json.load(f)
-    
+
+    # Update gallery data with Cloudinary URLs
+    for image in gallery_data:
+        image['filename'] = get_cloudinary_url(f"samantha-cello-gallery/{image['filename']}")
+
     # Load testimonials from JSON
     with open('samantha_cello/static/json/testimonials.json', 'r') as f:
         testimonials = json.load(f)
-    
+
     # Generate the canonical URL
     canonical_url = get_canonical_url()
-    
+
     return render_template(
         'index.html',
-        gallery_data=gallery_data,  # Pass gallery data (src and alt)
-        testimonials=testimonials,  # Pass testimonials data
+        gallery_images=gallery_data,  # Pass updated gallery data as gallery_images
+        testimonials=testimonials,    # Pass testimonials data
         title=title,
         meta_description=meta_description,
         canonical_url=canonical_url
     )
+
+
+
+
 
 
 
