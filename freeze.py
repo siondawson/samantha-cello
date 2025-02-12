@@ -6,6 +6,10 @@ import os
 # Set the destination for the frozen static files directly to the /docs directory
 app.config['FREEZER_DESTINATION'] = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'docs')
 
+# Set the base URL to match your GitHub Pages URL structure
+app.config['FREEZER_BASE_URL'] = '/'
+
+
 freezer = Freezer(app)
 
 @freezer.register_generator
