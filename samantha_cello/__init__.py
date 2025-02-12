@@ -20,19 +20,19 @@ scheme = 'https' if environment == 'production' else 'http'
 domain = os.getenv('DOMAIN', 'samanthacello.com' if environment == 'production' else 'localhost:5000')
 
 # Configure the app with all sitemap settings
-# app.config.update(
-#     SERVER_NAME=domain,
-#     PREFERRED_URL_SCHEME=scheme,
+app.config.update(
+    SERVER_NAME=domain,
+    PREFERRED_URL_SCHEME=scheme,
     # Sitemap specific configurations
-    # SITEMAP_INCLUDE_RULES_WITHOUT_PARAMS=False,  # Changed to False to prevent duplicates
-    # SITEMAP_URL_SCHEME=scheme,
-    # SITEMAP_IGNORE_ENDPOINTS=['static', 'sitemap', 'robots', 'env'],
-    # SITEMAP_DEFAULT_PRIORITY=0.5,
-    # SITEMAP_DEFAULT_CHANGEFREQ='monthly'
-# )
+    SITEMAP_INCLUDE_RULES_WITHOUT_PARAMS=False,  # Changed to False to prevent duplicates
+    SITEMAP_URL_SCHEME=scheme,
+    SITEMAP_IGNORE_ENDPOINTS=['static', 'sitemap', 'robots', 'env'],
+    SITEMAP_DEFAULT_PRIORITY=0.5,
+    SITEMAP_DEFAULT_CHANGEFREQ='monthly'
+)
 
 # Initialize Flask-Sitemap
-# sitemap = Sitemap(app=app)
+sitemap = Sitemap(app=app)
 
 # Register routes from routes.py
 from samantha_cello import routes  # noqa
